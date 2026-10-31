@@ -1,0 +1,2308 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="HoistRef">
+<title>HoistRef — STAHL ST</title>
+<link rel="manifest" href='data:application/manifest+json,{"name":"HoistRef","short_name":"HoistRef","start_url":".","display":"standalone","background_color":"%230a0a0a","theme_color":"%230a0a0a"}'>
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-elev: #161616;
+    --bg-hi: #1f1f1f;
+    --border: #2a2a2a;
+    --border-hi: #3a3a3a;
+    --text: #f0f0f0;
+    --text-dim: #a0a0a0;
+    --text-muted: #606060;
+    --accent: #ffb000;
+    --accent-dim: #7a5300;
+    --danger: #ff3b30;
+    --success: #30d158;
+    --pass: #30d158;
+    --fail: #ff3b30;
+    --na: #606060;
+    --mono: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Consolas', monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--text);
+    font-family: var(--sans); font-size: 16px; line-height: 1.45;
+    min-height: 100vh; overscroll-behavior-y: contain;
+  }
+
+  body { padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 16px 12px;
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .brand {
+    font-family: var(--mono); font-size: 13px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent);
+    white-space: nowrap;
+  }
+  .brand::before { content: "▮ "; color: var(--accent); }
+
+  .breadcrumb {
+    flex: 1; font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-muted); text-align: right;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .breadcrumb strong { color: var(--text-dim); font-weight: 500; }
+
+  .back-btn {
+    background: transparent; border: 1px solid var(--border); color: var(--text-dim);
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+    padding: 6px 10px; border-radius: 2px; cursor: pointer;
+  }
+  .back-btn:active { background: var(--bg-hi); }
+  .back-btn::before { content: "← "; }
+
+  main { padding: 20px 16px 80px; max-width: 900px; margin: 0 auto; }
+
+  .screen { animation: fadeIn 0.2s ease-out; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+  .step-label {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--text-muted); margin: 0 0 6px 0;
+  }
+
+  .step-heading {
+    font-size: 24px; font-weight: 700; letter-spacing: -0.01em;
+    margin: 0 0 16px 0; color: var(--text);
+  }
+
+  .step-sub {
+    font-size: 14px; color: var(--text-dim);
+    margin: -8px 0 24px 0;
+  }
+
+  .select-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 380px) { .select-grid { grid-template-columns: 1fr; } }
+
+  .select-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 18px 16px;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    color: inherit;
+    transition: all 0.1s;
+    width: 100%;
+    display: block;
+  }
+
+  .select-card:active {
+    background: var(--bg-hi);
+    border-color: var(--accent);
+  }
+
+  .select-card.wide { grid-column: span 2; }
+  @media (max-width: 380px) { .select-card.wide { grid-column: span 1; } }
+
+  .sc-code {
+    font-family: var(--mono); font-size: 18px; font-weight: 600;
+    color: var(--accent); letter-spacing: 0.03em;
+    display: block; margin-bottom: 6px;
+  }
+
+  .sc-range {
+    font-family: var(--mono); font-size: 13px;
+    color: var(--text-dim);
+    display: block; margin-bottom: 4px;
+  }
+
+  .sc-detail {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .service-card {
+    padding: 22px 20px;
+    margin-bottom: 10px;
+  }
+  .service-card .sc-code { font-size: 20px; margin-bottom: 8px; }
+  .service-card .sc-detail { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+
+  .job-summary {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    border-left: 3px solid var(--accent);
+  }
+
+  .js-row {
+    display: flex; justify-content: space-between;
+    align-items: baseline; gap: 12px;
+    padding: 4px 0;
+    font-size: 13px;
+  }
+
+  .js-row + .js-row { border-top: 1px dotted var(--border); margin-top: 4px; padding-top: 8px; }
+
+  .js-label {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .js-value {
+    font-family: var(--mono); font-weight: 600;
+    color: var(--text); text-align: right;
+  }
+
+  .progress {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.08em; color: var(--text-muted);
+  }
+  .progress-bar {
+    flex: 1; height: 3px; background: var(--bg-hi);
+    position: relative; overflow: hidden; border-radius: 2px;
+  }
+  .progress-fill {
+    position: absolute; left: 0; top: 0; height: 100%;
+    background: var(--accent); transition: width 0.2s ease-out;
+  }
+
+  .check-group {
+    margin-bottom: 28px;
+  }
+
+  .check-group-title {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 10px 0;
+    padding: 0 4px;
+  }
+
+  .check-item {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    margin-bottom: 8px;
+    transition: all 0.15s;
+  }
+
+  .check-item.done-pass { border-left: 3px solid var(--pass); }
+  .check-item.done-fail { border-left: 3px solid var(--fail); }
+  .check-item.done-na { border-left: 3px solid var(--na); }
+
+  .ci-main {
+    padding: 14px 14px 10px;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+
+  .ci-num {
+    font-family: var(--mono); font-size: 10px; font-weight: 700;
+    color: var(--accent); background: var(--bg-hi);
+    padding: 3px 6px; border-radius: 2px;
+    letter-spacing: 0.05em; flex-shrink: 0;
+    min-width: 26px; text-align: center;
+  }
+
+  .ci-body { flex: 1; min-width: 0; }
+
+  .ci-title {
+    font-size: 15px; font-weight: 600; color: var(--text);
+    line-height: 1.3; margin-bottom: 4px;
+  }
+
+  .ci-value {
+    font-family: var(--mono); font-size: 12px;
+    color: var(--accent); margin-top: 6px;
+    background: rgba(255, 176, 0, 0.08);
+    padding: 5px 8px; border-radius: 2px;
+    border-left: 2px solid var(--accent-dim);
+    line-height: 1.45;
+    word-wrap: break-word;
+  }
+
+  .ci-note {
+    font-size: 12px; color: var(--text-dim);
+    margin-top: 6px; line-height: 1.45;
+  }
+
+  .ci-expand-btn {
+    background: none; border: none;
+    color: var(--text-muted);
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 6px 0 0 0; cursor: pointer;
+    display: inline-block;
+  }
+  .ci-expand-btn:active { color: var(--accent); }
+
+  .ci-expand {
+    display: none;
+    padding: 0 14px 12px 14px;
+    font-size: 13px; color: var(--text-dim);
+    line-height: 1.55;
+    border-top: 1px dotted var(--border);
+    padding-top: 12px;
+    margin-top: 4px;
+  }
+  .ci-expand.open { display: block; }
+  .ci-expand ol, .ci-expand ul { padding-left: 18px; margin: 4px 0; }
+  .ci-expand li { margin-bottom: 4px; }
+  .ci-expand strong { color: var(--text); }
+
+  /* ─── DIAGRAMS ─── */
+  .diagram {
+    background: #0d0d0d;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 14px;
+    margin: 10px 0;
+    text-align: center;
+  }
+  .diagram svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .diagram-caption {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 8px;
+  }
+
+  /* Inline diagram link button */
+  .ci-diagram-btn {
+    background: rgba(255, 176, 0, 0.08);
+    border: 1px solid var(--accent-dim);
+    color: var(--accent);
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 6px 10px; border-radius: 2px;
+    cursor: pointer;
+    margin: 8px 8px 0 0;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .ci-diagram-btn:active { background: rgba(255, 176, 0, 0.15); }
+  .ci-diagram-btn svg { width: 12px; height: 12px; }
+
+  /* Diagram modal/overlay */
+  .dgm-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeIn 0.15s ease-out;
+  }
+  .dgm-overlay.open { display: flex; }
+  .dgm-panel {
+    background: var(--bg-elev);
+    border: 1px solid var(--border-hi);
+    border-radius: 2px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 20px 18px;
+  }
+  .dgm-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 4px 0;
+  }
+  .dgm-subtitle {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+  .dgm-close {
+    position: sticky; top: 0;
+    float: right;
+    background: var(--bg-hi);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 32px; height: 32px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 18px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+  }
+  .dgm-body {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text-dim);
+  }
+  .dgm-body strong { color: var(--text); }
+  .dgm-body ul, .dgm-body ol { padding-left: 18px; margin: 8px 0; }
+  .dgm-body li { margin-bottom: 4px; }
+
+  /* SVG diagram styling classes */
+  .svg-part { fill: none; stroke: var(--text); stroke-width: 1.4; stroke-linejoin: round; }
+  .svg-part-fill { fill: #1a1a1a; stroke: var(--text); stroke-width: 1.4; stroke-linejoin: round; }
+  .svg-hidden { fill: none; stroke: var(--text-dim); stroke-width: 1; stroke-dasharray: 4 3; }
+  .svg-centerline { fill: none; stroke: var(--text-muted); stroke-width: 0.8; stroke-dasharray: 8 2 2 2; }
+  .svg-measure { stroke: var(--accent); stroke-width: 1; fill: none; }
+  .svg-measure-end { fill: var(--accent); stroke: none; }
+  .svg-ext { stroke: var(--accent); stroke-width: 0.8; fill: none; }
+  .svg-label { fill: var(--accent); font-family: var(--mono); font-size: 11px; font-weight: 600; }
+  .svg-label-bg { fill: #0d0d0d; }
+  .svg-label-dim { fill: var(--text-dim); font-family: var(--mono); font-size: 10px; }
+  .svg-label-part { fill: var(--text); font-family: var(--mono); font-size: 10px; font-weight: 700; }
+  .svg-leader { stroke: var(--text-dim); stroke-width: 0.8; fill: none; }
+  .svg-callout-circle { fill: #0d0d0d; stroke: var(--text); stroke-width: 1; }
+  .svg-warn { fill: var(--danger); }
+  .svg-warn-line { stroke: var(--danger); stroke-width: 1.2; fill: none; }
+  .svg-ok { fill: var(--success); }
+  .svg-ok-line { stroke: var(--success); stroke-width: 1.2; fill: none; }
+
+  .ci-actions {
+    display: flex; gap: 6px;
+    padding: 0 14px 12px 14px;
+  }
+
+  .ci-btn {
+    flex: 1;
+    background: var(--bg-hi);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 11px 6px; border-radius: 2px; cursor: pointer;
+    transition: all 0.1s;
+    min-height: 40px;
+  }
+  .ci-btn:active { transform: scale(0.97); }
+
+  .check-item.done-pass .ci-btn.pass { background: var(--pass); color: #000; border-color: var(--pass); }
+  .check-item.done-fail .ci-btn.fail { background: var(--fail); color: #fff; border-color: var(--fail); }
+  .check-item.done-na   .ci-btn.na   { background: var(--na);   color: #fff; border-color: var(--na); }
+
+  .ci-notes-input {
+    display: block; width: calc(100% - 28px);
+    margin: 0 14px 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--mono); font-size: 12px;
+    padding: 8px 10px; border-radius: 2px;
+    outline: none; resize: vertical;
+    min-height: 34px;
+  }
+  .ci-notes-input:focus { border-color: var(--accent); }
+  .ci-notes-input::placeholder { color: var(--text-muted); font-size: 11px; letter-spacing: 0.04em; }
+
+  .bottom-actions {
+    margin-top: 30px;
+    display: grid; gap: 8px;
+  }
+
+  .action-btn {
+    padding: 14px; background: var(--bg-elev);
+    border: 1px solid var(--border); color: var(--text);
+    font-family: var(--mono); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    border-radius: 2px; cursor: pointer;
+    text-align: center;
+  }
+  .action-btn.primary { background: var(--accent); color: #000; border-color: var(--accent); }
+  .action-btn.danger  { background: transparent; color: var(--danger); border-color: var(--danger); }
+  .action-btn:active  { transform: scale(0.99); }
+
+  .callout {
+    border-left: 3px solid var(--accent);
+    background: rgba(255, 176, 0, 0.05);
+    padding: 12px 14px;
+    margin: 0 0 16px 0;
+    font-size: 13px; line-height: 1.5;
+  }
+  .callout.danger { border-left-color: var(--danger); background: rgba(255, 59, 48, 0.07); }
+
+  .callout-label {
+    font-family: var(--mono); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); display: block; margin-bottom: 4px;
+  }
+  .callout.danger .callout-label { color: var(--danger); }
+
+  .field-row { margin-bottom: 16px; }
+  .field-label {
+    display: block; font-family: var(--mono);
+    font-size: 10px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .field-input {
+    width: 100%;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--mono); font-size: 14px;
+    padding: 12px 14px; border-radius: 2px;
+    outline: none;
+  }
+  .field-input:focus { border-color: var(--accent); }
+
+  .summary-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 8px; margin-bottom: 24px;
+  }
+
+  .stat-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    padding: 14px; border-radius: 2px;
+    text-align: center;
+  }
+  .stat-card.pass { border-color: var(--pass); }
+  .stat-card.fail { border-color: var(--fail); }
+
+  .stat-num {
+    font-family: var(--mono); font-size: 28px; font-weight: 700;
+    display: block; line-height: 1;
+  }
+  .stat-card.pass .stat-num { color: var(--pass); }
+  .stat-card.fail .stat-num { color: var(--fail); }
+
+  .stat-label {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-muted); margin-top: 6px; display: block;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">HoistRef</div>
+  <div class="breadcrumb" id="breadcrumb"></div>
+  <button class="back-btn" id="backBtn" style="display:none">BACK</button>
+</header>
+
+<main id="main"></main>
+
+<!-- Diagram overlay -->
+<div class="dgm-overlay" id="dgmOverlay">
+  <div class="dgm-panel" id="dgmPanel">
+    <button class="dgm-close" id="dgmClose">×</button>
+    <h2 class="dgm-title" id="dgmTitle"></h2>
+    <p class="dgm-subtitle" id="dgmSubtitle"></p>
+    <div id="dgmContent"></div>
+    <div class="dgm-body" id="dgmBody"></div>
+  </div>
+</div>
+
+<script>
+const MODEL_META = {
+  ST05: { range: '125 – 630 kg',   chainSize: '4 × 12 mm' },
+  ST10: { range: '500 – 1,000 kg', chainSize: '5 × 16 mm' },
+  ST20: { range: '1,000 – 2,000 kg', chainSize: '7 × 21.9 mm' },
+  ST30: { range: '1,250 – 3,200 kg', chainSize: '9 × 27 mm' },
+  ST32: { range: '1,250 – 3,200 kg', chainSize: '9 × 27 mm' },
+  ST50: { range: '2,500 – 5,000 kg', chainSize: '11.3 × 31 mm' },
+  ST60: { range: '3,200 – 6,300 kg', chainSize: '11.3 × 31 mm' },
+};
+
+const VARIANTS = {
+  ST05: [
+    { code: 'ST 0501-8',  swl: '125 kg @ 3m',   reeving: '1/1', speed: '8 m/min' },
+    { code: 'ST 0501-16', swl: '125 kg @ 2m',   reeving: '1/1', speed: '16 m/min' },
+    { code: 'ST 0502-8',  swl: '250 kg / 500 kg', reeving: '1/1 · 2/1', speed: '8 m/min' },
+    { code: 'ST 0503-6',  swl: '320 kg / 630 kg', reeving: '1/1 · 2/1', speed: '6 m/min' },
+  ],
+  ST10: [
+    { code: 'ST 1004-16', swl: '400 kg / 800 kg',  reeving: '1/1 · 2/1', speed: '16 m/min' },
+    { code: 'ST 1005-..', swl: '500 kg / 1,000 kg', reeving: '1/1 · 2/1', speed: '8/12 m/min' },
+  ],
+  ST20: [
+    { code: 'ST 2006-12', swl: '630 kg / 1,250 kg', reeving: '1/1 · 2/1', speed: '12 m/min' },
+    { code: 'ST 2008-16', swl: '800 kg',           reeving: '1/1',       speed: '16 m/min' },
+    { code: 'ST 2010-8',  swl: '1,000 kg / 2,000 kg', reeving: '1/1 · 2/1', speed: '8 m/min' },
+    { code: 'ST 2010-12', swl: '1,000 kg / 2,000 kg', reeving: '1/1 · 2/1', speed: '12 m/min' },
+  ],
+  ST30: [
+    { code: 'ST 3016-8',  swl: '1,600 kg / 3,200 kg', reeving: '1/1 · 2/1', speed: '8 m/min' },
+  ],
+  ST32: [
+    { code: 'ST 3212-16', swl: '1,250 kg',           reeving: '1/1',       speed: '16 m/min' },
+    { code: 'ST 3216-8',  swl: '1,600 kg / 3,200 kg', reeving: '1/1 · 2/1', speed: '8 m/min' },
+    { code: 'ST 3216-12', swl: '1,600 kg / 3,200 kg', reeving: '1/1 · 2/1', speed: '12 m/min' },
+  ],
+  ST50: [
+    { code: 'ST 5025-6',  swl: '2,500 kg / 5,000 kg', reeving: '1/1 · 2/1', speed: '6 m/min' },
+    { code: 'ST 5025-8',  swl: '2,500 kg / 5,000 kg', reeving: '1/1 · 2/1', speed: '8 m/min' },
+  ],
+  ST60: [
+    { code: 'ST 6032-6',  swl: '3,200 kg / 6,300 kg', reeving: '1/1 · 2/1', speed: '6 m/min' },
+  ],
+};
+
+const CHAIN = {
+  ST05: { size: '4 × 12',    partNo: '331 005 9', dMin: 3.6,  tMax: 12.5, t11Max: 134.4 },
+  ST10: { size: '5 × 16',    partNo: '331 006 9', dMin: 4.5,  tMax: 16.8, t11Max: 179.66 },
+  ST20: { size: '7 × 21.9',  partNo: '331 001 9', dMin: 6.3,  tMax: 23.0, t11Max: 245.92 },
+  ST30: { size: '9 × 27',    partNo: '331 004 9', dMin: 8.1,  tMax: 28.3, t11Max: 303.18 },
+  ST32: { size: '9 × 27',    partNo: '331 004 9', dMin: 8.1,  tMax: 28.3, t11Max: 303.18 },
+  ST50: { size: '11.3 × 31', partNo: '331 013 9', dMin: 10.2, tMax: 32.5, t11Max: 350.37 },
+  ST60: { size: '11.3 × 31', partNo: '331 023 9', dMin: 10.2, tMax: 32.5, t11Max: 350.37 },
+};
+
+const LOAD_HOOK = {
+  ST05: { '1/1': { h:19, hMin:18,   z:22,   zMax:24.2 }, '2/1': { h:24, hMin:22.8, z:29.5, zMax:32.5 } },
+  ST10: { '1/1': { h:19, hMin:18,   z:22,   zMax:24.2 }, '2/1': { h:24, hMin:22.8, z:29.5, zMax:32.5 } },
+  ST20: { '1/1': { h:24, hMin:22.8, z:29.5, zMax:32.5 }, '2/1': { h:31, hMin:29.5, z:30,   zMax:33 } },
+  ST30: { '1/1': { h:31, hMin:29.5, z:30,   zMax:33 },   '2/1': { h:37, hMin:35.2, z:33,   zMax:36.3 } },
+  ST32: { '1/1': { h:31, hMin:29.5, z:30,   zMax:33 },   '2/1': { h:40, hMin:38,   z:35,   zMax:38.5 } },
+  ST50: { '1/1': { h:37, hMin:35.2, z:33,   zMax:36.5 }, '2/1': { h:48, hMin:45.6, z:41,   zMax:45.1 } },
+  ST60: { '1/1': { h:37, hMin:35.2, z:33,   zMax:36.5 }, '2/1': { h:48, hMin:45.6, z:41,   zMax:45.1 } },
+};
+
+const SUSP_HOOK = {
+  ST05: { h:24,   hMin:22.8, z:29.5, zMax:32.5 },
+  ST10: { h:24,   hMin:22.8, z:31.5, zMax:34.6 },
+  ST20: { h:37,   hMin:35.1, z:41,   zMax:45.1 },
+  ST30: { h:37,   hMin:35.1, z:41,   zMax:45.1 },
+  ST32: { h:37,   hMin:35.1, z:41,   zMax:45.1 },
+  ST50: { h:39.5, hMin:37.5, z:42,   zMax:46.2 },
+  ST60: { h:39.5, hMin:37.5, z:42,   zMax:46.2 },
+};
+
+const OIL = {
+  ST05: { type: 'Grease (no oil)', std: '~250 ml GOOF grease', short: null },
+  ST10: { type: 'CLP 460 (PG 220)', std: '700 ml',   short: '1,000 ml' },
+  ST20: { type: 'CLP 460 (PG 220)', std: '1,200 ml', short: '1,500 ml' },
+  ST30: { type: 'CLP 460 (PG 220)', std: '1,200 ml', short: '1,500 ml' },
+  ST32: { type: 'CLP 460 (PG 220)', std: '2,000 ml', short: '2,500 ml' },
+  ST50: { type: 'CLP 460 (PG 220)', std: '2,000 ml', short: '2,500 ml' },
+  ST60: { type: 'CLP 460 (PG 220)', std: '2,000 ml', short: '2,500 ml' },
+};
+
+const BRAKE = {
+  ST05: { method: 'Shim (0.5 mm per shim)', spec: 'Displacement 1 ± 0.25 mm · Adjust if > 1.5 mm' },
+  ST10: { method: 'Feeler gauge (air gap)', spec: 'Replace if S > 1.0 mm (E..) or > 0.6 mm (E..-MF)' },
+  ST20: { method: 'Feeler gauge (air gap)', spec: 'Replace if S > 1.0 mm (E..) or > 0.6 mm (E..-MF)' },
+  ST30: { method: 'Feeler gauge (air gap)', spec: 'Replace if S > 1.0 mm (E..) or > 0.6 mm (E..-MF)' },
+  ST32: { method: 'Feeler gauge (air gap)', spec: 'Replace if S > 1.0 mm (E..) or > 0.6 mm (E..-MF)' },
+  ST50: { method: 'Feeler gauge (air gap)', spec: 'Replace if S > 1.0 mm (E..) or > 0.6 mm (E..-MF)' },
+  ST60: { method: 'Feeler gauge (air gap)', spec: 'Replace if S > 1.0 mm (E..) or > 0.6 mm (E..-MF)' },
+};
+
+const MIN_FREE_CHAIN = { ST05: 130, ST10: 100, ST20: 100, ST30: 100, ST32: 150, ST50: 150, ST60: 150 };
+
+/* ═══════════════════════════════════════════════════════════════
+   DIAGRAMS — SVG library
+   Each diagram: svg content + caption + body explanation
+   ═══════════════════════════════════════════════════════════════ */
+
+const DIAGRAMS = {
+
+  /* ─────────────────────────────────────────────────────────────
+     HOOK WEAR — DIN 15405-1
+     Side elevation of load hook + suspension hook
+     h = throat aperture, z = hook section at shoulder
+     ───────────────────────────────────────────────────────────── */
+  hook: {
+    title: 'Hook Wear Measurement',
+    subtitle: 'DIN 15405-1 · Throat h and section z',
+    svgFn: (m) => {
+      const lh = LOAD_HOOK[m];
+      const sh = SUSP_HOOK[m];
+      /*
+        Proper hook profile drawn with Bezier curves.
+        Outer path: shoulder-right → around body → bottom → up to tip
+        Inner path: tip → back up to shoulder-left
+        Tip point at approx (45, 175) on the 140-wide canvas.
+        Throat h is measured horizontally from tip inner-edge to opposing inner wall.
+        Section z is measured vertically at the shoulder (widest part).
+      */
+      return `
+      <svg viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+        <!-- ═══ LOAD HOOK (left) ═══ -->
+        <g transform="translate(10, 35)">
+          <text class="svg-label-part" x="70" y="-18" text-anchor="middle">LOAD HOOK</text>
+
+          <!-- Shank (rectangular, top) -->
+          <rect class="svg-part-fill" x="60" y="0" width="25" height="25"/>
+
+          <!-- Shoulder (trapezoid) -->
+          <path class="svg-part-fill" d="M 55,25 L 90,25 L 95,45 L 55,45 Z"/>
+
+          <!-- Hook body — single closed Bezier path -->
+          <path class="svg-part-fill" d="
+            M 95,45
+            C 108,100  105,175   75,215
+            C 50,235   15,225    8,195
+            C 5,170    20,145    45,165
+            C 65,165   72,90     55,45
+            Z
+          "/>
+
+          <!-- Safety latch (dashed across throat) -->
+          <line class="svg-hidden" x1="45" y1="165" x2="80" y2="170"/>
+
+          <!-- ══ h DIMENSION (throat aperture) ══ -->
+          <line class="svg-ext" x1="45" y1="170" x2="45" y2="265"/>
+          <line class="svg-ext" x1="72" y1="175" x2="72" y2="265"/>
+          <line class="svg-measure" x1="35" y1="258" x2="85" y2="258"/>
+          <polygon class="svg-measure-end" points="45,258 51,255 51,261"/>
+          <polygon class="svg-measure-end" points="72,258 66,255 66,261"/>
+          <rect class="svg-label-bg" x="10" y="252" width="100" height="13"/>
+          <text class="svg-label" x="60" y="262" text-anchor="middle">h = ${lh['1/1'].h} → min ${lh['1/1'].hMin}</text>
+
+          <!-- Secondary h for 2/1 reeving -->
+          <text class="svg-label-dim" x="60" y="278" text-anchor="middle">2/1: h = ${lh['2/1'].h} → min ${lh['2/1'].hMin}</text>
+
+          <!-- ══ z DIMENSION (shoulder height) ══ -->
+          <line class="svg-ext" x1="55" y1="25" x2="30" y2="25"/>
+          <line class="svg-ext" x1="55" y1="45" x2="30" y2="45"/>
+          <line class="svg-measure" x1="35" y1="20" x2="35" y2="50"/>
+          <polygon class="svg-measure-end" points="35,25 32,31 38,31"/>
+          <polygon class="svg-measure-end" points="35,45 32,39 38,39"/>
+          <rect class="svg-label-bg" x="20" y="29" width="22" height="12"/>
+          <text class="svg-label" x="31" y="39" text-anchor="middle">z</text>
+
+          <!-- z value below -->
+          <text class="svg-label-dim" x="60" y="297" text-anchor="middle">z = ${lh['1/1'].z} → max ${lh['1/1'].zMax}</text>
+        </g>
+
+        <!-- ═══ SUSPENSION HOOK (right) ═══ -->
+        <g transform="translate(180, 35)">
+          <text class="svg-label-part" x="70" y="-18" text-anchor="middle">SUSPENSION HOOK</text>
+
+          <!-- Eye at top -->
+          <ellipse class="svg-part-fill" cx="72" cy="15" rx="15" ry="11"/>
+          <ellipse fill="#0d0d0d" cx="72" cy="15" rx="7" ry="5"/>
+
+          <!-- Shank (short) -->
+          <rect class="svg-part-fill" x="62" y="25" width="20" height="18"/>
+
+          <!-- Shoulder -->
+          <path class="svg-part-fill" d="M 55,43 L 90,43 L 95,63 L 55,63 Z"/>
+
+          <!-- Hook body — same Bezier shape, shifted down -->
+          <path class="svg-part-fill" d="
+            M 95,63
+            C 108,118  105,193   75,233
+            C 50,253   15,243    8,213
+            C 5,188    20,163    45,183
+            C 65,183   72,108    55,63
+            Z
+          "/>
+
+          <!-- Safety latch -->
+          <line class="svg-hidden" x1="45" y1="183" x2="80" y2="188"/>
+
+          <!-- h dimension -->
+          <line class="svg-ext" x1="45" y1="188" x2="45" y2="278"/>
+          <line class="svg-ext" x1="72" y1="193" x2="72" y2="278"/>
+          <line class="svg-measure" x1="35" y1="271" x2="85" y2="271"/>
+          <polygon class="svg-measure-end" points="45,271 51,268 51,274"/>
+          <polygon class="svg-measure-end" points="72,271 66,268 66,274"/>
+          <rect class="svg-label-bg" x="10" y="265" width="100" height="13"/>
+          <text class="svg-label" x="60" y="275" text-anchor="middle">h = ${sh.h} → min ${sh.hMin}</text>
+
+          <!-- z dimension -->
+          <line class="svg-ext" x1="55" y1="43" x2="30" y2="43"/>
+          <line class="svg-ext" x1="55" y1="63" x2="30" y2="63"/>
+          <line class="svg-measure" x1="35" y1="38" x2="35" y2="68"/>
+          <polygon class="svg-measure-end" points="35,43 32,49 38,49"/>
+          <polygon class="svg-measure-end" points="35,63 32,57 38,57"/>
+          <rect class="svg-label-bg" x="20" y="47" width="22" height="12"/>
+          <text class="svg-label" x="31" y="57" text-anchor="middle">z</text>
+
+          <text class="svg-label-dim" x="60" y="295" text-anchor="middle">z = ${sh.z} → max ${sh.zMax}</text>
+        </g>
+
+        <!-- Standard ref -->
+        <text class="svg-label-dim" x="170" y="322" text-anchor="middle">DIN 15405-1 · all dimensions mm</text>
+      </svg>
+    `;
+    },
+    bodyFn: (m) => {
+      const lh = LOAD_HOOK[m];
+      const sh = SUSP_HOOK[m];
+      return `
+        <p><strong>h</strong> = throat opening (aperture), measured across the inside of the hook mouth.<br>
+        <strong>z</strong> = hook section dimension at the shoulder — measured with callipers across the thickest part.</p>
+        <p><strong>Load hook (${m}):</strong></p>
+        <ul>
+          <li>1/1 reeving: h new ${lh['1/1'].h} → min ${lh['1/1'].hMin} mm · z new ${lh['1/1'].z} → max ${lh['1/1'].zMax} mm</li>
+          <li>2/1 reeving: h new ${lh['2/1'].h} → min ${lh['2/1'].hMin} mm · z new ${lh['2/1'].z} → max ${lh['2/1'].zMax} mm</li>
+        </ul>
+        <p><strong>Suspension hook (${m}):</strong> h new ${sh.h} → min ${sh.hMin} mm · z new ${sh.z} → max ${sh.zMax} mm</p>
+        <p><strong>Replace if:</strong> h exceeds h max, z drops below z min, or the hook shows distortion, cracks, breaks, or corrosion. Most common failure point is the throat/saddle — look for cracks there. Safety latch must close fully under its own spring tension.</p>
+      `;
+    }
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     CHAIN WEAR — DIN 685-5
+     Strip of 11 alternating links with single dimension across
+     ───────────────────────────────────────────────────────────── */
+  chain: {
+    title: 'Chain Wear — 11 Link Measurement',
+    subtitle: 'Per STAHL manual (DIN 685-5) · see also EN 818-7 / ISO 3077',
+    svgFn: (m) => {
+      const c = CHAIN[m];
+      /* 11 links: alternating vertical (narrow/tall) and horizontal (wide/short).
+         Use t (pitch nominal) as unit, scale to fit width ~300px. */
+      const linkPitch = 24;  /* visual pitch */
+      const startX = 20;
+      const centerY = 70;
+      let linkSvg = '';
+      for (let i = 0; i < 11; i++) {
+        const cx = startX + i * linkPitch + linkPitch/2;
+        if (i % 2 === 0) {
+          /* Vertical (upright) link — oval with long axis vertical */
+          linkSvg += `
+            <ellipse class="svg-part-fill" cx="${cx}" cy="${centerY}" rx="6" ry="16"/>
+            <ellipse fill="#0d0d0d" cx="${cx}" cy="${centerY}" rx="2.5" ry="10"/>`;
+        } else {
+          /* Horizontal (lying) link — oval with long axis horizontal */
+          linkSvg += `
+            <ellipse class="svg-part-fill" cx="${cx}" cy="${centerY}" rx="14" ry="6"/>
+            <ellipse fill="#0d0d0d" cx="${cx}" cy="${centerY}" rx="9" ry="2"/>`;
+        }
+      }
+      const firstCx = startX + linkPitch/2;
+      const lastCx = startX + 10 * linkPitch + linkPitch/2;
+      return `
+      <svg viewBox="0 0 320 210" xmlns="http://www.w3.org/2000/svg">
+        <!-- Title zone -->
+        <text class="svg-label-part" x="160" y="15" text-anchor="middle">CHAIN: ${c.size} mm (d × t)</text>
+
+        <!-- Chain strip -->
+        ${linkSvg}
+
+        <!-- Measurement extension lines from centres of first/last vertical links -->
+        <line class="svg-ext" x1="${firstCx}" y1="54" x2="${firstCx}" y2="120"/>
+        <line class="svg-ext" x1="${lastCx}"  y1="54" x2="${lastCx}"  y2="120"/>
+
+        <!-- Dimension line with arrows -->
+        <line class="svg-measure" x1="${firstCx - 5}" y1="113" x2="${lastCx + 5}" y2="113"/>
+        <polygon class="svg-measure-end" points="${firstCx},113 ${firstCx+6},110 ${firstCx+6},116"/>
+        <polygon class="svg-measure-end" points="${lastCx},113 ${lastCx-6},110 ${lastCx-6},116"/>
+
+        <!-- Label with background -->
+        <rect class="svg-label-bg" x="110" y="118" width="100" height="14"/>
+        <text class="svg-label" x="160" y="129" text-anchor="middle">11·t MAX ${c.t11Max} mm</text>
+
+        <!-- Link thickness callout (leader line to one link) -->
+        <line class="svg-leader" x1="${firstCx}" y1="54" x2="40" y2="30"/>
+        <circle class="svg-callout-circle" cx="40" cy="30" r="12"/>
+        <text class="svg-label-part" x="40" y="34" text-anchor="middle">d</text>
+        <text class="svg-label-dim" x="55" y="30">min ${c.dMin} mm</text>
+
+        <!-- Pitch callout -->
+        <line class="svg-leader" x1="${firstCx + linkPitch}" y1="66" x2="290" y2="30"/>
+        <circle class="svg-callout-circle" cx="290" cy="30" r="12"/>
+        <text class="svg-label-part" x="290" y="34" text-anchor="middle">t</text>
+        <text class="svg-label-dim" x="285" y="30" text-anchor="end">max ${c.tMax} mm</text>
+
+        <!-- Notes -->
+        <text class="svg-label-dim" x="20" y="160">Chain taut, not hanging slack.</text>
+        <text class="svg-label-dim" x="20" y="174">Use chain gauge 14 320 00 65 0.</text>
+        <text class="svg-label-dim" x="20" y="188">Replace if distortion, cracks, corrosion,</text>
+        <text class="svg-label-dim" x="20" y="202">or heat damage (bluing) visible.</text>
+      </svg>
+    `;
+    },
+    bodyFn: (m) => {
+      const c = CHAIN[m];
+      return `
+        <p><strong>Chain for ${m}:</strong> nominal ${c.size} mm (d × t), grade 8 per DIN 5684. Part no. ${c.partNo}.</p>
+        <p><strong>Wear limits per STAHL manual (citing DIN 685-5; modern equivalents EN 818-7 / ISO 3077):</strong></p>
+        <ul>
+          <li>11 consecutive links (11·t) — max <strong>${c.t11Max} mm</strong></li>
+          <li>Individual link thickness (d) — min <strong>${c.dMin} mm</strong></li>
+          <li>Individual link pitch (t) — max <strong>${c.tMax} mm</strong></li>
+        </ul>
+        <p><strong>Procedure:</strong></p>
+        <ol>
+          <li>Hang chain taut, not hanging slack — lift a small load so the chain is under light tension and fully straight.</li>
+          <li>Measure 11 consecutive links from inner edge of first link to inner edge of eleventh.</li>
+          <li>Check individual link d with callipers at several worn/contact points.</li>
+          <li>Replace immediately if distortion, cracks, breaks, corrosion, or bluing/heat damage.</li>
+        </ol>
+        <p>Use chain gauge part <strong>14 320 00 65 0</strong>. After fitting a new chain, upright link welds must face outwards over the sprocket.</p>
+      `;
+    }
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     BRAKE ST05 — Shim adjustment
+     Sectional side view: motor, brake flange, shims, fan cover
+     ───────────────────────────────────────────────────────────── */
+  brakeST05: {
+    title: 'Brake Adjustment — ST05',
+    subtitle: 'Shim method · 0.5 mm per shim removed',
+    svg: `
+      <svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
+        <text class="svg-label-part" x="160" y="15" text-anchor="middle">ST05 BRAKE — SECTIONAL VIEW</text>
+
+        <!-- Centerline through motor shaft -->
+        <line class="svg-centerline" x1="20" y1="125" x2="300" y2="125"/>
+
+        <!-- Motor body -->
+        <rect class="svg-part-fill" x="35" y="80" width="90" height="90" rx="2"/>
+        <text class="svg-label-dim" x="80" y="130" text-anchor="middle">MOTOR</text>
+
+        <!-- Motor shaft extending right, ends before fan cover -->
+        <rect class="svg-part-fill" x="125" y="119" width="78" height="12"/>
+
+        <!-- Shims (4) stacked between motor body and brake flange -->
+        <rect fill="#ffb000" x="126" y="100" width="2" height="50" opacity="0.95"/>
+        <rect fill="#ffb000" x="128.5" y="100" width="2" height="50" opacity="0.7"/>
+        <rect fill="#ffb000" x="131" y="100" width="2" height="50" opacity="0.45"/>
+
+        <!-- Brake flange (3) -->
+        <rect class="svg-part-fill" x="134" y="97" width="12" height="56"/>
+
+        <!-- Brake body / friction assembly -->
+        <rect class="svg-part-fill" x="146" y="100" width="28" height="50"/>
+
+        <!-- Fan cover (1) — offset, gap between shaft end and cover inner face -->
+        <rect class="svg-part-fill" x="215" y="85" width="55" height="80" rx="2"/>
+        <line class="svg-part" x1="242" y1="95" x2="242" y2="155" stroke-width="1"/>
+        <line class="svg-part" x1="225" y1="125" x2="259" y2="125" stroke-width="1"/>
+
+        <!-- 4× screws (2) on brake flange face -->
+        <circle fill="#ffb000" cx="140" cy="105" r="1.8"/>
+        <circle fill="#ffb000" cx="140" cy="120" r="1.8"/>
+        <circle fill="#ffb000" cx="140" cy="135" r="1.8"/>
+        <circle fill="#ffb000" cx="140" cy="148" r="1.8"/>
+
+        <!-- Ringed callouts -->
+        <circle class="svg-callout-circle" cx="95" cy="48" r="10"/>
+        <text class="svg-label-part" x="95" y="52" text-anchor="middle">2</text>
+        <line class="svg-leader" x1="95" y1="58" x2="138" y2="105"/>
+        <text class="svg-label-dim" x="95" y="38" text-anchor="middle">4× screws</text>
+
+        <circle class="svg-callout-circle" cx="135" cy="48" r="10"/>
+        <text class="svg-label-part" x="135" y="52" text-anchor="middle">4</text>
+        <line class="svg-leader" x1="135" y1="58" x2="130" y2="100"/>
+        <text class="svg-label-dim" x="135" y="38" text-anchor="middle">shims (0.5 mm ea)</text>
+
+        <circle class="svg-callout-circle" cx="175" cy="48" r="10"/>
+        <text class="svg-label-part" x="175" y="52" text-anchor="middle">3</text>
+        <line class="svg-leader" x1="175" y1="58" x2="142" y2="97"/>
+        <text class="svg-label-dim" x="175" y="38" text-anchor="middle">brake flange</text>
+
+        <circle class="svg-callout-circle" cx="245" cy="48" r="10"/>
+        <text class="svg-label-part" x="245" y="52" text-anchor="middle">1</text>
+        <line class="svg-leader" x1="245" y1="58" x2="242" y2="85"/>
+        <text class="svg-label-dim" x="245" y="38" text-anchor="middle">fan cover</text>
+
+        <!-- S dimension (gap) — arrows point inward for small dim -->
+        <line class="svg-ext" x1="203" y1="131" x2="203" y2="200"/>
+        <line class="svg-ext" x1="215" y1="165" x2="215" y2="200"/>
+        <line class="svg-measure" x1="185" y1="193" x2="203" y2="193"/>
+        <polygon class="svg-measure-end" points="203,193 197,190 197,196"/>
+        <line class="svg-measure" x1="233" y1="193" x2="215" y2="193"/>
+        <polygon class="svg-measure-end" points="215,193 221,190 221,196"/>
+        <line class="svg-measure" x1="203" y1="193" x2="215" y2="193"/>
+        <rect class="svg-label-bg" x="204" y="200" width="10" height="14"/>
+        <text class="svg-label" x="209" y="211" text-anchor="middle">S</text>
+
+        <!-- Spec panel -->
+        <rect class="svg-label-bg" x="20" y="232" width="280" height="40" stroke="#7a5300" stroke-width="0.8"/>
+        <text class="svg-label" x="30" y="249">DISPLACEMENT (S):</text>
+        <text class="svg-label-dim" x="30" y="263">Nominal 1 ± 0.25 mm  ·  Adjust if &gt; 1.5 mm</text>
+      </svg>
+    `,
+    body: `
+      <p><strong>ST05 uses a shim-adjusted brake</strong> — different to ST10-60 which use non-wearing friction lining that you replace, not adjust.</p>
+      <p><strong>Measuring displacement (S):</strong></p>
+      <ol>
+        <li>Measure distance from fan cover face to motor shaft end — <strong>motor stationary</strong>.</li>
+        <li>Repeat with motor running.</li>
+        <li><strong>Displacement = difference between the two readings.</strong></li>
+      </ol>
+      <p><strong>Adjustment:</strong></p>
+      <ul>
+        <li>Nominal displacement: <strong>1 ± 0.25 mm</strong></li>
+        <li>Adjust if displacement &gt; <strong>1.5 mm</strong></li>
+        <li>Each shim removed reduces displacement by <strong>0.5 mm</strong></li>
+      </ul>
+      <p><strong>Procedure:</strong></p>
+      <ol>
+        <li>Lever off cover (1) with a screwdriver.</li>
+        <li>Remove 4 screws (2).</li>
+        <li>Pull off brake flange (3).</li>
+        <li>Remove calculated number of shims (4).</li>
+        <li>Push on brake flange, reassemble in reverse.</li>
+        <li>Re-check displacement.</li>
+        <li><strong>Functional test with rated load</strong> — load must hold immediately when power cut. Max permitted slip under test: 100 mm (this is a ceiling, not a target).</li>
+      </ol>
+      <p>If all shims removed and still out of spec, <strong>replace the brake/slipping clutch unit</strong> (they're combined on ST05 — part 32 320 90 30 0).</p>
+    `
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     BRAKE ST10-ST60 — Air gap measurement
+     Sectional view showing feeler gauge insertion
+     ───────────────────────────────────────────────────────────── */
+  brakeST10plus: {
+    title: 'Brake Adjustment — ST10–ST60',
+    subtitle: 'Air gap (S) measured with feeler gauge',
+    svg: `
+      <svg viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg">
+        <text class="svg-label-part" x="160" y="18" text-anchor="middle">ST10–ST60 BRAKE — AIR GAP (S)</text>
+
+        <!-- Centerline through shaft -->
+        <line class="svg-centerline" x1="20" y1="150" x2="300" y2="150"/>
+
+        <!-- Motor body -->
+        <rect class="svg-part-fill" x="35" y="100" width="85" height="100" rx="2"/>
+        <text class="svg-label-dim" x="77" y="155" text-anchor="middle">MOTOR</text>
+
+        <!-- Motor shaft -->
+        <rect class="svg-part-fill" x="120" y="144" width="35" height="12"/>
+
+        <!-- Armature (moves axially) -->
+        <rect class="svg-part-fill" x="155" y="115" width="12" height="70"/>
+
+        <!-- Air gap S - bright sliver between armature and friction disc -->
+        <rect fill="#ffb000" x="167" y="115" width="3" height="70" opacity="0.85"/>
+
+        <!-- Friction disc (fixed to shaft) -->
+        <rect class="svg-part-fill" x="170" y="115" width="10" height="70"/>
+
+        <!-- Brake body / housing -->
+        <rect class="svg-part-fill" x="180" y="105" width="45" height="90" rx="2"/>
+
+        <!-- Plug (8) hole - circular opening in top of brake body -->
+        <circle fill="#0d0d0d" stroke="#f0f0f0" stroke-width="1.2" cx="200" cy="115" r="5"/>
+
+        <!-- Fan cover (1) - shown REMOVED as hidden-line outline -->
+        <rect class="svg-hidden" x="227" y="95" width="45" height="110" rx="2"/>
+        <text class="svg-label-dim" x="249" y="225" text-anchor="middle">fan cover</text>
+        <text class="svg-label-dim" x="249" y="236" text-anchor="middle">(removed)</text>
+
+        <!-- Feeler gauge (F) entering through plug hole from above -->
+        <rect fill="#ffb000" x="168.5" y="60" width="2" height="55" opacity="0.95"/>
+        <!-- Handle of feeler at top -->
+        <rect fill="#ffb000" stroke="#f0f0f0" stroke-width="1" x="160" y="48" width="20" height="15" rx="1"/>
+        <text x="169.5" y="59" text-anchor="middle" fill="#0d0d0d" font-family="monospace" font-size="10" font-weight="700">F</text>
+
+        <!-- Leader to feeler gauge -->
+        <line class="svg-leader" x1="150" y1="55" x2="160" y2="55"/>
+        <text class="svg-label-dim" x="146" y="58" text-anchor="end">feeler gauge</text>
+
+        <!-- Callout (8) for plug -->
+        <circle class="svg-callout-circle" cx="220" cy="60" r="10"/>
+        <text class="svg-label-part" x="220" y="64" text-anchor="middle">8</text>
+        <line class="svg-leader" x1="220" y1="70" x2="205" y2="115"/>
+        <text class="svg-label-dim" x="220" y="50" text-anchor="middle">plug</text>
+
+        <!-- Callout (1) for fan cover -->
+        <circle class="svg-callout-circle" cx="285" cy="60" r="10"/>
+        <text class="svg-label-part" x="285" y="64" text-anchor="middle">1</text>
+        <line class="svg-leader" x1="285" y1="70" x2="272" y2="95"/>
+
+        <!-- S dimension - small gap, arrows point inward -->
+        <line class="svg-ext" x1="167" y1="185" x2="167" y2="230"/>
+        <line class="svg-ext" x1="170" y1="185" x2="170" y2="230"/>
+        <line class="svg-measure" x1="150" y1="223" x2="167" y2="223"/>
+        <polygon class="svg-measure-end" points="167,223 161,220 161,226"/>
+        <line class="svg-measure" x1="187" y1="223" x2="170" y2="223"/>
+        <polygon class="svg-measure-end" points="170,223 176,220 176,226"/>
+        <line class="svg-measure" x1="167" y1="223" x2="170" y2="223"/>
+        <rect class="svg-label-bg" x="163" y="232" width="12" height="14"/>
+        <text class="svg-label" x="169" y="243" text-anchor="middle">S</text>
+
+        <!-- Spec panel -->
+        <rect class="svg-label-bg" x="20" y="255" width="280" height="40" stroke="#7a5300" stroke-width="0.8"/>
+        <text class="svg-label" x="30" y="272">MAX AIR GAP (S):</text>
+        <text class="svg-label-dim" x="30" y="285">./E.. motors:   S max = 1.0 mm</text>
+        <text class="svg-label-dim" x="190" y="285">./E..-MF:  S max = 0.6 mm</text>
+      </svg>
+    `,
+    body: `
+      <p><strong>ST10-ST60 brakes have non-wearing lining</strong> — you don't adjust them, you <strong>replace them</strong> when the air gap reaches its maximum.</p>
+      <p><strong>Procedure:</strong></p>
+      <ol>
+        <li>Isolate and lock off supply.</li>
+        <li>Remove fan cover (1).</li>
+        <li>Remove plug (8) to access the air gap measurement point.</li>
+        <li>Measure air gap (S) with feeler gauge (F). Push gauge fully in — ensure it doesn't catch on the shoulder (check depth 'a' in the manual table).</li>
+        <li>Compare to max permissible:</li>
+      </ol>
+      <ul>
+        <li><strong>E.. motors:</strong> S max = 1.0 mm</li>
+        <li><strong>E..-MF motors:</strong> S max = 0.6 mm</li>
+      </ul>
+      <p>If max gap reached → <strong>replace brake</strong> (not adjust). Clean brake while apart — wear a dust protection mask (asbestos-free but still an irritant). Check friction surfaces for thermal damage, contamination, or glazing.</p>
+      <p><strong>Always functional-test with rated load</strong> after any brake work. Load must hold immediately when power is cut. Maximum permitted slip under test: 100 mm on both lift and lower — but this is a ceiling, not a target. Any continued creep under static load is a fail.</p>
+    `
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     SLIPPING CLUTCH — three sectional views (ST05, ST10-30, ST32-60)
+     ───────────────────────────────────────────────────────────── */
+  clutch: {
+    title: 'Slipping Clutch Adjustment',
+    subtitle: 'Factory 125% · Range 110–160% (EN 14492-2)',
+    svgFn: (m) => {
+      const showST05    = m === 'ST05';
+      const showST1030  = ['ST10','ST20','ST30'].includes(m);
+      const showST3260  = ['ST32','ST50','ST60'].includes(m);
+
+      /* Shared: gear housing dashed outline, clutch body with friction disc stack.
+         Differences: adjusting element + locking mechanism at shaft end. */
+
+      let diagram = '';
+
+      if (showST05) {
+        diagram = `
+          <text class="svg-label-part" x="160" y="18" text-anchor="middle">ST05 CLUTCH — SECTIONAL</text>
+
+          <!-- Centerline through shaft -->
+          <line class="svg-centerline" x1="30" y1="140" x2="290" y2="140"/>
+
+          <!-- Gear housing (cover removed - dashed outline) -->
+          <rect class="svg-hidden" x="40" y="65" width="185" height="150"/>
+          <text class="svg-label-dim" x="130" y="78" text-anchor="middle">cover (1) removed</text>
+
+          <!-- Clutch body -->
+          <rect class="svg-part-fill" x="70" y="105" width="100" height="70"/>
+
+          <!-- Friction disc stack (vertical lines) -->
+          <line class="svg-part" x1="95"  y1="107" x2="95"  y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="105" y1="107" x2="105" y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="115" y1="107" x2="115" y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="125" y1="107" x2="125" y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="135" y1="107" x2="135" y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="145" y1="107" x2="145" y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="155" y1="107" x2="155" y2="173" stroke-width="0.8"/>
+
+          <!-- Shaft extending right -->
+          <rect class="svg-part-fill" x="170" y="134" width="60" height="12"/>
+
+          <!-- Adjusting nut (3) hex -->
+          <polygon fill="#ffb000" stroke="#f0f0f0" stroke-width="1" opacity="0.9"
+            points="195,121 212,126 212,139 195,143 179,139 179,126"/>
+
+          <!-- Locking plate (2) - thin red strip, bent over nut -->
+          <rect fill="#ff3b30" opacity="0.9" x="177" y="117" width="38" height="3"/>
+          <rect fill="#ff3b30" opacity="0.9" x="213" y="117" width="3" height="15"/>
+
+          <!-- Callouts -->
+          <circle class="svg-callout-circle" cx="115" cy="45" r="10"/>
+          <text class="svg-label-part" x="115" y="49" text-anchor="middle">1</text>
+          <line class="svg-leader" x1="115" y1="55" x2="130" y2="68"/>
+
+          <circle class="svg-callout-circle" cx="80" cy="45" r="10" stroke="#ff3b30"/>
+          <text x="80" y="49" text-anchor="middle" fill="#ff3b30" font-family="monospace" font-size="11" font-weight="700">2</text>
+          <line class="svg-leader" x1="80" y1="55" x2="195" y2="117"/>
+          <text class="svg-label-dim" x="80" y="34" text-anchor="middle">locking plate</text>
+
+          <circle class="svg-callout-circle" cx="250" cy="45" r="10"/>
+          <text class="svg-label-part" x="250" y="49" text-anchor="middle">3</text>
+          <line class="svg-leader" x1="250" y1="55" x2="200" y2="125"/>
+          <text class="svg-label-dim" x="250" y="34" text-anchor="middle">adjusting nut</text>
+
+          <!-- Rotation arrow -->
+          <path class="svg-measure" d="M 222,132 A 28,28 0 0 1 222,175" fill="none"/>
+          <polygon class="svg-measure-end" points="222,175 218,170 225,170"/>
+          <text class="svg-label" x="240" y="180">tighten →</text>
+
+          <!-- Instructions -->
+          <rect class="svg-label-bg" x="20" y="225" width="280" height="48" stroke="#7a5300" stroke-width="0.8"/>
+          <text class="svg-label" x="30" y="240">1. Bend back locking plate (2)</text>
+          <text class="svg-label" x="30" y="255">2. Turn nut (3): RIGHT = tighter, LEFT = looser</text>
+          <text class="svg-label" x="30" y="269">3. Bend plate back over 2 flats of nut to lock</text>
+        `;
+      } else if (showST1030) {
+        diagram = `
+          <text class="svg-label-part" x="160" y="18" text-anchor="middle">ST10/ST20/ST30 CLUTCH</text>
+
+          <line class="svg-centerline" x1="30" y1="140" x2="290" y2="140"/>
+
+          <rect class="svg-hidden" x="40" y="65" width="185" height="150"/>
+          <text class="svg-label-dim" x="130" y="78" text-anchor="middle">cover (1) removed</text>
+
+          <!-- Clutch body (oil-bath) -->
+          <rect class="svg-part-fill" x="70" y="105" width="100" height="70"/>
+          <text class="svg-label-dim" x="120" y="155" text-anchor="middle" font-style="italic">oil bath</text>
+
+          <!-- Friction discs -->
+          <line class="svg-part" x1="95"  y1="107" x2="95"  y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="105" y1="107" x2="105" y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="115" y1="107" x2="115" y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="125" y1="107" x2="125" y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="135" y1="107" x2="135" y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="145" y1="107" x2="145" y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="155" y1="107" x2="155" y2="173" stroke-width="0.8"/>
+
+          <!-- Shaft -->
+          <rect class="svg-part-fill" x="170" y="134" width="50" height="12"/>
+
+          <!-- Adjusting screw (3) - slotted at end -->
+          <rect fill="#ffb000" stroke="#f0f0f0" stroke-width="1" opacity="0.9"
+            x="205" y="122" width="22" height="36"/>
+          <line class="svg-part" x1="216" y1="127" x2="216" y2="153" stroke-width="1.2"/>
+
+          <!-- Callouts -->
+          <circle class="svg-callout-circle" cx="115" cy="45" r="10"/>
+          <text class="svg-label-part" x="115" y="49" text-anchor="middle">1</text>
+          <line class="svg-leader" x1="115" y1="55" x2="130" y2="68"/>
+
+          <circle class="svg-callout-circle" cx="260" cy="45" r="10"/>
+          <text class="svg-label-part" x="260" y="49" text-anchor="middle">3</text>
+          <line class="svg-leader" x1="260" y1="55" x2="216" y2="122"/>
+          <text class="svg-label-dim" x="260" y="34" text-anchor="middle">adjusting screw</text>
+
+          <!-- Rotation arrow -->
+          <path class="svg-measure" d="M 232,140 A 32,32 0 0 1 232,178" fill="none"/>
+          <polygon class="svg-measure-end" points="232,178 228,173 235,173"/>
+          <text class="svg-label" x="250" y="185">tighten →</text>
+
+          <!-- Instructions -->
+          <rect class="svg-label-bg" x="20" y="225" width="280" height="48" stroke="#7a5300" stroke-width="0.8"/>
+          <text class="svg-label" x="30" y="240">Non-wearing lining, oil-bath type</text>
+          <text class="svg-label-dim" x="30" y="255">Remove cover (1) — small oil weep likely</text>
+          <text class="svg-label" x="30" y="269">Turn screw (3): RIGHT = tighter, LEFT = looser</text>
+        `;
+      } else {
+        /* ST32/ST50/ST60 */
+        diagram = `
+          <text class="svg-label-part" x="160" y="18" text-anchor="middle">ST32/ST50/ST60 CLUTCH</text>
+
+          <line class="svg-centerline" x1="30" y1="140" x2="290" y2="140"/>
+
+          <rect class="svg-hidden" x="40" y="65" width="185" height="150"/>
+          <text class="svg-label-dim" x="130" y="78" text-anchor="middle">cover (1) removed</text>
+
+          <rect class="svg-part-fill" x="70" y="105" width="100" height="70"/>
+          <text class="svg-label-dim" x="120" y="155" text-anchor="middle" font-style="italic">oil bath</text>
+
+          <!-- Friction discs -->
+          <line class="svg-part" x1="95"  y1="107" x2="95"  y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="105" y1="107" x2="105" y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="115" y1="107" x2="115" y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="125" y1="107" x2="125" y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="135" y1="107" x2="135" y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="145" y1="107" x2="145" y2="173" stroke-width="0.8"/>
+          <line class="svg-part" x1="155" y1="107" x2="155" y2="173" stroke-width="0.8"/>
+
+          <!-- Shaft -->
+          <rect class="svg-part-fill" x="170" y="134" width="50" height="12"/>
+
+          <!-- Adjusting nut (3) hex -->
+          <polygon fill="#ffb000" stroke="#f0f0f0" stroke-width="1" opacity="0.9"
+            points="200,123 216,128 216,142 200,147 184,142 184,128"/>
+
+          <!-- Clamping screw (2a) - vertical screw sticking up from nut -->
+          <rect fill="#ff3b30" stroke="#f0f0f0" stroke-width="1" opacity="0.9"
+            x="206" y="108" width="6" height="15"/>
+          <circle fill="#ff3b30" stroke="#f0f0f0" stroke-width="1" opacity="0.9"
+            cx="209" cy="106" r="3.5"/>
+
+          <!-- Callouts -->
+          <circle class="svg-callout-circle" cx="115" cy="45" r="10"/>
+          <text class="svg-label-part" x="115" y="49" text-anchor="middle">1</text>
+          <line class="svg-leader" x1="115" y1="55" x2="130" y2="68"/>
+
+          <circle class="svg-callout-circle" cx="80" cy="45" r="12" stroke="#ff3b30"/>
+          <text x="80" y="49" text-anchor="middle" fill="#ff3b30" font-family="monospace" font-size="10" font-weight="700">2a</text>
+          <line class="svg-leader" x1="80" y1="57" x2="209" y2="106"/>
+          <text class="svg-label-dim" x="80" y="32" text-anchor="middle">clamping screw</text>
+
+          <circle class="svg-callout-circle" cx="260" cy="45" r="10"/>
+          <text class="svg-label-part" x="260" y="49" text-anchor="middle">3</text>
+          <line class="svg-leader" x1="260" y1="55" x2="210" y2="128"/>
+          <text class="svg-label-dim" x="260" y="34" text-anchor="middle">adjusting nut</text>
+
+          <!-- Rotation arrow -->
+          <path class="svg-measure" d="M 225,137 A 32,32 0 0 1 225,175" fill="none"/>
+          <polygon class="svg-measure-end" points="225,175 221,170 228,170"/>
+          <text class="svg-label" x="243" y="182">tighten →</text>
+
+          <!-- Instructions -->
+          <rect class="svg-label-bg" x="20" y="225" width="280" height="48" stroke="#7a5300" stroke-width="0.8"/>
+          <text class="svg-label" x="30" y="240">1. Release clamping screw (2a)</text>
+          <text class="svg-label" x="30" y="255">2. Turn nut (3): RIGHT = tighter, LEFT = looser</text>
+          <text class="svg-label" x="30" y="269">3. Lock clamping screw (2a) after adjustment</text>
+        `;
+      }
+
+      return `
+      <svg viewBox="0 0 320 285" xmlns="http://www.w3.org/2000/svg">
+        ${diagram}
+      </svg>
+    `;
+    },
+    bodyFn: (m) => {
+      const isST05    = m === 'ST05';
+      const isST3260  = ['ST32','ST50','ST60'].includes(m);
+      return `
+        <p><strong>${m} clutch type:</strong> ${isST05 ? 'Wearing lining — replace clutch when no further adjustment possible.' : 'Non-wearing lining, oil-bath type — easily adjusted from exterior.'}</p>
+        <p><strong>Safety first:</strong> verify crane + runway + building structure can support 1.25× SWL before testing. Factory setting is 125% rated load. Permissible range per EN 14492-2: <strong>110-160%</strong>.</p>
+        <p><strong>Procedure:</strong></p>
+        <ol>
+          <li>Check clutch with <strong>no load</strong> first — run to end stop, slip max 3 sec. Chain must not move; motor must rotate. <strong>Do not repeat consecutively</strong> — friction lining overheats quickly.</li>
+          <li>In bottom hook position, attach <strong>1.25× rated load</strong>.</li>
+          <li>Remove cover (1). <em>Small oil weep may occur on ST10-ST60.</em></li>
+          ${isST05 ? '<li><strong>ST05:</strong> bend back locking plate (2).</li>' : ''}
+          ${isST3260 ? '<li><strong>ST32/ST50/ST60:</strong> release clamping screw (2a).</li>' : ''}
+          <li>Turn adjusting screw/nut (3): <strong>right = increase</strong> reaction force, <strong>left = decrease</strong>.</li>
+          <li>Adjust so test load <em>just lifts</em>. Rated load must hold firmly in every position.</li>
+          <li><strong>Never lift test load above 300 mm.</strong> Never activate at top hook position.</li>
+          ${isST05 ? '<li>Bend locking plate (2) up over 2 flats of the adjusting nut.</li>' : ''}
+          ${isST3260 ? '<li>Lock with clamping screw (2a).</li>' : ''}
+          <li>Replace cover (1) + gasket.</li>
+        </ol>
+        <p>Annual function test with nominal load required. FMD1 test device gives ±2% accuracy but <strong>does not replace</strong> the annual nominal-load test.</p>
+      `;
+    }
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     CHAIN WELDS ORIENTATION — over sprocket
+     ───────────────────────────────────────────────────────────── */
+  chainWelds: {
+    title: 'Chain Welds — Orientation',
+    subtitle: 'Upright link welds must face OUTWARDS',
+    svg: `
+      <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
+        <text class="svg-label-part" x="160" y="15" text-anchor="middle">WELD ORIENTATION OVER SPROCKET</text>
+
+        <!-- Sprocket (circular, centered) -->
+        <circle class="svg-part-fill" cx="160" cy="130" r="50"/>
+        <circle fill="#0d0d0d" stroke="var(--text)" stroke-width="1.2" cx="160" cy="130" r="32"/>
+
+        <!-- Sprocket teeth (6 pockets) -->
+        ${Array.from({length: 6}, (_, i) => {
+          const a = (i / 6) * 2 * Math.PI - Math.PI/2;
+          const r1 = 50, r2 = 56;
+          const x1 = 160 + Math.cos(a - 0.15) * r1;
+          const y1 = 130 + Math.sin(a - 0.15) * r1;
+          const x2 = 160 + Math.cos(a) * r2;
+          const y2 = 130 + Math.sin(a) * r2;
+          const x3 = 160 + Math.cos(a + 0.15) * r1;
+          const y3 = 130 + Math.sin(a + 0.15) * r1;
+          return `<path class="svg-part-fill" d="M ${x1},${y1} L ${x2},${y2} L ${x3},${y3} Z"/>`;
+        }).join('')}
+
+        <!-- Center hub marker -->
+        <line class="svg-centerline" x1="160" y1="120" x2="160" y2="140"/>
+        <line class="svg-centerline" x1="150" y1="130" x2="170" y2="130"/>
+
+        <!-- Upright chain link sitting in top tooth pocket -->
+        <ellipse class="svg-part-fill" cx="160" cy="65" rx="7" ry="14"/>
+        <ellipse fill="#0d0d0d" cx="160" cy="65" rx="3" ry="9"/>
+
+        <!-- Weld bead on OUTSIDE (top) of upright link — green marker -->
+        <circle class="svg-ok" cx="160" cy="51" r="4"/>
+
+        <!-- Wrong orientation example: weld on INSIDE (bottom) — red marker -->
+        <circle class="svg-warn" cx="160" cy="79" r="4" opacity="0.4"/>
+        <text class="svg-warn" fill="var(--danger)" x="178" y="82" style="font-family:var(--mono); font-size:10px">(wrong)</text>
+
+        <!-- Correct callout -->
+        <line class="svg-ok-line" x1="160" y1="47" x2="60" y2="25"/>
+        <text class="svg-label" fill="#30d158" x="55" y="22" text-anchor="end">✓ CORRECT</text>
+        <text class="svg-label-dim" x="55" y="37" text-anchor="end">weld faces OUTWARDS,</text>
+        <text class="svg-label-dim" x="55" y="50" text-anchor="end">away from sprocket</text>
+
+        <!-- Wrong callout -->
+        <line class="svg-warn-line" x1="160" y1="83" x2="260" y2="25" opacity="0.6"/>
+        <text class="svg-label" fill="#ff3b30" x="260" y="22">✗ WRONG</text>
+        <text class="svg-label-dim" x="260" y="37">weld bearing on sprocket</text>
+        <text class="svg-label-dim" x="260" y="50">damages teeth over time</text>
+
+        <!-- Summary -->
+        <rect class="svg-label-bg" x="20" y="200" width="280" height="35" stroke="var(--accent-dim)" stroke-width="0.8"/>
+        <text class="svg-label" x="30" y="218">Check orientation at BOTH sprocket AND return sheave</text>
+        <text class="svg-label-dim" x="30" y="230">Especially critical on 2/1 reeving</text>
+      </svg>
+    `,
+    body: `
+      <p>When fitting new chain or re-reeving, the weld on each upright chain link <strong>must face outwards over the sprocket</strong> — away from the sprocket teeth.</p>
+      <p><strong>Why it matters:</strong></p>
+      <ul>
+        <li>The weld bead is proud of the link surface and harder than parent material.</li>
+        <li>Running welds against the sprocket teeth causes premature tooth wear.</li>
+        <li>Increases the risk of chain jumping under load.</li>
+        <li>Can damage the solid cast iron chain guide.</li>
+      </ul>
+      <p><strong>Check:</strong> after fitting new chain, run through the full hook path slowly under light load. Watch for any grinding, uneven motion, or chain jumping. If in doubt, remove and refit correctly.</p>
+      <p>This is easy to get wrong on 2/1 reeving where the chain runs through the bottom block return sheave — <strong>check orientation at both the sprocket and the return sheave</strong>.</p>
+    `
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     TROLLEY WHEEL — cross-section with d and b dimensions
+     ───────────────────────────────────────────────────────────── */
+  trolleyWheel: {
+    title: 'Trolley Wheel Wear',
+    subtitle: 'Replace at 5% diameter reduction',
+    svg: `
+      <svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg">
+        <text class="svg-label-part" x="170" y="15" text-anchor="middle">WHEEL PROFILE — SECTIONAL</text>
+
+        <!-- Wheel body (with flange profile) -->
+        <g transform="translate(50, 40)">
+          <!-- Centerline horizontal (axle) -->
+          <line class="svg-centerline" x1="-25" y1="75" x2="120" y2="75"/>
+
+          <!-- Wheel body main -->
+          <path class="svg-part-fill" d="
+            M 10,20
+            L 75,20
+            L 75,40
+            L 85,40
+            L 90,48
+            L 90,55
+            L 80,55
+            L 80,95
+            L 90,95
+            L 90,102
+            L 85,110
+            L 75,110
+            L 75,130
+            L 10,130
+            Z
+          "/>
+
+          <!-- Running surface hint (horizontal dashed) -->
+          <line class="svg-hidden" x1="75" y1="55" x2="75" y2="95"/>
+
+          <!-- Axle bore (dashed hidden line) -->
+          <line class="svg-hidden" x1="10" y1="65" x2="75" y2="65"/>
+          <line class="svg-hidden" x1="10" y1="85" x2="75" y2="85"/>
+
+          <!-- d dimension (wheel diameter) — vertical on left -->
+          <line class="svg-ext" x1="10" y1="20" x2="-15" y2="20"/>
+          <line class="svg-ext" x1="10" y1="130" x2="-15" y2="130"/>
+          <line class="svg-measure" x1="-10" y1="15" x2="-10" y2="135"/>
+          <polygon class="svg-measure-end" points="-10,20 -13,27 -7,27"/>
+          <polygon class="svg-measure-end" points="-10,130 -13,123 -7,123"/>
+          <rect class="svg-label-bg" x="-25" y="70" width="28" height="14"/>
+          <text class="svg-label" x="-10" y="80" text-anchor="middle">d</text>
+
+          <!-- b dimension (flange width) — between outer edge of flange and base -->
+          <line class="svg-ext" x1="75" y1="130" x2="75" y2="155"/>
+          <line class="svg-ext" x1="90" y1="110" x2="90" y2="155"/>
+          <line class="svg-measure" x1="65" y1="150" x2="100" y2="150"/>
+          <polygon class="svg-measure-end" points="75,150 81,147 81,153"/>
+          <polygon class="svg-measure-end" points="90,150 84,147 84,153"/>
+          <rect class="svg-label-bg" x="75" y="155" width="20" height="14"/>
+          <text class="svg-label" x="85" y="165" text-anchor="middle">b</text>
+
+          <!-- Running surface callout -->
+          <line class="svg-leader" x1="75" y1="75" x2="130" y2="40"/>
+          <text class="svg-label-dim" x="135" y="43">running surface</text>
+        </g>
+
+        <!-- Replacement diameter table (right side) -->
+        <g transform="translate(200, 45)">
+          <rect class="svg-label-bg" x="-5" y="-5" width="130" height="140" stroke="var(--border-hi)" stroke-width="0.8"/>
+          <text class="svg-label" x="0" y="12">REPLACE AT:</text>
+          <line class="svg-measure" x1="0" y1="18" x2="120" y2="18"/>
+
+          <text class="svg-label-dim" x="0" y="35">Ø50  → d &lt; 48</text>
+          <text class="svg-label-dim" x="0" y="50">Ø63  → d &lt; 60</text>
+          <text class="svg-label-dim" x="0" y="65">Ø80  → d &lt; 76</text>
+          <text class="svg-label-dim" x="0" y="80">Ø100 → d &lt; 95</text>
+          <text class="svg-label-dim" x="0" y="95">Ø125 → d &lt; 119</text>
+
+          <line class="svg-measure" x1="0" y1="105" x2="120" y2="105"/>
+          <text class="svg-label" x="0" y="122">= 5% Ø reduction</text>
+        </g>
+
+        <!-- Bottom warning -->
+        <rect class="svg-label-bg" x="20" y="218" width="300" height="35" stroke="var(--danger)" stroke-width="0.8" opacity="0.8"/>
+        <text class="svg-label" fill="#ff3b30" x="30" y="235">UNEVEN FLANGE WEAR = trolley canting</text>
+        <text class="svg-label-dim" x="30" y="248">Check runway level, guide rollers, flange play</text>
+      </svg>
+    `,
+    body: `
+      <p><strong>Measurement location:</strong> always measure the tread diameter at an <strong>unworn reference point</strong> where possible (a section of the wheel that hasn't been running on the beam). Measuring across a worn contact patch gives a false low reading and will flag a good wheel as scrap. If the whole tread is worn, compare to nominal spec.</p>
+      <p><strong>Don't confuse tread wear with flange wear</strong> — they're different failures with different causes.</p>
+      <p><strong>Wheel replacement at 5% diameter reduction:</strong></p>
+      <ul>
+        <li>Ø50 → replace at 48 mm (b min 17 mm)</li>
+        <li>Ø63 → replace at 60 mm (b min 18.5 mm)</li>
+        <li>Ø80 → replace at 76 mm (b min 29.5 mm)</li>
+        <li>Ø100 → replace at 95 mm (b min 35 mm)</li>
+        <li>Ø125 → replace at 119 mm (b min 40 mm)</li>
+      </ul>
+      <p><strong>SWL per wheel size:</strong> Ø50 = 500 kg · Ø63 = 500 kg (KE-T) or 1,000 kg · Ø80 = 3,200 kg · Ø125 = 6,300 kg</p>
+      <p><strong>Watch for uneven wear:</strong> heavy flange wear or one-sided running surface wear indicates the trolley is canting. Investigate:</p>
+      <ul>
+        <li>Runway level and alignment</li>
+        <li>Guide rollers (if fitted) adjustment</li>
+        <li>Flange play vs runway width</li>
+        <li>Suspension bolt wear</li>
+      </ul>
+      <p>Fixing the cause is more important than just replacing the wheel — otherwise the new one wears the same way.</p>
+    `
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     CHAIN STOPPER — min free chain length X
+     ───────────────────────────────────────────────────────────── */
+  chainStopper: {
+    title: 'Chain Stopper & Free Chain Length',
+    subtitle: 'Minimum free chain X after stopper',
+    svgFn: (m) => {
+      const minFree = MIN_FREE_CHAIN[m];
+      return `
+      <svg viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg">
+        <text class="svg-label-part" x="160" y="15" text-anchor="middle">CHAIN BOX &amp; STOPPER</text>
+
+        <!-- Chain box -->
+        <rect class="svg-part-fill" x="60" y="40" width="90" height="80" rx="3"/>
+        <text class="svg-label-dim" x="105" y="85" text-anchor="middle">chain box</text>
+
+        <!-- Chain emerging from bottom of box, going down -->
+        <g transform="translate(145, 120)">
+          ${Array.from({length: 5}, (_, i) => {
+            const y = i * 12;
+            return i % 2 === 0
+              ? `<ellipse class="svg-part-fill" cx="0" cy="${y + 6}" rx="5" ry="9"/>`
+              : `<ellipse class="svg-part-fill" cx="0" cy="${y + 6}" rx="9" ry="5"/>`;
+          }).join('')}
+        </g>
+
+        <!-- Chain stopper (highlighted, on chain) -->
+        <rect fill="#ffb000" opacity="0.85" x="132" y="184" width="26" height="12" rx="2"/>
+        <rect class="svg-part" x="132" y="184" width="26" height="12" rx="2"/>
+        <circle class="svg-callout-circle" cx="230" cy="170" r="12"/>
+        <text class="svg-label-part" x="230" y="174" text-anchor="middle">ST</text>
+        <line class="svg-leader" x1="218" y1="170" x2="160" y2="190"/>
+        <text class="svg-label-dim" x="248" y="173">chain stopper</text>
+
+        <!-- Free chain below stopper -->
+        <g transform="translate(145, 200)">
+          ${Array.from({length: 3}, (_, i) => {
+            const y = i * 12;
+            return i % 2 === 0
+              ? `<ellipse class="svg-part-fill" cx="0" cy="${y + 6}" rx="5" ry="9"/>`
+              : `<ellipse class="svg-part-fill" cx="0" cy="${y + 6}" rx="9" ry="5"/>`;
+          }).join('')}
+        </g>
+
+        <!-- Free end -->
+        <circle class="svg-part-fill" cx="145" cy="248" r="4"/>
+
+        <!-- X dimension (free chain length) -->
+        <line class="svg-ext" x1="160" y1="190" x2="210" y2="190"/>
+        <line class="svg-ext" x1="150" y1="252" x2="210" y2="252"/>
+        <line class="svg-measure" x1="200" y1="183" x2="200" y2="258"/>
+        <polygon class="svg-measure-end" points="200,190 197,197 203,197"/>
+        <polygon class="svg-measure-end" points="200,252 197,245 203,245"/>
+        <rect class="svg-label-bg" x="185" y="214" width="30" height="14"/>
+        <text class="svg-label" x="200" y="224" text-anchor="middle">X</text>
+
+        <!-- Spec panel -->
+        <rect class="svg-label-bg" x="20" y="270" width="280" height="22" stroke="var(--accent-dim)" stroke-width="0.8"/>
+        <text class="svg-label" x="30" y="285">${m}: X min = ${minFree} mm</text>
+      </svg>
+    `;
+    },
+    bodyFn: (m) => {
+      const minFree = MIN_FREE_CHAIN[m];
+      return `
+        <p>The chain stopper prevents the chain running completely out of the hoist if the limit switch fails. There must be a minimum length of free chain <em>below</em> the stopper (X) so the stopper can fully engage before running out.</p>
+        <p><strong>${m} minimum free chain (X):</strong> ${minFree} mm</p>
+        <p><strong>All models:</strong></p>
+        <ul>
+          <li>ST05: 130 mm</li>
+          <li>ST10, ST20, ST30: 100 mm</li>
+          <li>ST32, ST50, ST60: 150 mm</li>
+        </ul>
+        <p><strong>Check:</strong> with hook at lowest working position, measure free chain between stopper and end of chain. If less than X, chain has stretched or been shortened — investigate and rectify.</p>
+      `;
+    }
+  }
+
+};
+
+/* Map diagram keys to human labels for button text */
+
+const DIAGRAM_LABELS = {
+  hook: 'Hook Wear',
+  chain: 'Chain Measure',
+  brakeST05: 'Brake (ST05)',
+  brakeST10plus: 'Brake (Air Gap)',
+  clutch: 'Clutch Adjust',
+  chainWelds: 'Chain Welds',
+  trolleyWheel: 'Wheel Wear',
+  chainStopper: 'Chain Stopper'
+};
+
+const SERVICE_TYPES = {
+  preventive: {
+    label: 'Preventive Service',
+    sub: '3-monthly maintenance visit',
+    est: '~45 min',
+    groups: [
+      { title: 'Pre-Start Visual', items: [
+        { id: 'safe-isolation', title: 'Isolate and lock off supply', note: 'Verify zero energy state before any mechanical work.' },
+        { id: 'nameplate', title: 'Nameplate legible', note: 'Model, SWL, serial, year, FEM class must be readable. Replace if damaged.' },
+        { id: 'visual-damage', title: 'Visual inspection — no damage', note: 'Cracks, dents, oil leaks, loose fasteners, corrosion.' },
+      ]},
+      { title: 'Load Chain', items: [
+        { id: 'chain-clean', title: 'Chain clean and lubricated', valueFn: () => `Use Ceplattyn Chain Lubricant Fluid. Lube at joints.`, note: 'Food/medical applications use SKD 3000.' },
+        { id: 'chain-wear', title: 'Measure chain wear over 11 links', valueFn: (m) => `Max ${CHAIN[m].t11Max} mm · Min link d: ${CHAIN[m].dMin} mm · Max link t: ${CHAIN[m].tMax} mm`, note: 'Use chain gauge 14 320 00 65 0. Replace if distortion, cracks, breaks, corrosion.',
+          diagram: 'chain' },
+        { id: 'chain-twist', title: 'Chain not twisted', note: 'Critical on 2/1 reeving. Welds on upright links must face outwards over sprocket.',
+          diagram: 'chainWelds' },
+        { id: 'chain-anchor', title: 'Chain anchorage secure', note: 'Check suspension bolt for wear. NEVER turn and refit a used bolt.' },
+        { id: 'chain-stopper', title: 'Chain stopper in place', valueFn: (m) => `Min free chain length after stopper: ${MIN_FREE_CHAIN[m]} mm`, note: 'Purpose: prevents chain being pulled through the hoist body if the lower limit switch fails. Without adequate free chain below the stopper, the stopper cannot fully engage.',
+          diagram: 'chainStopper' },
+      ]},
+      { title: 'Hooks', items: [
+        { id: 'load-hook-wear', title: 'Load hook wear (DIN 15405-1)', valueFn: (m) => { const lh = LOAD_HOOK[m]; return `1/1: h ≥ ${lh['1/1'].hMin} mm, z ≤ ${lh['1/1'].zMax} mm · 2/1: h ≥ ${lh['2/1'].hMin} mm, z ≤ ${lh['2/1'].zMax} mm`; }, note: 'h = throat opening. z = section dimension.',
+          diagram: 'hook' },
+        { id: 'susp-hook-wear', title: 'Suspension hook wear', valueFn: (m) => `h ≥ ${SUSP_HOOK[m].hMin} mm · z ≤ ${SUSP_HOOK[m].zMax} mm`,
+          diagram: 'hook' },
+        { id: 'hook-safety-latch', title: 'Safety latch closes fully', note: 'Must close automatically under spring tension.' },
+        { id: 'hook-block', title: 'Bottom hook block — visual', note: 'Cracks, wear on pin bores, smooth swivel.' },
+      ]},
+      { title: 'Brake', items: [
+        { id: 'brake-function', title: 'Brake function test', valueFn: () => `Load must hold immediately when power cut. Max permitted slip under test: 100 mm (lift and lower).`, note: 'The 100 mm figure is a maximum, not a target. Any continued creep under static load is a fail — the brake should hold rock-solid.' },
+        { id: 'brake-wear', title: 'Brake wear measurement', valueFn: (m) => BRAKE[m].spec, note: (m) => BRAKE[m].method,
+          diagram: (m) => m === 'ST05' ? 'brakeST05' : 'brakeST10plus' },
+      ]},
+      { title: 'Slipping Clutch', items: [
+        { id: 'clutch-function', title: 'Clutch function — no load test', valueFn: () => `Run to top/bottom stop, allow slip max 3 sec. Chain must not move, motor must rotate.`, note: 'Use this test sparingly. The slipping clutch is OVERLOAD protection — NOT a substitute for an operational limit switch. Routine use as an end-stop will wear the lining prematurely. DO NOT repeat the test consecutively — the friction lining overheats quickly and can glaze.',
+          diagram: 'clutch' },
+      ]},
+      { title: 'Lubrication', items: [
+        { id: 'oil-level', title: 'Gear oil level / grease condition', valueFn: (m) => OIL[m].type === 'Grease (no oil)' ? `ST05: grease-lubricated (~250 ml GOOF)` : `${OIL[m].type} · Std HR: ${OIL[m].std}${OIL[m].short ? ` · Short HR: ${OIL[m].short}` : ''}`, note: 'Oil change interval: 5 years MAXIMUM. Shorten for heavy duty (multi-shift, high cycle count) or harsh environments (dust, heat, corrosive atmosphere, outdoor use).' },
+        { id: 'output-pinion', title: 'Output pinion + open gearing greased', note: 'Apply grease to exposed gear teeth. Electric trolleys only.' },
+        { id: 'wheel-gearing', title: 'Trolley wheel gearing greased', valueFn: () => `SU-A: 180 g · SF 14-1...: 100 g` },
+      ]},
+      { title: 'Pendant & Electrical', items: [
+        { id: 'pendant-strain', title: 'Pendant strain relief wire fitted', note: 'Pendant hangs from strain wire, NOT cable. Cable must not touch chain.' },
+        { id: 'pendant-function', title: 'Pendant — all functions correct', note: 'Hoist up/down, trolley L/R, cross-travel. E-stop must override ALL motions immediately and latch. Turn to release. Often tested incorrectly — verify it kills every motion, not just the one being used.' },
+        { id: 'limit-switches-function', title: 'Limit switches — function check', note: 'Do not use emergency limits as operational limits.' },
+        { id: 'limit-switches-position', title: 'Limit switch positions correct', note: 'UPPER limit must stop hook before chain guide / suspension contact. LOWER limit must stop hook before chain stopper engages. If limit stops AT the mechanical endpoint rather than before it, the limit is set wrong.' },
+      ]},
+      { title: 'Trolley', items: [
+        { id: 'trolley-wheels', title: 'Wheel wear — max 5% Ø reduction', note: 'Measure tread diameter at an UNWORN reference point, not on the worn contact patch. Check both flanges for uneven wear (indicates canting).',
+          diagram: 'trolleyWheel' },
+        { id: 'trolley-runway', title: 'Runway condition', note: 'Level, end stops fitted, no contamination, no damage.' },
+      ]},
+      { title: 'Sign-Off', items: [
+        { id: 'test-load', title: 'Functional test with rated load', note: 'Lift, lower, brake. Listen for abnormal sounds.' },
+        { id: 'paperwork', title: 'Service record completed', note: 'File in test log book. Note findings, adjustments, parts replaced.' },
+      ]},
+    ]
+  },
+
+  loler: {
+    label: 'LOLER Thorough Examination',
+    sub: 'Annual competent person inspection',
+    est: '~90 min',
+    groups: [
+      { title: 'Documentation', items: [
+        { id: 'doc-manual', title: 'Manufacturer manual available', note: 'STAHL operating & maintenance instructions + any site-specific docs.' },
+        { id: 'doc-previous', title: 'Previous examination report reviewed', note: 'Check for defects raised, date of last inspection.' },
+        { id: 'doc-cert-chain', title: 'Chain certificate on record', note: 'Grade 8 per DIN 5684. Safety factor > 5.0.' },
+        { id: 'doc-sow', title: 'Scope of examination confirmed', note: 'Lifting equipment + accessories, or equipment only. Clarify with duty holder.' },
+      ]},
+      { title: 'Identification & Marking', items: [
+        { id: 'id-nameplate', title: 'Nameplate legible and correct', note: 'Manufacturer, model, serial, year, SWL, FEM class. Record serial.' },
+        { id: 'id-swl-marked', title: 'SWL clearly marked on hoist', note: 'Visible to operator. Add marking if missing.' },
+        { id: 'id-ce-uk', title: 'CE / UKCA marking present', note: 'Confirms conformity assessment done.' },
+      ]},
+      { title: 'Configuration Verification', items: [
+        { id: 'cfg-reeving', title: 'Reeving matches nameplate', note: '1/1 or 2/1 must match nameplate spec. Mismatch means either the hook block has been swapped or the nameplate is wrong. Either is a serious finding.' },
+        { id: 'cfg-no-mods', title: 'No unauthorised modifications', note: 'Any structural modification, drilling, welding, or non-STAHL parts invalidates the conformity assessment. Check housing, suspension, hook block, chain anchor.' },
+        { id: 'cfg-duty-class', title: 'FEM duty class suitable for application', note: 'Nameplate states duty class (1Bm, 1Am, 2m, 3m, 4m). Confirm actual use pattern does not exceed it. Continuous duty hoist used intermittently = fine. Intermittent hoist used continuously = condemn.' },
+        { id: 'cfg-application', title: 'Hoist suitable for lifting task', note: 'Not used for pulling at angle, towing, dragging, transporting people, or guided/continuous operation (unless rated for it).' },
+      ]},
+      { title: 'Environmental & Installation', items: [
+        { id: 'env-ip-rating', title: 'IP rating suitable for environment', note: 'Standard ST is IP55. Outdoor use, washdown, or corrosive atmosphere may need higher rating or environmental upgrade.' },
+        { id: 'env-temperature', title: 'Operating temperature within range', note: 'STAHL ST: -20°C to +40°C operation. Cold stores, foundries, outdoor winter use may be outside spec — check lubricant grade.' },
+        { id: 'env-corrosion', title: 'No corrosive/contaminated environment', note: 'Chemical atmosphere, salt spray, food acids, solvents — all accelerate wear and may require specific lubricants or materials.' },
+      ]},
+      { title: 'Structural & Suspension', items: [
+        { id: 'str-suspension', title: 'Suspension point integrity', note: 'No cracks, distortion, or wear. Safety latch functional.' },
+        { id: 'str-housing', title: 'Main housing — cracks, corrosion, impact', note: 'Cast iron chain guide integrity critical — load path flows through this.' },
+        { id: 'str-fasteners', title: 'Structural fasteners torqued', valueFn: () => `M8: 24 Nm · M10: 48 Nm · M12: 83 Nm · M16: 120 Nm · M20: 300 Nm · M24: 320 Nm (⚠ verify) · M30: 640 Nm · M36: 1100 Nm`, note: '⚠ M24 value (320 Nm) is per the STAHL manual revision we have but looks low for standard 8.8 grade (typical 520-580 Nm). Cross-check against current STAHL documentation before applying to critical fasteners. Chain guide + trolley suspension connections are the most critical — use calibrated torque wrench.' },
+      ]},
+      { title: 'Load Chain — Detailed', items: [
+        { id: 'chain-dim-11link', title: 'Chain measurement over 11 links', valueFn: (m) => `Max permitted: ${CHAIN[m].t11Max} mm (nominal ${CHAIN[m].size} mm)`, note: 'Chain taut, not hanging slack. Chain gauge 14 320 00 65 0. Record actual measurement.',
+          diagram: 'chain' },
+        { id: 'chain-indiv-links', title: 'Individual link inspection', note: 'Cracks, corrosion, weld defects, impact, elongation, wear at contact points.',
+          diagram: 'chainWelds' },
+        { id: 'chain-hardness', title: 'Evidence of overload / heat damage', note: 'Bluing, straightened links, twisted links — all condemnable.' },
+        { id: 'chain-anchor-detail', title: 'Chain anchorage — detailed', note: 'Suspension bolt inspected out of service. No grooves/distortion/elongation.' },
+      ]},
+      { title: 'Hooks — Detailed', items: [
+        { id: 'hook-load-dim', title: 'Load hook dimensional check', valueFn: (m) => { const lh = LOAD_HOOK[m]; return `1/1: h=${lh['1/1'].h}→${lh['1/1'].hMin}mm, z=${lh['1/1'].z}→${lh['1/1'].zMax}mm`; }, note: 'Record actual h and z. Photograph if near limits.',
+          diagram: 'hook' },
+        { id: 'hook-load-2-1', title: 'Load hook 2/1 dimensional check (if fitted)', valueFn: (m) => { const lh = LOAD_HOOK[m]; return `2/1: h=${lh['2/1'].h}→${lh['2/1'].hMin}mm, z=${lh['2/1'].z}→${lh['2/1'].zMax}mm`; },
+          diagram: 'hook' },
+        { id: 'hook-susp-dim', title: 'Suspension hook dimensional check', valueFn: (m) => `h=${SUSP_HOOK[m].h}→${SUSP_HOOK[m].hMin}mm · z=${SUSP_HOOK[m].z}→${SUSP_HOOK[m].zMax}mm`,
+          diagram: 'hook' },
+        { id: 'hook-cracks-npt', title: 'Hook crack inspection', note: 'Check throat, saddle, neck. NDT at competent person discretion.' },
+        { id: 'hook-swivel', title: 'Hook swivels freely under load', note: 'Binding indicates pin/thrust bearing wear.' },
+        { id: 'hook-latch-full', title: 'Safety latch — full function', note: 'Closes automatically. Full travel. No excessive play.' },
+      ]},
+      { title: 'Brake — Comprehensive', items: [
+        { id: 'brake-rated', title: 'Brake test with rated load', valueFn: () => `Load must hold immediately when power cut. Max permitted slip under test: 100 mm.`, note: '100 mm is a ceiling, not a target. Any continued creep under static load is a fail.' },
+        { id: 'brake-measure', title: 'Brake wear measurement', valueFn: (m) => BRAKE[m].spec, note: (m) => BRAKE[m].method,
+          diagram: (m) => m === 'ST05' ? 'brakeST05' : 'brakeST10plus' },
+        { id: 'brake-visual', title: 'Brake internals — visual', note: 'Lining, disc wear, dust contamination, thermal damage.' },
+      ]},
+      { title: 'Slipping Clutch — Competent Test', items: [
+        { id: 'clutch-no-load', title: 'No-load function test', valueFn: () => `Run to end stop, slip max 3 sec. Chain static, motor rotating.`, note: 'Confirm operator has NOT been using clutch as routine end-stop. Clutch is overload protection only. DO NOT repeat the test consecutively — friction lining overheats and glazes.',
+          diagram: 'clutch' },
+        { id: 'clutch-rated-test', title: 'Clutch setting verified (annual)', valueFn: () => `Factory: 125% · Range: 110-160% (EN 14492-2)`, note: 'Verify crane structure supports 1.25× test load first.',
+          diagram: 'clutch' },
+      ]},
+      { title: 'Electrical & Control', items: [
+        { id: 'elec-earth', title: 'Earth continuity test', valueFn: () => `Bond resistance from main isolator CPC to all exposed metalwork: typically < 0.5 Ω`, note: 'Test at each exposed conductive part: hoist body, motor frame, pendant metalwork, trolley, crane structure. Use low-resistance ohmmeter (not DVM). Record actual reading for each point.' },
+        { id: 'elec-insulation', title: 'Insulation resistance test', valueFn: () => `500V DC: > 1 MΩ control circuits · > 1 MΩ motor windings`, note: 'Test phase-to-phase AND phase-to-earth on both control and motor circuits. Isolate hoist and discharge capacitors first. Record actual values — modern LOLER reports expect readings, not just "pass".' },
+        { id: 'elec-pendant', title: 'Pendant — all functions + E-stop', note: 'E-stop must override ALL motions immediately (hoist AND trolley AND cross-travel), latch in pressed state, and require manual twist/pull to release. Test during active motion in each axis. Also verify: interlock logic, direction reversal behaviour, limit switch response.' },
+        { id: 'elec-limits-function', title: 'Operational limit switches — function', note: 'Both upper and lower operational limits stop motion correctly. Do not confuse with emergency (ultimate) limits.' },
+        { id: 'elec-limits-position', title: 'Operational limit positions correct', note: 'UPPER limit must stop hook BEFORE contact with chain guide / suspension. LOWER limit must stop hook BEFORE chain stopper engages. If motion stops AT the mechanical endpoint, the limit is mis-set. Test by creeping to each end carefully.' },
+        { id: 'elec-emergency-limits', title: 'Emergency (ultimate) limits fitted and functional', note: 'Backstop limits that activate if operational limits fail. Must NOT be approached in normal operation.' },
+        { id: 'elec-isolator', title: 'Lockable main isolator functional', note: 'Required. Must disconnect all poles.' },
+        { id: 'elec-phase-monitor', title: 'Phase monitoring relay (if fitted)', note: 'Required if control is remote from hoist. Test by swapping phases.' },
+      ]},
+      { title: 'Trolley & Runway', items: [
+        { id: 'trolley-wheel-wear', title: 'Wheel wear — measured', note: 'Measure at UNWORN tread reference where possible (not across worn contact patch). Replace at 5% Ø reduction. Record actual diameter. Note one-sided or flange wear — indicates trolley canting, investigate cause.',
+          diagram: 'trolleyWheel' },
+        { id: 'trolley-flanges', title: 'Flange wear — indicates canting', note: 'Heavy/uneven wear → investigate runway alignment.',
+          diagram: 'trolleyWheel' },
+        { id: 'trolley-drive', title: 'Trolley drive function', note: 'Both speeds, both directions. Brake performance.' },
+        { id: 'runway-level', title: 'Runway level, straight, end stops fitted', note: 'End stops engage before chain hoist contacts runway ends.' },
+      ]},
+      { title: 'Functional Verification', items: [
+        { id: 'func-rated-lift', title: 'Rated load lift test', note: 'Full hook path. Observe all motions. Listen for noise.' },
+        { id: 'func-dynamic', title: 'Dynamic test (125% SWL) — if specified', note: 'Only if structure supports it and duty holder specifies.' },
+      ]},
+      { title: 'Service Life (FEM 9.755)', items: [
+        { id: 'life-hours', title: 'Operating hours read (if counter fitted)', note: 'Record hours. Calculate life consumed vs theoretical.' },
+        { id: 'life-remaining', title: 'Remaining safe working period calculated', valueFn: () => `Life @ FEM: 1Bm=400h · 1Am=800h · 2m=1,600h · 3m=3,200h · 4m=6,400h`, note: 'If SWP expired, general overhaul required.' },
+      ]},
+      { title: 'Report & Certification', items: [
+        { id: 'rep-report', title: 'Report of Thorough Examination issued', note: 'LOLER Reg 10: report within 28 days. Immediate defects notified same day.' },
+        { id: 'rep-next-due', title: 'Next examination date set', note: '12 months lifting equipment. 6 months for person-lifting or accessories.' },
+        { id: 'rep-defects', title: 'Defects clearly communicated to duty holder', note: 'Serious/imminent defects — hoist out of service until rectified.' },
+      ]},
+    ]
+  },
+
+  oilchange: {
+    label: 'Oil Change / 5-Year Service',
+    sub: 'Gear oil change + deep service',
+    est: '~60 min',
+    groups: [
+      { title: 'Preparation', items: [
+        { id: 'prep-isolate', title: 'Isolate and lock off', note: 'Tag out supply. Verify zero energy.' },
+        { id: 'prep-warm', title: 'Run hoist briefly to warm oil', note: 'Warm oil drains more completely and carries more debris.' },
+        { id: 'prep-drop-load', title: 'Remove load from hoist', note: 'Bottom hook block at floor level, slack chain.' },
+      ]},
+      { title: 'Oil Drain', items: [
+        { id: 'drain-sticker', title: 'Remove air vent screw sticker (first service)', note: 'New hoists ship with sticker on vent — remove before first oil change.' },
+        { id: 'drain-vent-open', title: 'Open air vent before draining', note: 'Prevents vacuum; oil drains faster and more completely.' },
+        { id: 'drain-container', title: 'Drain container in place', valueFn: (m) => OIL[m].short ? `Capacity needed: ${OIL[m].short} (worst case, short HR variant)` : `ST05 is grease-lubricated — skip this section`, note: 'Allow 5+ minutes for full drain.' },
+        { id: 'drain-inspect', title: 'Inspect drained oil for contamination', note: 'Metal particles → gear wear. Water → seal issue. Dark/burnt → overheat.' },
+        { id: 'drain-plug-clean', title: 'Clean drain plug (check magnetic tip)', note: 'Magnetic plug picks up ferrous debris. Fine fuzz normal; chunks are not.' },
+      ]},
+      { title: 'Refill', items: [
+        { id: 'fill-spec', title: 'Correct oil specification', valueFn: (m) => OIL[m].type === 'Grease (no oil)' ? `ST05: grease only — use GOOF/GPGOOK` : `${OIL[m].type} · ISO VG 460 · visc 460 cSt @ 40°C`, note: 'Approved: Fuchs Renep 110, Aral Degol BG 460, BP GR-XP 460, Esso Spartan EP 460, Mobilgear 634, Shell Omala 460, Texaco Meropa 460.' },
+        { id: 'fill-quantity', title: 'Correct fill quantity', valueFn: (m) => OIL[m].type === 'Grease (no oil)' ? `ST05: ~250 ml GOOF grease` : `Std HR: ${OIL[m].std} · Short HR / dual: ${OIL[m].short}`, note: 'Measure — do not "fill to level". Short HR variants hold more.' },
+        { id: 'fill-cold-option', title: 'Low temperature oil (if required)', note: 'For -40°C: Shell Tivela Oil WB (pour point -40°C).' },
+      ]},
+      { title: 'Seal', items: [
+        { id: 'seal-copper', title: 'Replace copper gaskets on plugs', note: 'Single-use. Reusing copper gaskets causes weeps.' },
+        { id: 'seal-torque', title: 'Torque drain + fill plugs', valueFn: () => `Oil plug torque: 10 Nm`, note: "Don't over-torque — housing is cast, thread strip risk." },
+        { id: 'seal-vent', title: 'Air vent / breather clean', note: 'Some variants have a breather — check not blocked.' },
+      ]},
+      { title: 'Additional 5-Year Checks', items: [
+        { id: 'greases-all', title: 'All grease points serviced', valueFn: () => `Trolley: SU-A 180g · SF 14-1 100g · ST05 motor bearing: ~50g GOOF`, note: '5-year interval is good opportunity to refresh all greases.' },
+        { id: 'chain-clean-relube', title: 'Chain cleaned and re-lubricated', note: 'Full-length clean. Old lube can turn abrasive when trapping swarf.' },
+        { id: 'pendant-cable', title: 'Pendant cable + strain relief inspected', note: 'Flex damage at entry points. Replace if any core exposed.' },
+        { id: 'electrical-connections', title: 'Electrical terminals re-torqued', note: 'Contactor and motor terminals. Check manufacturer spec.' },
+        { id: 'brake-full-inspect', title: 'Brake air gap / displacement measured', valueFn: (m) => BRAKE[m].spec, note: '5-year service is natural point for brake overhaul if near limits.',
+          diagram: (m) => m === 'ST05' ? 'brakeST05' : 'brakeST10plus' },
+        { id: 'clutch-verified', title: 'Slipping clutch setting verified', note: '125% factory. Annual requirement anyway — tie in here.',
+          diagram: 'clutch' },
+        { id: 'life-calc', title: 'Service life calculated (FEM 9.755)', note: 'If approaching SWP, plan general overhaul with manufacturer.' },
+      ]},
+      { title: 'Post-Service Test', items: [
+        { id: 'post-run', title: 'Run full hook path (no load)', note: 'Listen for abnormal noise. Check for oil weeps at plugs.' },
+        { id: 'post-rated', title: 'Rated load test — lift, lower, brake', note: 'Normal function at 100% SWL.' },
+        { id: 'post-label', title: 'Service label / sticker applied', note: 'Date, engineer, next service due.' },
+        { id: 'post-log', title: 'Service entry in log book', note: 'Record oil grade, quantity, parts replaced, findings.' },
+      ]},
+    ]
+  }
+};
+
+const MODELS = ['ST05','ST10','ST20','ST30','ST32','ST50','ST60'];
+
+let state = {
+  screen: 'model',
+  model: null,
+  variant: null,
+  service: null,
+  serial: '',
+  siteRef: '',
+  results: {},
+};
+
+(function restore() {
+  const saved = localStorage.getItem('hr_session');
+  if (saved) {
+    try {
+      const s = JSON.parse(saved);
+      if (s && s.screen) state = { ...state, ...s };
+    } catch {}
+  }
+})();
+
+function save() {
+  localStorage.setItem('hr_session', JSON.stringify(state));
+}
+
+function go(screen, opts = {}) {
+  state.screen = screen;
+  Object.assign(state, opts);
+  save();
+  render();
+  window.scrollTo({ top: 0, behavior: 'auto' });
+}
+
+function resetSession() {
+  state = { screen: 'model', model: null, variant: null, service: null, serial: '', siteRef: '', results: {} };
+  save();
+  render();
+}
+
+function render() {
+  const main = document.getElementById('main');
+  const crumb = document.getElementById('breadcrumb');
+  const back = document.getElementById('backBtn');
+
+  const parts = [];
+  if (state.model && state.screen !== 'model') parts.push(`<strong>${state.model}</strong>`);
+  if (state.variant && (state.screen === 'service' || state.screen === 'job' || state.screen === 'checklist' || state.screen === 'summary')) parts.push(state.variant.code);
+  if (state.service && (state.screen === 'checklist' || state.screen === 'summary')) parts.push(SERVICE_TYPES[state.service].label);
+  crumb.innerHTML = parts.join(' <span style="opacity:0.5">/</span> ');
+
+  back.style.display = state.screen === 'model' ? 'none' : 'inline-flex';
+
+  const screens = {
+    model: screenModel,
+    variant: screenVariant,
+    service: screenService,
+    job: screenJob,
+    checklist: screenChecklist,
+    summary: screenSummary
+  };
+  main.innerHTML = (screens[state.screen] || screenModel)();
+  attachHandlers();
+}
+
+function screenModel() {
+  return `
+    <div class="screen">
+      <p class="step-label">Step 1 of 4</p>
+      <h1 class="step-heading">Select hoist model</h1>
+      <p class="step-sub">Pick the model you're servicing. Check the nameplate if unsure.</p>
+      <div class="select-grid">
+        ${MODELS.map(m => `
+          <button class="select-card" data-model="${m}">
+            <span class="sc-code">${m}</span>
+            <span class="sc-range">${MODEL_META[m].range}</span>
+            <span class="sc-detail">Chain: ${MODEL_META[m].chainSize}</span>
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function screenVariant() {
+  const m = state.model;
+  const variants = VARIANTS[m];
+  return `
+    <div class="screen">
+      <p class="step-label">Step 2 of 4</p>
+      <h1 class="step-heading">${m} variant</h1>
+      <p class="step-sub">From the hoist nameplate — full type designation tells you reeving and duty.</p>
+      <div class="select-grid">
+        ${variants.map((v, i) => `
+          <button class="select-card wide" data-variant="${i}">
+            <span class="sc-code">${v.code}</span>
+            <span class="sc-range">${v.swl}</span>
+            <span class="sc-detail">Reeving: ${v.reeving} · Speed: ${v.speed}</span>
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function screenService() {
+  return `
+    <div class="screen">
+      <p class="step-label">Step 3 of 4</p>
+      <h1 class="step-heading">Service type</h1>
+      <p class="step-sub">Each service generates its own scoped checklist with ${state.model} values baked in.</p>
+
+      <button class="select-card service-card wide" data-service="preventive">
+        <span class="sc-code">Preventive Service</span>
+        <span class="sc-range">3-monthly · ~45 min</span>
+        <span class="sc-detail">Routine checks, lubrication, wear monitoring. ${countItems('preventive')} items.</span>
+      </button>
+
+      <button class="select-card service-card wide" data-service="loler">
+        <span class="sc-code">LOLER Thorough Examination</span>
+        <span class="sc-range">Annual · ~90 min</span>
+        <span class="sc-detail">Competent person inspection under LOLER 98 Reg 9. Documented report. ${countItems('loler')} items.</span>
+      </button>
+
+      <button class="select-card service-card wide" data-service="oilchange">
+        <span class="sc-code">Oil Change / 5-Year Service</span>
+        <span class="sc-range">5-yearly · ~60 min</span>
+        <span class="sc-detail">Gear oil change + deep service touching all major systems. ${countItems('oilchange')} items.</span>
+      </button>
+    </div>
+  `;
+}
+
+function screenJob() {
+  return `
+    <div class="screen">
+      <p class="step-label">Step 4 of 4</p>
+      <h1 class="step-heading">Job details</h1>
+      <p class="step-sub">Optional — for your records. Skip if you don't need these.</p>
+
+      <div class="field-row">
+        <label class="field-label">Hoist serial number</label>
+        <input class="field-input" id="serialInput" type="text" value="${state.serial}" placeholder="From nameplate" autocapitalize="characters" autocomplete="off">
+      </div>
+
+      <div class="field-row">
+        <label class="field-label">Site / location ref</label>
+        <input class="field-input" id="siteInput" type="text" value="${state.siteRef}" placeholder="Customer / location / asset ID" autocomplete="off">
+      </div>
+
+      <div class="bottom-actions">
+        <button class="action-btn primary" id="startBtn">Start Checklist →</button>
+      </div>
+    </div>
+  `;
+}
+
+function screenChecklist() {
+  const m = state.model;
+  const service = SERVICE_TYPES[state.service];
+  const totalItems = service.groups.reduce((a, g) => a + g.items.length, 0);
+  const doneItems = Object.values(state.results).filter(r => r && r.status).length;
+  const pct = Math.round((doneItems / totalItems) * 100);
+
+  return `
+    <div class="screen">
+      <div class="job-summary">
+        <div class="js-row">
+          <span class="js-label">Hoist</span>
+          <span class="js-value">${m} · ${state.variant.code}</span>
+        </div>
+        <div class="js-row">
+          <span class="js-label">SWL</span>
+          <span class="js-value">${state.variant.swl}</span>
+        </div>
+        ${state.serial ? `<div class="js-row"><span class="js-label">Serial</span><span class="js-value">${escapeHtml(state.serial)}</span></div>` : ''}
+        ${state.siteRef ? `<div class="js-row"><span class="js-label">Site</span><span class="js-value">${escapeHtml(state.siteRef)}</span></div>` : ''}
+        <div class="js-row">
+          <span class="js-label">Service</span>
+          <span class="js-value">${service.label}</span>
+        </div>
+      </div>
+
+      <div class="progress">
+        <span>${doneItems}/${totalItems}</span>
+        <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+        <span>${pct}%</span>
+      </div>
+
+      ${service.groups.map(group => `
+        <div class="check-group">
+          <h3 class="check-group-title">${group.title}</h3>
+          ${group.items.map((item, i) => renderItem(item, i, m)).join('')}
+        </div>
+      `).join('')}
+
+      <div class="bottom-actions">
+        <button class="action-btn primary" id="finishBtn">Finish &amp; Summary →</button>
+        <button class="action-btn danger" id="resetBtn">Clear All Results</button>
+      </div>
+    </div>
+  `;
+}
+
+function resolveContent(c, m) {
+  if (typeof c === 'function') return c(m);
+  return c;
+}
+
+function renderItem(item, i, m) {
+  const result = state.results[item.id] || {};
+  const status = result.status || null;
+  const cls = status ? `done-${status}` : '';
+
+  const value = item.valueFn ? resolveContent(item.valueFn, m) : '';
+  const note = item.note ? resolveContent(item.note, m) : '';
+  const expand = item.expand ? resolveContent(item.expand, m) : '';
+
+  /* Resolve diagram key - may be a string or a function of model */
+  let diagramKey = null;
+  if (item.diagram) {
+    diagramKey = typeof item.diagram === 'function' ? item.diagram(m) : item.diagram;
+  }
+
+  const num = String(i + 1).padStart(2, '0');
+  const expandId = `exp-${item.id}`;
+
+  return `
+    <div class="check-item ${cls}" data-item="${item.id}">
+      <div class="ci-main">
+        <span class="ci-num">${num}</span>
+        <div class="ci-body">
+          <div class="ci-title">${item.title}</div>
+          ${value ? `<div class="ci-value">${value}</div>` : ''}
+          ${note ? `<div class="ci-note">${note}</div>` : ''}
+          ${diagramKey ? `
+            <button class="ci-diagram-btn" data-diagram="${diagramKey}">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
+              ${DIAGRAM_LABELS[diagramKey] || 'Diagram'}
+            </button>
+          ` : ''}
+          ${expand ? `<button class="ci-expand-btn" data-expand="${expandId}">+ Details</button>` : ''}
+        </div>
+      </div>
+      ${expand ? `<div class="ci-expand" id="${expandId}">${expand}</div>` : ''}
+      <div class="ci-actions">
+        <button class="ci-btn pass" data-mark="pass" data-id="${item.id}">Pass</button>
+        <button class="ci-btn fail" data-mark="fail" data-id="${item.id}">Fail</button>
+        <button class="ci-btn na"   data-mark="na"   data-id="${item.id}">N/A</button>
+      </div>
+      <textarea class="ci-notes-input" data-note="${item.id}" placeholder="Measured value(s), observations, photo ref, defect description...">${escapeHtml(result.note || '')}</textarea>
+    </div>
+  `;
+}
+
+function screenSummary() {
+  const m = state.model;
+  const service = SERVICE_TYPES[state.service];
+  const totalItems = service.groups.reduce((a, g) => a + g.items.length, 0);
+
+  const counts = { pass: 0, fail: 0, na: 0, pending: 0 };
+  service.groups.forEach(g => {
+    g.items.forEach(item => {
+      const r = state.results[item.id];
+      if (!r || !r.status) counts.pending++;
+      else counts[r.status]++;
+    });
+  });
+
+  const fails = [];
+  service.groups.forEach(g => {
+    g.items.forEach(item => {
+      const r = state.results[item.id];
+      if (r && r.status === 'fail') fails.push({ item, note: r.note, group: g.title });
+    });
+  });
+
+  const date = new Date().toLocaleString('en-GB');
+
+  return `
+    <div class="screen">
+      <p class="step-label">Service Summary</p>
+      <h1 class="step-heading">${m} / ${state.variant.code}</h1>
+      <p class="step-sub">${service.label} · ${date}</p>
+
+      <div class="job-summary">
+        ${state.serial ? `<div class="js-row"><span class="js-label">Serial</span><span class="js-value">${escapeHtml(state.serial)}</span></div>` : ''}
+        ${state.siteRef ? `<div class="js-row"><span class="js-label">Site</span><span class="js-value">${escapeHtml(state.siteRef)}</span></div>` : ''}
+        <div class="js-row"><span class="js-label">SWL</span><span class="js-value">${state.variant.swl}</span></div>
+        <div class="js-row"><span class="js-label">Total items</span><span class="js-value">${totalItems}</span></div>
+      </div>
+
+      <div class="summary-stats">
+        <div class="stat-card pass">
+          <span class="stat-num">${counts.pass}</span>
+          <span class="stat-label">Pass</span>
+        </div>
+        <div class="stat-card fail">
+          <span class="stat-num">${counts.fail}</span>
+          <span class="stat-label">Fail</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">${counts.na + counts.pending}</span>
+          <span class="stat-label">N/A · Skipped</span>
+        </div>
+      </div>
+
+      ${fails.length ? `
+        <div class="callout danger">
+          <span class="callout-label">Defects — ${fails.length} item${fails.length === 1 ? '' : 's'}</span>
+          <ul style="margin:6px 0 0 0; padding-left:18px">
+            ${fails.map(f => `<li style="margin-bottom:6px"><strong>${f.item.title}</strong>${f.note ? `<br><em style="color:var(--text-muted)">${escapeHtml(f.note)}</em>` : ''}</li>`).join('')}
+          </ul>
+        </div>
+      ` : counts.pending === 0 ? `
+        <div class="callout">
+          <span class="callout-label">No defects</span>
+          All ${totalItems} items inspected. Record outcome in site log and issue service documentation.
+        </div>
+      ` : `
+        <div class="callout">
+          <span class="callout-label">Incomplete</span>
+          ${counts.pending} item${counts.pending === 1 ? '' : 's'} not yet reviewed.
+        </div>
+      `}
+
+      <div class="bottom-actions">
+        <button class="action-btn" id="exportBtn">Export Report (.txt)</button>
+        <button class="action-btn" id="backToListBtn">← Back to Checklist</button>
+        <button class="action-btn danger" id="newJobBtn">New Job (reset all)</button>
+      </div>
+    </div>
+  `;
+}
+
+function countItems(svc) {
+  return SERVICE_TYPES[svc].groups.reduce((a, g) => a + g.items.length, 0);
+}
+
+function escapeHtml(s) {
+  if (!s) return '';
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function exportText() {
+  const m = state.model;
+  const service = SERVICE_TYPES[state.service];
+  const date = new Date().toLocaleString('en-GB');
+  const lines = [];
+  lines.push(`HOISTREF — SERVICE REPORT`);
+  lines.push(`${'='.repeat(50)}`);
+  lines.push(`Date: ${date}`);
+  lines.push(`Hoist: ${m} / ${state.variant.code}`);
+  lines.push(`SWL: ${state.variant.swl}`);
+  if (state.serial) lines.push(`Serial: ${state.serial}`);
+  if (state.siteRef) lines.push(`Site: ${state.siteRef}`);
+  lines.push(`Service: ${service.label}`);
+  lines.push('');
+
+  service.groups.forEach(g => {
+    lines.push(`[${g.title.toUpperCase()}]`);
+    g.items.forEach(item => {
+      const r = state.results[item.id] || {};
+      const status = (r.status || 'PENDING').toUpperCase();
+      lines.push(`  ${status.padEnd(8)}  ${item.title}`);
+      if (r.note) lines.push(`            NOTE: ${r.note}`);
+    });
+    lines.push('');
+  });
+
+  const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  const safeName = `${m}_${state.variant.code.replace(/[^A-Z0-9]/gi,'')}_${state.service}_${new Date().toISOString().slice(0,10)}.txt`;
+  a.download = safeName;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function attachHandlers() {
+  document.getElementById('backBtn').onclick = () => {
+    const flow = ['model', 'variant', 'service', 'job', 'checklist', 'summary'];
+    const i = flow.indexOf(state.screen);
+    if (i > 0) go(flow[i - 1]);
+  };
+
+  document.querySelectorAll('[data-model]').forEach(el => {
+    el.onclick = () => go('variant', { model: el.dataset.model, variant: null, service: null, results: {} });
+  });
+
+  document.querySelectorAll('[data-variant]').forEach(el => {
+    el.onclick = () => {
+      const v = VARIANTS[state.model][parseInt(el.dataset.variant)];
+      go('service', { variant: v, service: null, results: {} });
+    };
+  });
+
+  document.querySelectorAll('[data-service]').forEach(el => {
+    el.onclick = () => go('job', { service: el.dataset.service, results: {} });
+  });
+
+  const startBtn = document.getElementById('startBtn');
+  if (startBtn) {
+    startBtn.onclick = () => {
+      state.serial = document.getElementById('serialInput').value.trim();
+      state.siteRef = document.getElementById('siteInput').value.trim();
+      go('checklist');
+    };
+  }
+
+  document.querySelectorAll('[data-mark]').forEach(el => {
+    el.onclick = () => {
+      const id = el.dataset.id;
+      const mark = el.dataset.mark;
+      if (!state.results[id]) state.results[id] = { status: null, note: '' };
+      state.results[id].status = state.results[id].status === mark ? null : mark;
+      save();
+      /* Light re-render: just update the item's class + progress */
+      const item = el.closest('.check-item');
+      item.classList.remove('done-pass', 'done-fail', 'done-na');
+      if (state.results[id].status) item.classList.add(`done-${state.results[id].status}`);
+      updateProgress();
+    };
+  });
+
+  document.querySelectorAll('[data-expand]').forEach(el => {
+    el.onclick = () => {
+      const target = document.getElementById(el.dataset.expand);
+      if (target) {
+        target.classList.toggle('open');
+        el.textContent = target.classList.contains('open') ? '− Hide details' : '+ Details';
+      }
+    };
+  });
+
+  document.querySelectorAll('[data-diagram]').forEach(el => {
+    el.onclick = () => openDiagram(el.dataset.diagram);
+  });
+
+  document.querySelectorAll('[data-note]').forEach(el => {
+    el.oninput = () => {
+      const id = el.dataset.note;
+      if (!state.results[id]) state.results[id] = { status: null, note: '' };
+      state.results[id].note = el.value;
+      save();
+    };
+  });
+
+  const finishBtn = document.getElementById('finishBtn');
+  if (finishBtn) finishBtn.onclick = () => go('summary');
+
+  const backToListBtn = document.getElementById('backToListBtn');
+  if (backToListBtn) backToListBtn.onclick = () => go('checklist');
+
+  const resetBtn = document.getElementById('resetBtn');
+  if (resetBtn) resetBtn.onclick = () => {
+    if (confirm('Clear all pass/fail results for this job?')) {
+      state.results = {};
+      save();
+      render();
+    }
+  };
+
+  const newJobBtn = document.getElementById('newJobBtn');
+  if (newJobBtn) newJobBtn.onclick = () => {
+    if (confirm('Start a completely new job? All current results will be lost.')) {
+      resetSession();
+    }
+  };
+
+  const exportBtn = document.getElementById('exportBtn');
+  if (exportBtn) exportBtn.onclick = exportText;
+}
+
+function updateProgress() {
+  if (state.screen !== 'checklist') return;
+  const service = SERVICE_TYPES[state.service];
+  const totalItems = service.groups.reduce((a, g) => a + g.items.length, 0);
+  const doneItems = Object.values(state.results).filter(r => r && r.status).length;
+  const pct = Math.round((doneItems / totalItems) * 100);
+  const progress = document.querySelector('.progress');
+  if (progress) {
+    progress.querySelector('span:first-child').textContent = `${doneItems}/${totalItems}`;
+    progress.querySelector('span:last-child').textContent = `${pct}%`;
+    progress.querySelector('.progress-fill').style.width = `${pct}%`;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DIAGRAM MODAL
+   ═══════════════════════════════════════════════════════════════ */
+
+function openDiagram(key) {
+  const d = DIAGRAMS[key];
+  if (!d) return;
+  const m = state.model;
+  const overlay = document.getElementById('dgmOverlay');
+  const title = document.getElementById('dgmTitle');
+  const subtitle = document.getElementById('dgmSubtitle');
+  const content = document.getElementById('dgmContent');
+  const body = document.getElementById('dgmBody');
+
+  title.textContent = d.title;
+  subtitle.textContent = `${m} · ${d.subtitle}`;
+
+  /* SVG content */
+  const svg = typeof d.svgFn === 'function' ? d.svgFn(m) : (d.svg || '');
+  content.innerHTML = `<div class="diagram">${svg}</div>`;
+
+  /* Body text */
+  const bodyText = d.bodyFn ? d.bodyFn(m) : (d.body || '');
+  body.innerHTML = bodyText;
+
+  overlay.classList.add('open');
+  /* Reset scroll */
+  document.getElementById('dgmPanel').scrollTop = 0;
+}
+
+function closeDiagram() {
+  document.getElementById('dgmOverlay').classList.remove('open');
+}
+
+document.getElementById('dgmClose').onclick = closeDiagram;
+document.getElementById('dgmOverlay').onclick = (e) => {
+  if (e.target.id === 'dgmOverlay') closeDiagram();
+};
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeDiagram();
+});
+
+render();
+</script>
+</body>
+</html>

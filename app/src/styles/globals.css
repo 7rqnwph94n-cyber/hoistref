@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-bg text-text font-sans;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-bg min-h-screen;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  * {
+    @apply border-border;
+  }
+}
+
+/* CSS custom properties for SVG diagrams */
+:root {
+  --bg: #0a0a0a;
+  --bg-elev: #161616;
+  --bg-hi: #1f1f1f;
+  --border: #2a2a2a;
+  --border-hi: #3a3a3a;
+  --text: #f0f0f0;
+  --text-dim: #a0a0a0;
+  --text-muted: #606060;
+  --accent: #ffb000;
+  --accent-dim: #7a5300;
+  --danger: #ff3b30;
+  --success: #30d158;
+  --mono: 'JetBrains Mono', 'SF Mono', Monaco, Consolas, monospace;
+}
+
+/* SVG diagram classes
+   Sizes tuned for phone-screen legibility: smallest readable text on a
+   ~375 px viewport is ~11 px after viewBox scale. We use stroke-paint-order
+   to put a dark halo around label glyphs so they stay readable when they
+   overlap hatched / dense fills. */
+.svg-part { fill: none; stroke: var(--text); stroke-width: 1.6; stroke-linejoin: round; }
+.svg-part-fill { fill: #1a1a1a; stroke: var(--text); stroke-width: 1.6; stroke-linejoin: round; }
+.svg-hidden { fill: none; stroke: var(--text-dim); stroke-width: 1; stroke-dasharray: 4 3; }
+.svg-centerline { fill: none; stroke: var(--text-muted); stroke-width: 0.8; stroke-dasharray: 8 2 2 2; }
+.svg-measure { stroke: var(--accent); stroke-width: 1.2; fill: none; }
+.svg-measure-end { fill: var(--accent); stroke: none; }
+.svg-ext { stroke: var(--accent); stroke-width: 1; fill: none; }
+.svg-label,
+.svg-label-dim,
+.svg-label-part {
+  font-family: var(--mono);
+  paint-order: stroke fill;
+  stroke: #0d0d0d;
+  stroke-width: 2.2px;
+  stroke-linejoin: round;
+}
+.svg-label { fill: var(--accent); font-size: 14px; font-weight: 600; }
+.svg-label-bg { fill: #0d0d0d; }
+.svg-label-dim { fill: var(--text); font-size: 13px; font-weight: 500; }
+.svg-label-part { fill: var(--text); font-size: 13px; font-weight: 700; }
+.diagram svg {
+  overflow: visible;
+  flex: 0 0 auto;
+}
+
+/* On narrow phones, scale SVG labels up slightly more so they remain
+   crisp after viewBox scaling. */
+@media (max-width: 480px) {
+  .svg-label { font-size: 15px; }
+  .svg-label-dim,
+  .svg-label-part { font-size: 14px; }
+}
+.svg-leader { stroke: var(--text-dim); stroke-width: 1; fill: none; }
+.svg-callout-circle { fill: #0d0d0d; stroke: var(--text); stroke-width: 1.2; }
+.svg-warn { fill: var(--danger); }
+.svg-warn-line { stroke: var(--danger); stroke-width: 1.4; fill: none; }
+.svg-ok { fill: var(--success); }
+.svg-ok-line { stroke: var(--success); stroke-width: 1.4; fill: none; }
+
+/* Job-Site Mode bumps SVG labels too — for outdoor / gloved visibility. */
+.job-site-mode .svg-label { font-size: 15px; }
+.job-site-mode .svg-label-dim,
+.job-site-mode .svg-label-part { font-size: 14px; }
+
+@layer components {
+  .label-mono {
+    @apply font-mono text-xs uppercase tracking-widest text-text-dim;
+  }
+
+  .tap-target {
+    @apply min-h-tap min-w-tap flex items-center justify-center;
+  }
+
+  .verify-badge {
+    @apply inline-flex items-center gap-1 text-xs font-mono text-accent bg-accent-dim/20 border border-accent-dim px-1.5 py-0.5 rounded cursor-pointer;
+  }
+}
+
+/* ─── Job Site Mode ─────────────────────────────────────────────────────────
+   Bigger taps, bolder text, brighter accents — for outdoor / gloved use.
+   Toggled via class on <html>. */
+.job-site-mode {
+  /* Bump the base font slightly for legibility */
+  font-size: 17px;
+}
+.job-site-mode button,
+.job-site-mode a[role="button"],
+.job-site-mode .tap-target {
+  min-height: 56px;
+  min-width: 56px;
+}
+.job-site-mode .label-mono {
+  font-size: 13px;
+}
+
+/* ─── High Contrast ─────────────────────────────────────────────────────────
+   For sun glare. Boosts text-dim → text, accent → bright yellow. */
+.high-contrast {
+  --text-dim: #f0f0f0;
+  --text-muted: #c0c0c0;
+  --border: #4a4a4a;
+  --border-hi: #6a6a6a;
+  --accent: #ffd700;
+  --accent-dim: #b88800;
+}
+
+/* ─── Print stylesheet ──────────────────────────────────────────────────────
+   Single column, no chrome, all content visible. */
+@media print {
+  /* Hide app navigation chrome */
+  header,
+  nav,
+  [role="tablist"],
+  .no-print,
+  button:not(.print-show) {
+    display: none !important;
+  }
+  body, html {
+    background: white !important;
+    color: black !important;
+  }
+  .bg-bg, .bg-bg-elev, .bg-bg-hi, .bg-bg-hi\/30, .bg-bg-hi\/40 {
+    background: white !important;
+  }
+  .text-text, .text-text-dim, .text-text-muted, .text-accent, .text-accent-dim {
+    color: black !important;
+  }
+  .border-border, .border-border-hi, .border-accent, .border-accent-dim {
+    border-color: #888 !important;
+  }
+  /* Force everything to fit width */
+  main, .max-w-\[900px\] {
+    max-width: 100% !important;
+  }
+  /* Page-break hints for SOP steps and cards */
+  ol > li, .spec-card {
+    page-break-inside: avoid;
+  }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #666;
+  }
+}
