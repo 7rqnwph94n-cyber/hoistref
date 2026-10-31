@@ -1,0 +1,172 @@
+{
+  "schemaVersion": "2",
+  "extractedFrom": "demag-dc-chain-oi-211273-44-202308",
+  "extractedDate": "2026-05-10",
+  "extractedBy": "claude-code",
+  "status": "extracted",
+
+  "_scope": "Fields keyed to ChainSpec, BrakeSpec, ClutchSpec in src/data/types.ts. Non-schema data moved to noticed_but_skipped.md.",
+
+  "chains": [
+    {
+      "id": "demag-chain-4.2x12.2",
+      "designation": "4.2 × 12.2 mm",
+      "diameter_mm": 4.2,
+      "pitch_mm": 12.2,
+      "profile": "round",
+      "grade": "EN 818-7 quality class T (Ni-Mo special chain steel)",
+      "usedBy": ["demag-dc-pro-1", "demag-dc-pro-2", "demag-dc-com-1"],
+      "wearLimits": {
+        "aMax_11links_mm": { "value": 144.7, "note": "Sum of three 11-link readings (a1+a2+a3) under partial load" },
+        "tMax_1link_mm":   { "value": 12.8 },
+        "dMin_mm":         { "value": 3.8, "note": "= 0.9 × nominal diameter d" }
+      },
+      "lubricant": "GP00H-30REN.SO-GFB gear grease — DEMAG part no. 665 009 44",
+      "lubricationInterval": "Before commissioning, before first test lift, and at every service interval",
+      "authenticityMark": "DEMAG stamp on every 12th link — replace chain if stamp absent (non-OEM links present)",
+      "replacementNote": "Whole chain SET replacement only — chain + sprocket + chain guide + limit stop plates + buffers + anchorage",
+      "colour": "silver",
+      "source": { "manual": "demag-dc-chain-oi-211273-44-202308", "page": 86, "table": "Tab. 59", "section": "8.5.5", "extractedDate": "2026-05-10", "extractedBy": "claude-code" }
+    },
+    {
+      "id": "demag-chain-5.3x15.2",
+      "designation": "5.3 × 15.2 mm",
+      "diameter_mm": 5.3,
+      "pitch_mm": 15.2,
+      "profile": "round",
+      "grade": "EN 818-7 quality class T (Ni-Mo special chain steel)",
+      "usedBy": ["demag-dc-pro-5", "demag-dc-com-2", "demag-dc-com-5"],
+      "wearLimits": {
+        "aMax_11links_mm": { "value": 180.3 },
+        "tMax_1link_mm":   { "value": 15.9 },
+        "dMin_mm":         { "value": 4.8, "note": "= 0.9 × nominal diameter d" }
+      },
+      "lubricant": "GP00H-30REN.SO-GFB gear grease — DEMAG part no. 665 009 44",
+      "lubricationInterval": "Before commissioning, before first test lift, and at every service interval",
+      "authenticityMark": "DEMAG stamp on every 12th link",
+      "replacementNote": "Whole chain SET replacement only — chain + sprocket + chain guide + limit stop plates + buffers + anchorage",
+      "colour": "silver",
+      "source": { "manual": "demag-dc-chain-oi-211273-44-202308", "page": 86, "table": "Tab. 59", "section": "8.5.5", "extractedDate": "2026-05-10", "extractedBy": "claude-code" }
+    },
+    {
+      "id": "demag-chain-7.4x21.2",
+      "designation": "7.4 × 21.2 mm",
+      "diameter_mm": 7.4,
+      "pitch_mm": 21.2,
+      "profile": "round",
+      "grade": "EN 818-7 quality class T (Ni-Mo special chain steel)",
+      "usedBy": ["demag-dc-pro-10", "demag-dc-com-10"],
+      "wearLimits": {
+        "aMax_11links_mm": { "value": 253 },
+        "tMax_1link_mm":   { "value": 22.4 },
+        "dMin_mm":         { "value": 6.7, "note": "= 0.9 × nominal diameter d" }
+      },
+      "lubricant": "GP00H-30REN.SO-GFB gear grease — DEMAG part no. 665 009 44",
+      "lubricationInterval": "Before commissioning, before first test lift, and at every service interval",
+      "authenticityMark": "DEMAG stamp on every 12th link",
+      "replacementNote": "Whole chain SET replacement only — chain + sprocket + chain guide + limit stop plates + buffers + anchorage",
+      "colour": "silver",
+      "source": { "manual": "demag-dc-chain-oi-211273-44-202308", "page": 86, "table": "Tab. 59", "section": "8.5.5", "extractedDate": "2026-05-10", "extractedBy": "claude-code" }
+    },
+    {
+      "id": "demag-chain-8.7x24.2",
+      "designation": "8.7 × 24.2 mm",
+      "diameter_mm": 8.7,
+      "pitch_mm": 24.2,
+      "profile": "round",
+      "grade": "EN 818-7 quality class T (Ni-Mo special chain steel)",
+      "usedBy": ["demag-dc-pro-15", "demag-dc-pro-16"],
+      "wearLimits": {
+        "aMax_11links_mm": { "value": 289 },
+        "tMax_1link_mm":   { "value": 25.5 },
+        "dMin_mm":         { "value": 7.8, "note": "= 0.9 × nominal diameter d" }
+      },
+      "lubricant": "GP00H-30REN.SO-GFB gear grease — DEMAG part no. 665 009 44",
+      "lubricationInterval": "Apply with brush along entire chain length (DC-Pro 15 has no guide lubrication point)",
+      "authenticityMark": "DEMAG stamp on every 12th link",
+      "replacementNote": "Whole chain SET replacement only — chain + sprocket + chain guide + limit stop plates + buffers + anchorage",
+      "colour": "yellow",
+      "source": { "manual": "demag-dc-chain-oi-211273-44-202308", "page": 86, "table": "Tab. 59", "section": "8.5.5", "extractedDate": "2026-05-10", "extractedBy": "claude-code" }
+    }
+  ],
+
+  "brakes": [
+    {
+      "id": "demag-brake-dc1-5-bk03",
+      "brakeCode": "BK03",
+      "type": "Spring-applied electromagnetic disc brake",
+      "loadPathPosition": "before-clutch",
+      "usedBy": ["demag-dc-pro-1", "demag-dc-pro-2", "demag-dc-pro-5", "demag-dc-com-1", "demag-dc-com-2", "demag-dc-com-5"],
+      "motors": ["ZNK 71 B 8/2", "ZNK 80 B 8/2"],
+      "adjustable": false,
+      "airGap_mm": {
+        "max": 0.6,
+        "note": "0.6 mm = replace. Air gap 0.5–0.6 mm: may continue in service until next scheduled maintenance."
+      },
+      "inspectionInterval": "Every 10 years (per FEM classification)",
+      "stoppingCriterion": "Replace if air gap > 0.6 mm. Continue in service if air gap ≤ 0.5 mm until next scheduled maintenance.",
+      "wearCheckMethod": "Feeler gauge through brake plug hole — no disassembly required (units from 04/2009)",
+      "tighteningTorque_Nm": 5.5,
+      "notes": [
+        "Brake is BEFORE the slip clutch in the load path — if clutch slips, brake still holds load",
+        "Annual maintenance: re-grease V sealing ring with anti-friction bearing grease; no solid lubricant"
+      ],
+      "source": { "manual": "demag-dc-chain-oi-211273-44-202308", "page": 118, "table": "Tab. 84", "section": "8.5.8", "extractedDate": "2026-05-10", "extractedBy": "claude-code" }
+    },
+    {
+      "id": "demag-brake-dc10-15-bk07",
+      "brakeCode": "BK07",
+      "type": "Spring-applied electromagnetic disc brake",
+      "loadPathPosition": "before-clutch",
+      "usedBy": ["demag-dc-pro-10", "demag-dc-pro-15", "demag-dc-com-10"],
+      "motors": ["ZNK 100 A 8/2", "ZNK 100 B 8/2"],
+      "adjustable": false,
+      "airGap_mm": {
+        "max": 0.6,
+        "note": "0.6 mm = replace. Air gap 0.5–0.6 mm: may continue in service until next scheduled maintenance."
+      },
+      "inspectionInterval": "Every 5 years (DC-Pro/Com 10 and DC-Pro 15)",
+      "stoppingCriterion": "Replace if air gap > 0.6 mm. Continue in service if air gap ≤ 0.5 mm until next scheduled maintenance.",
+      "wearCheckMethod": "Feeler gauge through brake plug hole — no disassembly required (units from 04/2009)",
+      "tighteningTorque_Nm": 5.5,
+      "notes": [
+        "Brake is BEFORE the slip clutch in the load path — if clutch slips, brake still holds load",
+        "Annual maintenance: re-grease V sealing ring with anti-friction bearing grease; no solid lubricant"
+      ],
+      "source": { "manual": "demag-dc-chain-oi-211273-44-202308", "page": 118, "table": "Tab. 84", "section": "8.5.8", "extractedDate": "2026-05-10", "extractedBy": "claude-code" }
+    }
+  ],
+
+  "clutch": {
+    "id": "demag-clutch-dc-slip",
+    "type": "Slip clutch",
+    "loadPathPosition": "after-brake",
+    "usedBy": ["demag-dc-pro-1", "demag-dc-pro-2", "demag-dc-pro-5", "demag-dc-pro-10", "demag-dc-pro-15", "demag-dc-com-1", "demag-dc-com-2", "demag-dc-com-5", "demag-dc-com-10"],
+    "factorySettingPct": 100,
+    "adjustable": false,
+    "increaseAboveFactorySettingPermitted": false,
+    "notes": [
+      "Factory set to rated load capacity — do NOT adjust under normal conditions",
+      "Increase of trip torque beyond factory setting is NOT permitted",
+      "Annual function test: run chain limit stop above hook, run at creep — display should show SLIP LIFTING warning, motor fan turns",
+      "Mandatory annual check for models ≥ 1000 kg capacity (DC-Pro/Com 10 and DC-Pro 15)",
+      "Adjustment by authorised specialists only — use friction force checking device 836 708 44"
+    ],
+    "source": { "manual": "demag-dc-chain-oi-211273-44-202308", "page": 120, "section": "8.5.9", "extractedDate": "2026-05-10", "extractedBy": "claude-code" }
+  },
+
+  "gearOil": {
+    "_schema": "No dedicated schema field — quantities surface in model notes/torques. Retained here for reference during app data update.",
+    "grade": "Shell Donax TD 10W-30",
+    "partNo_standard": "664 020 44",
+    "partNo_foodIndustry": "180 003 98",
+    "changeIntervalYears": 10,
+    "quantities_litres": {
+      "dc1-2": 0.35,
+      "dc5": 0.50,
+      "dc10": 0.90,
+      "dc-pro-15": 1.3
+    },
+    "source": { "manual": "demag-dc-chain-oi-211273-44-202308", "page": 121, "table": "Tab. 87", "section": "8.5.10", "extractedDate": "2026-05-10", "extractedBy": "claude-code" }
+  }
+}

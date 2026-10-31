@@ -1,0 +1,104 @@
+                    6         Operating
+
+
+                    6         Operating
+                    6.1       Duties of crane operator
+                                                         Personal protective equipment to be provided by the user
+                                                         See chapter 2, Safety instructions.
+
+                                                         Requirements for workplace
+                                                         • The operator must not stand in the hazard area.
+                                                         • The hazard area must be clearly visible.
+                                                         • The movement of the load in all directions must be clearly visible.
+
+                                                                                                  WARNING
+                                                         Danger of bodily injury
+                                                         When working with chain hoists, the following points must be observed:
+                                                         • The crane operator must observe the load, or if the crane is unloaded, the load sus-
+                                                            pension equipment during all movements of the crane if they could cause danger. If it
+                                                            is not possible to observe the crane, the crane operator may only control the crane by
+                                                            following signals from a signaller.
+                                                         • Wear ear protectors in noisy environments.
+                                                         • Start lifting load with the slowest hoisting speed.
+                                                         • The crane operator must give warning signals as necessary.
+                                                         • Loads attached by hand may only be moved by the crane operator after an un-ambig-
+                                                            uous signal from the person attaching the load, the signaller or another person re-
+                                                            sponsible appointed by the user. If signals need to be used to communicate with the
+                                                            crane operator they must be agreed between the person responsible and the crane
+                                                            operator before being used.
+                                                         • Every day before starting work, check brakes and limit switches and inspect the sys-
+                                                            tem for any visible defects.
+                                                         • Stop working with the crane if there are any defects which might prejudice its safety in
+                                                            operation.
+                                                         • At close of work, secure cranes which are exposed to wind with the wind safeguard
+                                                            mechanism.
+                                                         • Do not move loads above people.
+                                                         • Before starting work, ensure there is sufficient workspace.
+                                                         • Do not leave suspended loads unattended, the control pendant must be within easy
+                                                            reach.
+                                                         • The slipping clutch is a safety device. It must not be activated in normal operation.
+                                                         • Do not load above the permitted maximum working load.
+                                                         • Pulling loads at angles, dragging loads, or towing vehicles with the load or load sus-
+                                                            pension equipment is forbidden!
+                                                         • If the chain is slack, tauten it at minimum speed before lifting.
+                                                         • Do not jerk free any loads which are jammed.
+                                                         • Do not place your hands between edges which could pinch or cut.
+                                                         • Approach final positions for hoisting, lowering and travel in normal operation only if an
+                                                            operational hoist limit switch is fitted.
+                                                         • Inching operation (repeated brief activation of the motor to achieve small movements)
+                                                            is not permissible. Motors and brakes could be subjected to an impermissible temper-
+                                                            ature rise. This would lead to the temperature control disconnecting and the load
+                                                            could then not be set down for some time. Switchgear and motors could be damaged.
+                                                         • Do not move in the opposite direction until the hoist has come to a stop.
+                                                         • Observe the safety instructions, see chapter 2
+
+ba-o.1.8.0-en-4.1
+
+
+
+
+                    12.2020                                                                                                                      29
+6     Operating
+
+
+6.2   Operating control pendant
+                                                                             NOTICE
+                                  Danger of unintentional movement of hoist
+                                  If the rocker switch is no longer depressed by the operator, it returns to the 0 position,
+                                  the hoist motion is automatically stopped (dead man’s control).
+                                  If the hoist malfunctions, e.g. the actual motion does not correspond to the motion
+                                  intended in activating the rocker switch, release the rocker switch immediately. If the
+                                  motion continues, press the emergency stop button.
+                                  If this also fails to bring the hoist to a standstill, the emergency stop switch (mains
+                                  connection switch) should be immediately switched off and secured to prevent re-
+                                  activation.
+
+                                  STH
+
+
+
+
+                                                                        Emergency stop
+
+                                                                         Lifting/lowering
+                                                                          1st step: slow
+                                                                          2nd step: fat
+
+                                                                     Cross travel: right/left
+                                                                        1st step: slow
+                                                                         2nd step: fas
+
+                                                                  Crane travel: forward/reverse
+                                                                          1st step: slow
+                                                                          2nd step: fast
+
+
+                                           Fig. 31
+
+
+
+6.3   Emergency stop
+                                                                             WARNING
+                                  Danger of bodily injury
+                                  After an emergency stop, the operator must not restart the hoist /crane system until a
+                                  qualified person ha

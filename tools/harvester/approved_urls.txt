@@ -1,0 +1,79 @@
+# HoistRef Manual Harvester — Approved PDF URLs
+# ─────────────────────────────────────────────────────────────────────────────
+# One URL per line. Lines starting with # are comments.
+# Only paste URLs here after you have verified the source.
+# Run: python harvester.py
+#
+# Confidence levels assigned automatically by source domain:
+#   OEM_DIRECT       — URL is from a known OEM domain (stahlcranes.com etc.)
+#   DISTRIBUTOR_COPY — URL is from a known distributor / doc-hosting site
+#   UNVERIFIED       — domain not recognised → flag for manual review
+#
+# All downloads land in manuals_inbox/ with needs_review=true.
+# Run: python review.py   to tag, approve and move them into manuals/.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── STAHL ────────────────────────────────────────────────────────────────────
+# Paste verified STAHL ST manual URLs below:
+
+
+# ── DEMAG ────────────────────────────────────────────────────────────────────
+# DC-Com 1/2/5/10 operating manual — all four models in one doc (distributor copy)
+# Source: aceindustries.com — US Demag distributor
+https://www.aceindustries.com/content/Demag_DCCOM_OM_Manual.pdf
+
+# ── KITO ─────────────────────────────────────────────────────────────────────
+# ER2 Owner's Manual 125 kg–5 t — OEM direct from kito.net
+https://kito.net/files/downloads/er2/er2/manuals/en/ER2-Manual-125kg--5t-_-04.pdf
+# ER2 Parts List up to 5 t — OEM direct from kito.net
+https://kito.net/files/downloads/er2/er2/manuals/en/ER2-Parts-list-up-to-5t.pdf
+# EQ Series (EQS) Owner's Manual — OEM direct from kito.net
+https://kito.net/files/downloads/eq/manuals/en/EQS_Owners_Manual_EN.pdf
+
+# ── Yale / CMCO ───────────────────────────────────────────────────────────────
+# Paste verified Yale CPV / CPE manual URLs below:
+
+
+# ── ABUS ─────────────────────────────────────────────────────────────────────
+# GM2/GM3/GM4/GM6 operating & maintenance manual — OEM direct from abus.help portal
+https://abus.help/gm2468/en/LinkedDocuments/120116EN012.pdf
+
+# ── SWF ──────────────────────────────────────────────────────────────────────
+# NOTE: SWF NOVA = wire rope hoist (not chain). Chain hoist range = CHAINster.
+# CHAINster operating & installation manual — OEM direct from swfkrantechnik.com
+https://www.swfkrantechnik.com/wp-content/uploads/pi-chainster-manual-en-1509.pdf
+# SWF CHAINster Technical Guide 50Hz/60Hz (63pp) — OEM direct, CONFIRMED RESOLVES
+https://www.swfkrantechnik.com/wp-content/uploads/pi-chainster-50hz-si-en-1610.pdf
+# SWF light cranes & chain hoists brochure/technical data — OEM direct
+https://www.swfkrantechnik.com/myswf/downloads/en/chain-hoists/SWF_lightcranes_chainhoists_01_2015_EN.pdf
+# SWF NOVA Technical Guide — Hoist Characteristics SI/50Hz (52pp, Dec 2022) — OEM direct, CONFIRMED RESOLVES
+https://www.swfkrantechnik.com/wp-content/uploads/2022-12_NOVA-TechGuide-Characteristics-SI-50Hz-EN.pdf
+
+# ── GIS ──────────────────────────────────────────────────────────────────────
+# GP series operator manual (GIS Canada labelled) — distributor copy, vulcanhoist.com
+https://vulcanhoist.com/sites/default/files/documentation/gis-canada-electric-chain-hoist-gp-operator-manual.pdf
+
+
+# ── CM Lodestar ───────────────────────────────────────────────────────────────
+# Lodestar VS (variable speed) Install/Operating/Maintenance Manual 2020 — OEM direct, CONFIRMED RESOLVES
+# 192047082 Rev AC. Note: VS variant; classic Lodestar has separate doc (P/N 83874 on ManualsLib HTML).
+https://www.cmco.com/globalassets/pdp-blocks/hoisting--lifting-equipment/electric-chain-hoists/lodestar-vs-with-intelli-connect/cm-lodestar-vs-chain-hoist-manual-2020-feb-192047082-rev-ac.pdf
+
+# ── R&M Materials Handling ────────────────────────────────────────────────────
+# Spacemaster SX Service Manual (130pp, 2009) — distributor copy, ACE Industries, CONFIRMED RESOLVES
+https://www.aceindustries.com/content/RM_SpacemasterSX_Manual.pdf
+# R&M General Instructions & Inspection for Crane (9pp) — OEM direct rmhoist.com, CONFIRMED RESOLVES
+https://rmhoist.com/sites/default/files/public_files/general_0.pdf
+
+# ── Other ─────────────────────────────────────────────────────────────────────
+# ManualsLib HTML pages (not direct PDFs — cannot be harvested as-is):
+#   Donati DMK 1 manual (132pp): https://www.manualslib.com/manual/3780908/Donati-Dmk-1.html
+#   Donati DRH 1 manual (130pp): https://www.manualslib.com/manual/2195426/Donati-Drh-1-Series.html
+#   Demag DR-Pro manual (52pp, doc 214 725 44): https://www.manualslib.com/manual/4225040/Demag-Dr-Pro.html
+#   Nitchi MH-5 service manual: https://www.manualslib.com/manual/1242599/Nitchi-Mh-5.html
+#   CM Lodestar classic manual (P/N 83874): https://www.manualslib.com/manual/2293947/Columbus-Mckinnon-Cm-Lodestar.html
+#   Chester EL-680 manual: https://www.manualslib.com/manual/2005682/Columbus-Mckinnon-Chester-Hoist-El-680.html
+# To get PDFs, append /pdf/[page].html on ManualsLib or download page-by-page.
+#
+# Street Crane XP — no public manual found; contact streetcrane.co.uk/en/downloads.
+# Nitchi NB/NA — Japan-only codes; MH-5 (export model) is the UK-encountered equivalent.

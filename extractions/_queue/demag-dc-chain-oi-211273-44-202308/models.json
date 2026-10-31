@@ -1,0 +1,459 @@
+{
+  "schemaVersion": "2",
+  "extractedFrom": "demag-dc-chain-oi-211273-44-202308",
+  "extractedDate": "2026-05-10",
+  "extractedBy": "claude-code",
+  "status": "extracted",
+  "familyId": "demag-dc-chain",
+
+  "_scope": "Fields are keyed to src/data/types.ts as of 2026-05-10. See EXTRACTION_SCOPE.md for mapping decisions.",
+
+  "_schemaDecisions": [
+    "hookSpec mapping: DEMAG a2_nom→nominalThroat_mm, h2_min→minThroat_mm, h2_nom→nominalSection_mm, a2_max→maxMouthOpening_mm. Pending Rich confirmation.",
+    "variants: NOT extracted in this pass — Tab.7 (p.20) / Tab.8 (p.21) FEM+speed data was not retained from prior session. Requires separate re-read.",
+    "DC-Com models: adding to demag.ts is a data-change decision — not currently in the file.",
+    "DC-Pro 15: not in current demag.ts — adding it is a data-change decision."
+  ],
+
+  "models": [
+    {
+      "id": "demag-dc-pro-1",
+      "code": "DC-Pro 1",
+      "familyId": "demag-dc-chain",
+      "capacityKg": [125],
+      "falls": 1,
+      "femClass": "⚠VERIFY:Tab.7p.20",
+      "chainComponentId": "demag-chain-4.2x12.2",
+      "brakeComponentId": "demag-brake-dc1-5-bk03",
+      "clutchComponentId": "demag-clutch-dc-slip",
+      "loadHook": {
+        "type": "load",
+        "nominalThroat_mm": { "value": 25.3, "note": "a2_nom from Tab.72 p.100 — pending schema mapping confirmation" },
+        "minThroat_mm": { "value": 17.1, "note": "h2_min from Tab.72 p.100" },
+        "nominalSection_mm": { "value": 18, "note": "h2_nom from Tab.72 p.100" },
+        "maxMouthOpening_mm": { "value": 27.8, "note": "a2_max from Tab.72 p.100 — replace if exceeded" },
+        "safetyLatch": true,
+        "swivel": true,
+        "standard": "DEMAG hook fitting"
+      },
+      "suspensionHook": {
+        "type": "suspension",
+        "nominalThroat_mm": { "value": 16.1, "note": "e_short × 1.05 — short bracket. Tab.56 p.81" },
+        "minThroat_mm": { "value": 15.3, "note": "e_min short bracket from Tab.56 p.81" },
+        "safetyLatch": false,
+        "swivel": false,
+        "standard": "DEMAG suspension bracket"
+      },
+      "operatingConditions": {
+        "tempMin_C": -20,
+        "tempMax_C": 45,
+        "ipRating": "IP55",
+        "altitudeMax_m": 1000
+      },
+      "serviceLife": {
+        "overhaulInterval": "FEM 9.755 — overhaul at 90% of theoretical service life",
+        "goTrigger": "GO at 90% of theoretical service life or at end of theoretical service life"
+      },
+      "torques": [
+        { "location": "Motor fasteners", "value_Nm": 9.5, "critical": false, "source": "Tab.18 p.34" },
+        { "location": "Chain limit stops", "value_Nm": 4.0, "critical": true, "source": "Tab.18 p.34" },
+        { "location": "Hook fittings", "value_Nm": 6.8, "critical": true, "source": "Tab.77 p.105" },
+        { "location": "Brake M5 screws (×3)", "value_Nm": 5.5, "critical": true, "source": "Tab.86 p.120" },
+        { "location": "Control cable locking mechanism", "value_Nm": 11.0, "critical": false, "source": "Tab.18 p.34" },
+        { "location": "Electrical equipment cover", "value_Nm": 9.5, "critical": false, "source": "Tab.18 p.34" }
+      ],
+      "variants": "⚠NOT EXTRACTED — requires re-reading Tab.7 p.20 for FEM class per speed variant (V1/V2)",
+      "dataStatus": "extracted",
+      "notes": [
+        "FEM class and speed data not captured — Tab.7 p.20 was read in a prior session; values not retained",
+        "Hook dimensions from Tab.72 p.100 — mapping (a2→nominalThroat, h2→section) pending confirmation"
+      ],
+      "source": { "manual": "demag-dc-chain-oi-211273-44-202308", "pages": [20, 34, 100, 105, 120], "extractedDate": "2026-05-10", "extractedBy": "claude-code" }
+    },
+    {
+      "id": "demag-dc-pro-2",
+      "code": "DC-Pro 2",
+      "familyId": "demag-dc-chain",
+      "capacityKg": [250],
+      "falls": 1,
+      "femClass": "⚠VERIFY:Tab.7p.20",
+      "chainComponentId": "demag-chain-4.2x12.2",
+      "brakeComponentId": "demag-brake-dc1-5-bk03",
+      "clutchComponentId": "demag-clutch-dc-slip",
+      "loadHook": {
+        "type": "load",
+        "nominalThroat_mm": { "value": 30.5, "note": "a2_nom from Tab.72 p.100" },
+        "minThroat_mm": { "value": 20.4, "note": "h2_min from Tab.72 p.100" },
+        "nominalSection_mm": { "value": 21.5, "note": "h2_nom from Tab.72 p.100" },
+        "maxMouthOpening_mm": { "value": 33.5, "note": "a2_max from Tab.72 p.100" },
+        "safetyLatch": true,
+        "swivel": true,
+        "standard": "DEMAG hook fitting"
+      },
+      "suspensionHook": {
+        "type": "suspension",
+        "nominalThroat_mm": { "value": 16.1, "note": "e_short × 1.05 — short bracket. Tab.56 p.81" },
+        "minThroat_mm": { "value": 15.3, "note": "e_min short bracket from Tab.56 p.81" },
+        "safetyLatch": false,
+        "swivel": false,
+        "standard": "DEMAG suspension bracket"
+      },
+      "operatingConditions": {
+        "tempMin_C": -20,
+        "tempMax_C": 45,
+        "ipRating": "IP55",
+        "altitudeMax_m": 1000
+      },
+      "serviceLife": {
+        "overhaulInterval": "FEM 9.755 — overhaul at 90% of theoretical service life",
+        "goTrigger": "GO at 90% of theoretical service life or at end of theoretical service life"
+      },
+      "torques": [
+        { "location": "Motor fasteners", "value_Nm": 9.5, "critical": false, "source": "Tab.18 p.34" },
+        { "location": "Chain limit stops", "value_Nm": 4.0, "critical": true, "source": "Tab.18 p.34" },
+        { "location": "Hook fittings", "value_Nm": 6.8, "critical": true, "source": "Tab.77 p.105" },
+        { "location": "Brake M5 screws (×3)", "value_Nm": 5.5, "critical": true, "source": "Tab.86 p.120" },
+        { "location": "Control cable locking mechanism", "value_Nm": 11.0, "critical": false, "source": "Tab.18 p.34" },
+        { "location": "Electrical equipment cover", "value_Nm": 9.5, "critical": false, "source": "Tab.18 p.34" }
+      ],
+      "variants": "⚠NOT EXTRACTED — requires re-reading Tab.7 p.20",
+      "dataStatus": "extracted",
+      "notes": [
+        "FEM class and speed data not captured — Tab.7 p.20 was read in a prior session; values not retained"
+      ],
+      "source": { "manual": "demag-dc-chain-oi-211273-44-202308", "pages": [20, 34, 100, 105, 120], "extractedDate": "2026-05-10", "extractedBy": "claude-code" }
+    },
+    {
+      "id": "demag-dc-pro-5",
+      "code": "DC-Pro 5",
+      "familyId": "demag-dc-chain",
+      "capacityKg": [500],
+      "falls": 1,
+      "femClass": "⚠VERIFY:Tab.7p.20",
+      "chainComponentId": "demag-chain-5.3x15.2",
+      "brakeComponentId": "demag-brake-dc1-5-bk03",
+      "clutchComponentId": "demag-clutch-dc-slip",
+      "loadHook": {
+        "type": "load",
+        "nominalThroat_mm": { "value": 36, "note": "a2_nom from Tab.72 p.100" },
+        "minThroat_mm": { "value": 25.7, "note": "h2_min from Tab.72 p.100" },
+        "nominalSection_mm": { "value": 27, "note": "h2_nom from Tab.72 p.100" },
+        "maxMouthOpening_mm": { "value": 39.6, "note": "a2_max from Tab.72 p.100" },
+        "safetyLatch": true,
+        "swivel": true,
+        "standard": "DEMAG hook fitting"
+      },
+      "suspensionHook": {
+        "type": "suspension",
+        "nominalThroat_mm": { "value": 16.1, "note": "e_short × 1.05 — short bracket. Tab.56 p.81" },
+        "minThroat_mm": { "value": 15.3, "note": "e_min short bracket from Tab.56 p.81" },
+        "safetyLatch": false,
+        "swivel": false,
+        "standard": "DEMAG suspension bracket"
+      },
+      "operatingConditions": {
+        "tempMin_C": -20,
+        "tempMax_C": 45,
+        "ipRating": "IP55",
+        "altitudeMax_m": 1000
+      },
+      "serviceLife": {
+        "overhaulInterval": "FEM 9.755 — overhaul at 90% of theoretical service life",
+        "goTrigger": "GO at 90% of theoretical service life or at end of theoretical service life"
+      },
+      "torques": [
+        { "location": "Motor fasteners", "value_Nm": 9.5, "critical": false, "source": "Tab.18 p.34" },
+        { "location": "Chain limit stops", "value_Nm": 4.3, "critical": true, "source": "Tab.18 p.34" },
+        { "location": "Hook fittings", "value_Nm": 11.5, "critical": true, "source": "Tab.77 p.105" },
+        { "location": "Brake M5 screws (×3)", "value_Nm": 5.5, "critical": true, "source": "Tab.86 p.120" },
+        { "location": "Control cable locking mechanism", "value_Nm": 11.0, "critical": false, "source": "Tab.18 p.34" },
+        { "location": "Electrical equipment cover", "value_Nm": 9.5, "critical": false, "source": "Tab.18 p.34" }
+      ],
+      "variants": "⚠NOT EXTRACTED — requires re-reading Tab.7 p.20",
+      "dataStatus": "extracted",
+      "notes": [
+        "FEM class and speed data not captured — Tab.7 p.20 was read in a prior session; values not retained"
+      ],
+      "source": { "manual": "demag-dc-chain-oi-211273-44-202308", "pages": [20, 34, 100, 105, 120], "extractedDate": "2026-05-10", "extractedBy": "claude-code" }
+    },
+    {
+      "id": "demag-dc-pro-10",
+      "code": "DC-Pro 10",
+      "familyId": "demag-dc-chain",
+      "capacityKg": [1250, 2500],
+      "capacityByReeving": { "1f": 1250, "2f": 2500 },
+      "falls": [1, 2],
+      "femClass": "⚠VERIFY:Tab.7p.20",
+      "chainComponentId": "demag-chain-7.4x21.2",
+      "brakeComponentId": "demag-brake-dc10-15-bk07",
+      "clutchComponentId": "demag-clutch-dc-slip",
+      "loadHook": {
+        "type": "load",
+        "nominalThroat_mm": { "value": 43, "note": "a2_nom from Tab.72 p.100" },
+        "minThroat_mm": { "value": 34.2, "note": "h2_min from Tab.72 p.100" },
+        "nominalSection_mm": { "value": 36, "note": "h2_nom from Tab.72 p.100" },
+        "maxMouthOpening_mm": { "value": 47.3, "note": "a2_max from Tab.72 p.100" },
+        "safetyLatch": true,
+        "swivel": true,
+        "standard": "DEMAG hook fitting"
+      },
+      "suspensionHook": {
+        "type": "suspension",
+        "nominalThroat_mm": { "value": 26.5, "note": "e_short × 1.05 — short bracket. Tab.57 p.81" },
+        "minThroat_mm": { "value": 25.2, "note": "e_min short bracket from Tab.57 p.81" },
+        "safetyLatch": false,
+        "swivel": false,
+        "standard": "DEMAG suspension bracket"
+      },
+      "operatingConditions": {
+        "tempMin_C": -20,
+        "tempMax_C": 45,
+        "ipRating": "IP55",
+        "altitudeMax_m": 1000
+      },
+      "serviceLife": {
+        "overhaulInterval": "FEM 9.755 — overhaul at 90% of theoretical service life",
+        "goTrigger": "GO at 90% of theoretical service life or at end of theoretical service life"
+      },
+      "torques": [
+        { "location": "Motor fasteners", "value_Nm": 25.0, "critical": false, "source": "Tab.18 p.34" },
+        { "location": "Chain limit stops", "value_Nm": 7.4, "critical": true, "source": "Tab.18 p.34" },
+        { "location": "Hook fittings (1/1 reeving)", "value_Nm": 25.0, "critical": true, "source": "Tab.77 p.105" },
+        { "location": "Bottom block with external cut-off springs (2/1 reeving)", "value_Nm": 55.0, "critical": true, "source": "Tab.79 p.106" },
+        { "location": "Brake M5 screws (×3)", "value_Nm": 5.5, "critical": true, "source": "Tab.86 p.120" },
+        { "location": "Control cable locking mechanism", "value_Nm": 11.0, "critical": false, "source": "Tab.18 p.34" },
+        { "location": "Electrical equipment cover", "value_Nm": 25.0, "critical": false, "source": "Tab.18 p.34" }
+      ],
+      "variants": "⚠NOT EXTRACTED — requires re-reading Tab.7 p.20",
+      "dataStatus": "extracted",
+      "notes": [
+        "FEM class and speed data not captured — Tab.7 p.20 was read in a prior session; values not retained",
+        "DC 10 renamed DC 10 1/1 since 04/2006",
+        "2/1 reeving: anchorage pins and chain anchorages must be replaced with the chain set",
+        "DC 10 units with geared limit switch (made until 2012) have larger chain guide opening"
+      ],
+      "source": { "manual": "demag-dc-chain-oi-211273-44-202308", "pages": [20, 34, 100, 105, 106, 120], "extractedDate": "2026-05-10", "extractedBy": "claude-code" }
+    },
+    {
+      "id": "demag-dc-pro-15",
+      "code": "DC-Pro 15",
+      "familyId": "demag-dc-chain",
+      "_dataChangeDecision": "DC-Pro 15 is not in current demag.ts — adding it requires a data-change decision. This record is provided for review.",
+      "capacityKg": [1600, 3200],
+      "capacityByReeving": { "1f": 1600, "2f": 3200 },
+      "falls": [1, 2],
+      "femClass": "⚠VERIFY:Tab.7p.20",
+      "chainComponentId": "demag-chain-8.7x24.2",
+      "brakeComponentId": "demag-brake-dc10-15-bk07",
+      "clutchComponentId": "demag-clutch-dc-slip",
+      "loadHook": {
+        "type": "load",
+        "nominalThroat_mm": { "value": 49, "note": "a2_nom from Tab.72 p.100" },
+        "minThroat_mm": { "value": 36.1, "note": "h2_min from Tab.72 p.100" },
+        "nominalSection_mm": { "value": 38, "note": "h2_nom from Tab.72 p.100" },
+        "maxMouthOpening_mm": { "value": 53.9, "note": "a2_max from Tab.72 p.100" },
+        "safetyLatch": true,
+        "swivel": true,
+        "standard": "DEMAG hook fitting",
+        "note": "Two hook variants in field — Item B hook (from 12/2017) and fittings-type hook (from 2018); tightening torque differs. See torques."
+      },
+      "suspensionHook": {
+        "type": "suspension",
+        "nominalThroat_mm": { "value": 26.5, "note": "e_short × 1.05 — short bracket. Tab.57 p.81" },
+        "minThroat_mm": { "value": 25.2, "note": "e_min short bracket from Tab.57 p.81" },
+        "safetyLatch": false,
+        "swivel": false,
+        "standard": "DEMAG suspension bracket"
+      },
+      "operatingConditions": {
+        "tempMin_C": -20,
+        "tempMax_C": 45,
+        "ipRating": "IP55",
+        "altitudeMax_m": 1000
+      },
+      "serviceLife": {
+        "overhaulInterval": "FEM 9.755 — overhaul at 90% of theoretical service life",
+        "goTrigger": "GO at 90% of theoretical service life or at end of theoretical service life"
+      },
+      "torques": [
+        { "location": "Motor fasteners", "value_Nm": 25.0, "critical": false, "source": "Tab.18 p.34" },
+        { "location": "Chain limit stops", "value_Nm": 7.4, "critical": true, "source": "Tab.18 p.34" },
+        { "location": "Hook fittings — Item B hook (from 12/2017)", "value_Nm": 27.5, "critical": true, "source": "Tab.77 p.105" },
+        { "location": "Hook fittings — fittings-type hook (from 2018)", "value_Nm": 51.0, "critical": true, "source": "Tab.76 p.103" },
+        { "location": "Bottom block with external cut-off springs (2/1 reeving)", "value_Nm": 55.0, "critical": true, "source": "Tab.79 p.106" },
+        { "location": "Gearbox 2-piece housing bolts", "value_Nm": 25.0, "critical": true, "source": "Tab.18 p.34" },
+        { "location": "Gearbox plug screw", "value_Nm": 15.0, "critical": false, "source": "Tab.18 p.34" },
+        { "location": "Gearbox vent valve", "value_Nm": 15.0, "critical": false, "source": "Tab.18 p.34" },
+        { "location": "Brake M5 screws (×3)", "value_Nm": 5.5, "critical": true, "source": "Tab.86 p.120" },
+        { "location": "Control cable locking mechanism", "value_Nm": 11.0, "critical": false, "source": "Tab.18 p.34" },
+        { "location": "Electrical equipment cover", "value_Nm": 25.0, "critical": false, "source": "Tab.18 p.34" }
+      ],
+      "variants": "⚠NOT EXTRACTED — requires re-reading Tab.7 p.20",
+      "dataStatus": "extracted",
+      "notes": [
+        "FEM class and speed data not captured — Tab.7 p.20 was read in a prior session; values not retained",
+        "Two hook types exist in the field — correct tightening torque depends on which is fitted",
+        "Two-piece gearbox housing (unlike DC-Pro 1–10); vent valve fitted; gearbox oil fill opening present",
+        "2/1 reeving: anchorage pins and chain anchorages must be replaced with the chain set"
+      ],
+      "source": { "manual": "demag-dc-chain-oi-211273-44-202308", "pages": [20, 34, 100, 103, 105, 106, 120], "extractedDate": "2026-05-10", "extractedBy": "claude-code" }
+    },
+    {
+      "id": "demag-dc-com-1",
+      "code": "DC-Com 1",
+      "familyId": "demag-dc-chain",
+      "_dataChangeDecision": "DC-Com models are not in current demag.ts — adding them requires a data-change decision.",
+      "capacityKg": [125],
+      "falls": 1,
+      "femClass": "⚠VERIFY:Tab.8p.21",
+      "chainComponentId": "demag-chain-4.2x12.2",
+      "brakeComponentId": "demag-brake-dc1-5-bk03",
+      "clutchComponentId": "demag-clutch-dc-slip",
+      "loadHook": {
+        "_note": "DC-Com hook dimensions not extracted — Tab.72 covers DC-Pro Item B hooks; DC-Com uses same hook body but verify Tab.72 row for DC-Com 1 (125 kg)"
+      },
+      "suspensionHook": {
+        "type": "suspension",
+        "nominalThroat_mm": { "value": 16.1, "note": "e_short × 1.05 — short bracket. Tab.56 p.81" },
+        "minThroat_mm": { "value": 15.3, "note": "e_min short bracket from Tab.56 p.81" },
+        "safetyLatch": false,
+        "swivel": false,
+        "standard": "DEMAG suspension bracket"
+      },
+      "operatingConditions": {
+        "tempMin_C": -20,
+        "tempMax_C": 45,
+        "ipRating": "IP55",
+        "altitudeMax_m": 1000
+      },
+      "torques": [
+        { "location": "Motor fasteners", "value_Nm": 9.5, "critical": false, "source": "Tab.18 p.34" },
+        { "location": "Hook fittings", "value_Nm": 6.8, "critical": true, "source": "Tab.78 p.105" },
+        { "location": "Brake M5 screws (×3)", "value_Nm": 5.5, "critical": true, "source": "Tab.86 p.120" }
+      ],
+      "variants": "⚠NOT EXTRACTED — requires re-reading Tab.8 p.21",
+      "dataStatus": "extracted",
+      "source": { "manual": "demag-dc-chain-oi-211273-44-202308", "pages": [21, 34, 105, 120], "extractedDate": "2026-05-10", "extractedBy": "claude-code" }
+    },
+    {
+      "id": "demag-dc-com-2",
+      "code": "DC-Com 2",
+      "familyId": "demag-dc-chain",
+      "_dataChangeDecision": "DC-Com models are not in current demag.ts — adding them requires a data-change decision.",
+      "capacityKg": [250],
+      "falls": 1,
+      "femClass": "⚠VERIFY:Tab.8p.21",
+      "chainComponentId": "demag-chain-5.3x15.2",
+      "brakeComponentId": "demag-brake-dc1-5-bk03",
+      "clutchComponentId": "demag-clutch-dc-slip",
+      "loadHook": {
+        "_note": "Hook dimensions for DC-Com 2 not extracted from Tab.72 — verify which row applies"
+      },
+      "suspensionHook": {
+        "type": "suspension",
+        "nominalThroat_mm": { "value": 16.1, "note": "e_short × 1.05 — short bracket. Tab.56 p.81" },
+        "minThroat_mm": { "value": 15.3, "note": "e_min short bracket from Tab.56 p.81" },
+        "safetyLatch": false,
+        "swivel": false,
+        "standard": "DEMAG suspension bracket"
+      },
+      "operatingConditions": {
+        "tempMin_C": -20,
+        "tempMax_C": 45,
+        "ipRating": "IP55",
+        "altitudeMax_m": 1000
+      },
+      "torques": [
+        { "location": "Motor fasteners", "value_Nm": 9.5, "critical": false, "source": "Tab.18 p.34" },
+        { "location": "Hook fittings", "value_Nm": 6.8, "critical": true, "source": "Tab.78 p.105" },
+        { "location": "Brake M5 screws (×3)", "value_Nm": 5.5, "critical": true, "source": "Tab.86 p.120" }
+      ],
+      "variants": "⚠NOT EXTRACTED — requires re-reading Tab.8 p.21",
+      "dataStatus": "extracted",
+      "notes": [
+        "DC-Com 2 uses 5.3×15.2 mm chain — NOT 4.2×12.2 mm. Grouped with DC-Com 5 in Tab.8 chain column. Verify Tab.8 p.21.",
+        "Motor is ZNK 71 B 8/2 (same frame as DC-Pro 2) but larger chain — counter-intuitive"
+      ],
+      "source": { "manual": "demag-dc-chain-oi-211273-44-202308", "pages": [21, 34, 105, 120], "extractedDate": "2026-05-10", "extractedBy": "claude-code" }
+    },
+    {
+      "id": "demag-dc-com-5",
+      "code": "DC-Com 5",
+      "familyId": "demag-dc-chain",
+      "_dataChangeDecision": "DC-Com models are not in current demag.ts — adding them requires a data-change decision.",
+      "capacityKg": [500],
+      "falls": 1,
+      "femClass": "⚠VERIFY:Tab.8p.21",
+      "chainComponentId": "demag-chain-5.3x15.2",
+      "brakeComponentId": "demag-brake-dc1-5-bk03",
+      "clutchComponentId": "demag-clutch-dc-slip",
+      "loadHook": {
+        "_note": "Hook dimensions for DC-Com 5 not extracted from Tab.72 — verify which row applies"
+      },
+      "suspensionHook": {
+        "type": "suspension",
+        "nominalThroat_mm": { "value": 16.1, "note": "e_short × 1.05 — short bracket. Tab.56 p.81" },
+        "minThroat_mm": { "value": 15.3, "note": "e_min short bracket from Tab.56 p.81" },
+        "safetyLatch": false,
+        "swivel": false,
+        "standard": "DEMAG suspension bracket"
+      },
+      "operatingConditions": {
+        "tempMin_C": -20,
+        "tempMax_C": 45,
+        "ipRating": "IP55",
+        "altitudeMax_m": 1000
+      },
+      "torques": [
+        { "location": "Motor fasteners", "value_Nm": 9.5, "critical": false, "source": "Tab.18 p.34" },
+        { "location": "Hook fittings", "value_Nm": 9.5, "critical": true, "source": "Tab.78 p.105" },
+        { "location": "Brake M5 screws (×3)", "value_Nm": 5.5, "critical": true, "source": "Tab.86 p.120" }
+      ],
+      "variants": "⚠NOT EXTRACTED — requires re-reading Tab.8 p.21",
+      "dataStatus": "extracted",
+      "source": { "manual": "demag-dc-chain-oi-211273-44-202308", "pages": [21, 34, 105, 120], "extractedDate": "2026-05-10", "extractedBy": "claude-code" }
+    },
+    {
+      "id": "demag-dc-com-10",
+      "code": "DC-Com 10",
+      "familyId": "demag-dc-chain",
+      "_dataChangeDecision": "DC-Com models are not in current demag.ts — adding them requires a data-change decision.",
+      "capacityKg": [1000, 2000],
+      "capacityByReeving": { "1f": 1000, "2f": 2000 },
+      "falls": [1, 2],
+      "femClass": "⚠VERIFY:Tab.8p.21",
+      "chainComponentId": "demag-chain-7.4x21.2",
+      "brakeComponentId": "demag-brake-dc10-15-bk07",
+      "clutchComponentId": "demag-clutch-dc-slip",
+      "loadHook": {
+        "_note": "Hook dimensions for DC-Com 10 not extracted from Tab.72 — verify which row applies (1000 kg or 2000 kg)"
+      },
+      "suspensionHook": {
+        "type": "suspension",
+        "nominalThroat_mm": { "value": 26.5, "note": "e_short × 1.05 — short bracket. Tab.57 p.81" },
+        "minThroat_mm": { "value": 25.2, "note": "e_min short bracket from Tab.57 p.81" },
+        "safetyLatch": false,
+        "swivel": false,
+        "standard": "DEMAG suspension bracket"
+      },
+      "operatingConditions": {
+        "tempMin_C": -20,
+        "tempMax_C": 45,
+        "ipRating": "IP55",
+        "altitudeMax_m": 1000
+      },
+      "torques": [
+        { "location": "Motor fasteners", "value_Nm": 25.0, "critical": false, "source": "Tab.18 p.34" },
+        { "location": "Hook fittings", "value_Nm": 25.0, "critical": true, "source": "Tab.78 p.105" },
+        { "location": "Bottom block with external cut-off springs (2/1 reeving)", "value_Nm": 55.0, "critical": true, "source": "Tab.79 p.106" },
+        { "location": "Brake M5 screws (×3)", "value_Nm": 5.5, "critical": true, "source": "Tab.86 p.120" }
+      ],
+      "variants": "⚠NOT EXTRACTED — requires re-reading Tab.8 p.21",
+      "dataStatus": "extracted",
+      "notes": [
+        "2/1 reeving: anchorage pins and chain anchorages must be replaced with the chain set"
+      ],
+      "source": { "manual": "demag-dc-chain-oi-211273-44-202308", "pages": [21, 34, 105, 106, 120], "extractedDate": "2026-05-10", "extractedBy": "claude-code" }
+    }
+  ]
+}

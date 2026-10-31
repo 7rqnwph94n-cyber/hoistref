@@ -1,0 +1,18 @@
+manufacturer,family,models,priority,official_site,status,notes
+STAHL,ST,"ST05 ST10 ST20 ST30 ST32 ST50 ST60",high,stahlcranes.com,in-library,Full service manual in library
+DEMAG,DC-Pro,"DC-Pro 1 DC-Pro 2 DC-Pro 5 DC-Pro 10 DC-Pro 15",high,demagcranes.com,in-library,Operating instructions + service data in library
+DEMAG,DC-Com,"DC-Com 1 DC-Com 2 DC-Com 5 DC-Com 10",high,demagcranes.com,in-library,DC-Com 10 manual in library; DC-Com 1/2/5 need dedicated manuals
+DEMAG,Legacy-DK,"DK5 DK10 DK20",medium,demagcranes.com,partial,"Parts lists in library; no OI found — search manualslib"
+DEMAG,Legacy-PK,"PK1 PK2 PK5 PK10",medium,demagcranes.com,partial,"Parts lists in library; operating instructions needed"
+KONE,XN25,"XN25",high,konecranes.com,in-library,XN25 2506 b1 operating & maintenance manual in library
+KONE,UN,"UN1 UN2",medium,konecranes.com,partial,Maintenance manual in library; extraction not yet done
+VERLINDE,VL,"VL1 VL2 VL5 VL10 VL16 VL20 VL25",high,verlinde.com,in-library,VL Tech guide + VL ops manual in library
+VERLINDE,VR,"VR1 VR2 VR5 VR10",high,verlinde.com,partial,Overhaul instructions in library; tech specs needed
+YALE,CPV,"CPV 2 CPV 3 CPV 5 CPV 7 CPV 10",high,cmco.com,partial,"Exploded diagrams only — no service manual with wear data"
+KITO,ER2,"ER2-001 ER2-003 ER2-005 ER2-010 ER2-016 ER2-020 ER2-025 ER2-032 ER2-050",high,kito.net,in-library,"ER2 owner's manual + parts list downloaded (OEM direct kito.net). Lift speeds for ER2-025/032/050 not in manual — need catalog."
+KITO,EQ,"EQ 500 EQ 1000 EQ 3000",medium,kito.net,partial,EQS owner's manual downloaded (OEM direct). Extraction not yet done.
+GIS,GP,"GP250 GP320 GP500 GP630 GP800 GP1000",high,gis-ag.ch,partial,"GP operator manual downloaded (distributor copy, vulcanhoist.com). Data applied to gis.ts."
+ABUS,GM,"GM2 GM4 GM6 GM8",medium,abus-kransysteme.de,partial,Manual 120116EN012 downloaded (GM2/GM4/GM6/GM8). Torques pp87-89 + variant speed matrix still need extraction.
+SWF,CHAINster,"CHAINster 125 CHAINster 250 CHAINster 500 CHAINster 1000",medium,swfkrantechnik.com,partial,"CHAINster assembly manual downloaded. Full operating manual needed. NOTE: SWF NOVA = wire rope hoist (not chain)."
+JD-NEUHAUS,Profi,"Profi 0.5t Profi 1t Profi 3t",low,jdngroup.com,missing,Pneumatic/air hoist — lower priority
+STREET-CRANE,Xpress,"XP2 XP5 XP10",medium,streetcrane.co.uk,missing,No Street Crane manual in library

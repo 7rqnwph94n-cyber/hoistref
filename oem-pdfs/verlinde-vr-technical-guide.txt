@@ -1,0 +1,970 @@
+                
+                                                                       
+                                                                                                                     
+
+
+
+
+
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                                                                                      
+                                               
+                                                    
+                                                                       
+                                                                       
+                                                                       
+                                                                                                      
+
+                                                         ! " #$#%"&
+                                                        
+
+                                                                                                                            $'('& #)
+
+                                                                                                                                                             * 
+
+
+       EUROCHAIN VR TECHNICAL GUIDE, VR2, VR5 AND VR10
+
+Table of contents
+
+1  GENERAL .................................................................................................................................................. 2
+2  EUROCHAIN VR CHAIN HOISTS PRODUCT CODE .............................................................................. 3
+3  LOAD RANGE AND DUTY CLASSES ...................................................................................................... 4
+  3.1   Hoists classifications .......................................................................................................................... 4
+  3.2   Industrial range .................................................................................................................................. 5
+  3.3   Windturbine applications .................................................................................................................... 6
+4 EUROCHAIN VR CLASSIC PROPERTIES............................................................................................... 7
+  4.1   Standard features .............................................................................................................................. 7
+  4.2   Optional features ............................................................................................................................... 8
+5 DIMENSIONAL TABLES ........................................................................................................................... 9
+  5.1   Hooks ................................................................................................................................................. 9
+  5.2   Hook blocks and bottle .................................................................................................................... 10
+6 MOTORS .................................................................................................................................................. 11
+  6.1   Hoisting motors ................................................................................................................................ 11
+  6.2   Hoisting brakes ................................................................................................................................ 12
+  6.3   Traversing motors ............................................................................................................................ 13
+7 GEARS ..................................................................................................................................................... 15
+  7.1   Hoisting gear .................................................................................................................................... 15
+8 OVERLOAD DEVICE: SLIPPING CLUTCH ............................................................................................ 16
+9 CHAIN REEVING COMPONENTS ......................................................................................................... 17
+  9.1   Chain drive ....................................................................................................................................... 17
+  9.2   Return sprocket ............................................................................................................................... 17
+10    ELECTRICS......................................................................................................................................... 18
+  10.1 Cable inputs ..................................................................................................................................... 18
+  10.2 Wiring ............................................................................................................................................... 18
+11    HOISTING CHAINS ............................................................................................................................. 19
+  11.1 Safety factors according to standards ............................................................................................. 19
+  11.2 Chains of the Classic range 1 .......................................................................................................... 19
+12    TROLLEY CONSTRUCTIONS............................................................................................................ 20
+  12.1 Hook suspended hoist ..................................................................................................................... 20
+  12.2 Eye suspended hoist ....................................................................................................................... 20
+  12.3 Push trolley hoist ............................................................................................................................. 21
+  12.4 Push trolley inside hollow profile ..................................................................................................... 21
+  12.5 Normal headroom trolley ................................................................................................................. 22
+  12.6 Low headroom trolley ...................................................................................................................... 22
+13    LIST OF MATERIALS AND COATINGS ............................................................................................ 23
+
+
+
+
+           +                                     +        +  
+                                                                                           ! " #$#%"&
+
+                                                                                             $'('& #)
+
+                                                                                                                   *
+
+1    GENERAL
+
+The EUROCHAIN VR Classic is an integrated electric chain hoist that is designed to be used for industrial
+applications but that can be adapted to suit to specific applications such as show industry or windmill
+applications.
+It is powered with an asynchronous squirrel cage motor that is controlled thru contactors.
+It can be delivered as hook suspended unit or together with a variety of trolleys.
+
+
+Figure 1. EUROCHAIN VR overview.
+
+
+
+
+The main parts of the EUROCHAIN VR are given in figure 2.
+Figure 2. Main parts of the EUROCHAIN VR trolley.
+
+
+
+
+                                                                                      Trolley frame
+            Trolley drive
+
+
+
+
+                                                                                             Hoist body
+
+
+
+
+                                                                                      Chain bucket
+                               Hook block
+
+
+
+    +                          +        +  
+                                                       ! " #$#%"&
+
+                                                                                               $'('& #)
+
+                                                                                                              * ,
+
+2    EUROCHAIN VR CHAIN HOISTS PRODUCT CODE
+
+      VR            CHAIN HOIST RANGE TYPE
+            5            CHAIN HOIST BODY SIZE
+                         2, 5, 10, 16, 20, 25
+                  V             VERLINDE
+
+                         N              SOFISTICATION LEVEL
+                                        N= NEO CAN                   C = CLASSIC
+                              08             NOMINAL MAIN HOISTING SPEED ( M/MIN)
+                                             04, 08,10,16, 20        _
+                                                     NUMBER OF FALLS
+                                                       1, 2, 3
+                                             050     CAPACITY ( kg/10 )
+
+
+
+
+     VR 5        V N 08 1                   050         5       N      120 405             E    A   080
+     ISO DUTY CYCLE
+                                                         5
+     M4, M5, M6
+
+     TROLLEY / SUSPENSION TYPE
+     N= NHT                   F= FIXED HOIST
+     L= LHT
+     S= SWIVELLING
+     TROLLEY                                                     N
+     BEAM WIDTH ( MM )
+                                                                     120
+     POWER SUPPLY
+     235: 230V50HZ                 405: 400V50HZ
+     236: 230V60HZ                 406: 400V60HZ
+                                   466: 460V60HZ                                405
+     ELECTRICS CODE
+               C: CSA
+               E : IEC                                                                     E
+     CONTROL VOLTAGE
+     A: 48VAC
+     B: 115VAC
+     C: 230VAC                                                                                  A
+     HEIGHT OF LIFT (m X10)
+                                                                                                    080
+
+
+
+
+    +                          +        +  
+                                                  ! " #$#%"&
+
+                                                                                                  $'('& #)
+
+                                                                                                                   * -
+
+3     LOAD RANGE AND DUTY CLASSES
+3.1      Hoists classifications
+
+The mechanism group – M3, M4, M5 or M6 – of an electric chain hoist depends on the class of utilization (T) and
+on the class of load spectrum (L).
+
+Class of     Class of utilization
+load         T0             T1        T2          T3         T4        T5         T6         T7      T8      T9
+spectrum
+L1           M1             M1        M1          M2         M3        M4         M5         M6      M7      M8
+L2           M1             M1        M2          M3         M4        M5         M6         M7      M8      M8
+L3           M1             M2        M3          M4         M5        M6         M7         M8      M8      M8
+L4           M2             M3        M4          M5         M6        M7         M8         M8      M8      M8
+
+Depending on the loading spectrum km, the mechanism is placed in one of the four classes L1, L2, L3 and L4. The
+loading spectrum km characterizes the magnitude of the loads acting on a mechanism during its total duration of
+use. It is between 0 and 1.
+
+If we consider an electric chain hoist with a safe working load equal to 1T
+
+If it is always used with an average load = 1T, km = 1 (very heavy)
+If it is always used with an average load = 750kg, km = 0,422 (heavy)
+If it is always used with an average load = 600kg, km = 0,216 (medium)
+If it is always used with an average load = 500kg, km = 0,125 (light)
+
+Class of     Loading spectrum km
+load
+spectrum
+L1           Km  0,125
+L2           0,125 < Km  0,250
+L3           0,250 < Km  0,500
+L4           0,500 < Km  1
+
+The total duration of use is a calculated duration of use (in motion) of a mechanism up to its replacement, or for 10
+years before a general overhaul. It is expressed in terms of hours.
+
+Class        Total duration of use T (h)
+T0           T  200
+T1           200 < T  400
+T2           400 < T  800
+T3           800 < T  1600
+T4           1600 < T  3200
+T5           3200 < T  6300
+T6           6300 < T  12500
+T7           12500 < T  25000
+T8           25000 < T  50000
+T9           50000 < T
+
+The life time of an electric chain hoist is function of the average load on the hook and of its FEM group.
+
+If we consider still an electric chain hoist with a safe working load equal to 1T and a FEM group 2m/M5
+
+If it is always used with an average load = 1T, the life time will be 1600h (L4, T3)
+If it is always used with an average load = 750kg, the life time will be 3200h (L3, T4)
+If it is always used with an average load = 600kg, the life time will be 6300h (L2, T5)
+If it is always used with an average load = 500kg, the life time will be 12500h (L1, T6)
+
+The customer is responsible for checking the suitability of the mechanism for his process.
+
+
+
+
+      +                          +        +  
+                                                       ! " #$#%"&
+
+                                                                                                         $'('& #)
+
+                                                                                                                                     * .
+
+3.2        Industrial range
+
+Cap.         Speed           ISO    Body       Falls   Max.         ED     Starts   Motor          Gear         Chain        Gear
+( kg )       (m/min                                    Temp         %      / hour   power          life ( h )   size         ratio
+             )                                                                      HS(kW)                      (dxp)
+                                                               1)
+63           8/2             M6     VR2        1       +40°C        50     300      0.45           3200         4 x 11       39.382
+                                                             1)
+             10 /            M6     VR2        1       +40°C        50     300      0.45           3200         4 x 11       31.955
+             2.5
+                                                               1)
+             16 / 4          M6     VR2        1       +40°C        50     300      0.45           3200         4 x 11       19.6
+                                                             1)
+             20 / 5          M6     VR2        1       +40°C        50     300      0.45           3200         4 x 11       15.904
+                                                             1)
+125          8/2             M6     VR2        1       +40°C        50     300      0.45           3200         4 x 11       39.382
+                                                             1)
+             10 /            M6     VR2        1       +40°C        50     300      0.45           3200         4 x 11       31.955
+             2.5
+                                                               1)
+             16 / 4          M5     VR2        1       +40°C        50     300      0.45           1600         4 x 11       19.6
+             20 / 5          M4     VR2        1       +40°C        30     180      0.45           800          4 x 11       15.904
+                                                             1)
+160          8/2             M6     VR2        1       +40°C        50     300      0.45           3200         4 x 11       39.382
+                                                             1)
+             10 /            M6     VR2        1       +40°C        50     300      0.45           3200         4 x 11       31.955
+             2.5
+             16 / 4          M4     VR2        1       +40°C        30     180      0.45           800          4 x 11       19.6
+                                                             1)
+250          4/2             M5     VR2        1       +40°C        50     300      0.25           1600         4 x 11       39.382
+                                                             1)
+             8/2             M5     VR2        1       +40°C        50     300      0.45           1600         4 x 11       39.382
+             10 /            M4     VR2        1       +40°C        30     180      0.45           800          4 x 11       31.955
+             2.5
+                                                               1)
+             16 /            M5     VR5        1       +40°C        50     300      0.9            1600         4 x 11       25.271
+             2.6
+             20 /            M4     VR5        1       +40°C        30     180      0.9            800          4 x 11       20.185
+             3.2
+320          4/2             M4     VR2        1       +40°C        30     180      0.25           800          4 x 11       39.382
+             8/2             M4     VR2        1       +40°C        30     180      0.45           800          4 x 11       39.382
+             16 /            M4     VR5        1       +40°C        30     180      0.9            800          4 x 11       25.271
+             2.7
+                                                               1)
+500          4 / 1.3         M5     VR5        1       +40°C        50     300      0.45           1600         5 x 14       49.894
+                                                             1)
+             8 / 1.3         M5     VR5        1       +40°C        50     300      0.9            1600         5 x 14       49.894
+             10 /            M4     VR5        1       +40°C        30     180      0.9            800          5 x 14       39.852
+             1.6
+                                                               1)
+             16 /            M5     VR10       1       +40°C        50     300      1.8            1600         5 x 14
+             2,6
+             20 /            M4     VR10       1       +40°C        30     180      1.8            800          5 x 14
+             3,2
+630          4 / 1.3         M4     VR5        1       +40°C        30     180      0.45           800          5 x 14       49.894
+             8 / 1.3         M4     VR5        1       +40°C        30     180      0.9            800          5 x 14       49.894
+             16 /            M4     VR10       1       +40°C        30     180      1.8            800          5 x 14
+             2,6
+                                                               1)
+1000         4 / 1,3         M5     VR10       1       +40°C        50     300      0.9            1600         7 x 20       71.905
+                                                             1)
+             8 / 1,3         M5     VR10       1       +40°C        50     300      1.8            1600         7 x 20       71.905
+             10 /            M4     VR10       1       +40°C        30     180      1.8            800          7 x 20
+             1,6
+1250         4 / 1,3         M4     VR10       1       +40°C        30     180      0.9            800          7 x 20       71.905
+             8 / 1,3         M4     VR10       1       +40°C        30     180      1.8            800          7 x 20       71.905
+                                                             1)
+1600         4 / 0,7         M5     VR10       2       +40°C        50     300      1.8            1600         7 x 20       71.905
+             5 / 0,8         M5     VR10       2       +40°C        40     240      1.8            1600         7 x 20
+                                                             1)
+2000         4 / 0,7         M5     VR10       2       +40°C        50     300      1.8            1600         7 x 20       71.905
+             5 / 0,8         M4     VR10       2       +40°C        30     180      1.8            800          7 x 20
+2500         4 / 0,7         M4     VR10       2       +40°C        30     180      1.8            800          7 x 20       71.905
+
+      1)
+           If 40% ED and 240 starts per hour then maximum temperature +50°C
+
+
+
+
+       +                               +        +  
+                                                                      ! " #$#%"&
+
+                                                                                            $'('& #)
+
+                                                                                                                 * /
+
+3.3     Windturbine applications
+
+
+Capacity        Speed           ISO         Body         Falls     Max.         Continious drive   Gear         Chain size
+( kg )          (m/min)                                            Temp                            lifetime     (dxp)
+                                                                                                   (hours)
+125             16 / 4          M3          VR2          1         +50°C        30 min.            400          4 x 11
+                20 / 5          M3          VR2          1         +50°C        30 min.            400          4 x 11
+200             24 / 6          M3          VR5          1         +50°C        30 min.            400          4 x 11
+250             16 / 4          M3          VR5          1         +50°C        30 min.            400          4 x 11
+                20 / 5          M3          VR5          1         +50°C        30 min.            400          4 x 11
+                32 / 5          M3          VR10         1         +50°C        30 min.            400          4 x 11
+320             16 / 4          M3          VR5          1         +50°C        30 min.            400          4 x 11
+400             24 / 4          M3          VR10         1         +50°C        30 min.            400          5 x 14
+500             20 / 3,2        M3          VR10         1         +50°C        30 min.            400          5 x 14
+630             16 / 2,6        M3          VR10         1         +50°C        30 min.            400          5 x 14
+800             12 / 2          M3          VR10         1         +50°C        30 min.            400          7 x 20
+
+
+
+
+    +                           +        +  
+                                                     ! " #$#%"&
+
+                                                                                           $'('& #)
+
+                                                                                                          * 0
+
+
+
+4     EUROCHAIN VR CLASSIC PROPERTIES
+4.1     Standard features
+Mechanics
+y Single fall up to 1250 kg. Two fall up to 2500 kg.
+y Motors thermally protected with bi-metal switches, protection class IP55, tropical impregnation
+y Mechanical overload device (clutch)
+y Disc brake positioned after the clutch on the load path
+y Three or two step helical gear
+y Sprocket on output shaft in cantilever position
+y Operation temperature –20°C to +50°C with rated load and speed
+y Body epoxy powder 70μm thickness paint, C2-M according to EN12944-2 and EN12944-5
+y DIN type upper and lower hook
+y Zinc platted chain
+y Rubber buffers on trolleys
+y Integrated wheel catch and trolley retaining device
+Electrics
+y Dual speed with ¼ ratio for VR02, 1/6 for VR05 and VR10
+y All components connected by plugs
+y Low voltage control 48 VAC
+y E-stop with main contactor
+y Electrics split on two main PCB. Power and motor control PCB.
+y Separate brake rectifier connected to contactor
+y Inverter travelling with EP or MS mode
+y Hook operated limit switches
+Maintenance
+y Easy access to brake airgap
+y Easy access to clutch adjustment
+y Easy access to fuse
+
+
+
+
+     +                         +        +  
+                                              ! " #$#%"&
+
+                                                                                            $'('& #)
+
+                                                                                                           * 1
+
+
+4.2     Optional features
+Mechanics
+y Second brake
+y Manual brake release
+y Upper suspension eye
+y Hook block with automatic hook
+y Lockable rotation of hook forging
+y Anti condensation package, motors stand by heating, electrics stand by heating
+y Rail brush assembly
+y Rain cover
+y 2 step programmable limits
+y Stainless steel chain
+y Stainless steel hook
+y Stainless steel hook block
+y IP66 protection
+y ATEX Zone 22 rating
+y Food lubricant
+y Double girder trolley
+y Double chain output
+Electrics
+y Supply 230V..675V
+y Hand control on hook
+y Travelling electric limit switches
+
+
+
+
+     +                          +        +  
+                                               ! " #$#%"&
+
+                                                                                                   $'('& #)
+
+                                                                                                                           * 2
+
+
+
+5     DIMENSIONAL TABLES
+5.1        Hooks
+
+
+
+
+Hooks are designed according to DIN15401. Material is 34 CrMo 4.
+
+
+Hoist type Reeving Marking / Class           Braking                          Dimensions (mm)
+                                             strength
+                                                          ØM Øa1 a2* -a3 -b1 -b2             -e1   -h1 -h2 -t1     -t2
+    VR2      1/1             012T                          12   30    22   34   19    15     73    22   19   32    10.5
+    VR5      1/1             020T                          16   34    25   39   21    18     84    26   22   36    13.5
+    VR10     1/1              04T                          20   40    30   45   27    22     98    34   29   39    14.5
+             2/1              08T                          20   48    36   54   35    29     116   44   37   43    14.5
+* The a2 dimension is the free space with the hook latch
+
+
+
+
+     +                           +        +  
+                                                               ! " #$#%"&
+
+                                                                                               $'('& #)
+
+                                                                                                             * "
+
+
+
+ 5.2      Hook blocks and bottle
+
+  Limit switch
+  activator
+
+
+
+   Grip area
+
+
+
+
+Hook
+mounted on
+needle
+bearings
+
+
+
+
+                                    A               B              C               R
+
+               VR2                 73             103              55             15
+               VR5                 84             117              68             17
+               VR10-
+                                   98             155              92             20
+               1/1
+               VR10 –
+                                  116             215             124             24
+               2/1
+
+ VR10 dual fall
+ (2/1)
+
+
+
+
+         +                         +        +  
+                                                  ! " #$#%"&
+   
+                                                                                                               $'('& #)
+
+                                                                                                                                     * 
+
+
+         6     MOTORS
+         6.1        Hoisting motors
+         The hoisting motor is specially designed for hoisting purposes with good efficiency. The motor has an
+         aluminum frame for efficient cooling and own cooling fan.
+
+
+
+
+                                                                         ϕ        
+                                                   !           "           !"                   "
+                                                            #          #         #          #       #       # 
+                            &''       ('   )&      '*)) '*&(     +,' %,('      '*, )*-       )*' )*,   '*+) '*.%   )*% &*%
+   $%                       &+'       +'   )&      '*)- '*((     ,%' -&+'      '*, )*-       )*' )*,   '*+) '*.%   )*% &*%
+                            &''       ('   )+      '*)( '*/      &'' %,''      )*/ -*)       )*/ -*)   '*+, '*.(   %*( )'
+                             &+'       +'   )+      '*), )*)      &,' --,'      )*/ %*.       )*/ %*.   '*&/ '*+)   %*( ))
+   $(
+                                &''       ('   %+      '*)( '*&(     &'' )&%'      )*/ %*%       )*/ %%   '*+, '*.(   %*(      .
+                                &+'       +'   %+      '*), '*((     &,' )+,'      )*/ %*%       )*/ %*%   '*&/ '*+)   %*( .*(
+                            &''       ('   )+      '*%( )*,      &%' %.,'      %*, -*+       %*, &*/   '*+. '*,%   -*+ %'
+                             &+'       +'   )+       '*- %*%      (%( -&)'      %*, %*(       %*, &*.   '*(, '*,'   -*/ )/
+   $)'
+                                &''       ('   %+      '*%( '*/      &%' )-/'      %*, %*,       %*, %*,   '*+. '*,%   -*+ )%
+                                &+'       +'   %+       '*- )*)      (%( )+.'      %*, %*,       %*, %*,   '*(, '*,'   -*/ )%
+
+
+
+
+                   +                           +        +  
+                                                                         ! " #$#%"&
+
+                                                                                            $'('& #)
+
+                                                                                                          * 
+
+6.2     Hoisting brakes
+The hoisting motor is equipped with disc brake with one rotating disc with two lining surfaces. There is a coil
+protection class IP66. Rotating parts are without closures to ensure the self cleaning function.
+Brake is lifetime brake and air gap can easily be checked at the rear of the brake coil.
+
+
+
+
+                                Hoist size         VR2         VR5        VR10
+                               Brake torque      2.8 N.m     6.8 N.m     14 N.m
+
+
+
+
+     +                          +        +  
+                                               ! " #$#%"&
+
+                                                                                                             $'('& #)
+
+                                                                                                                                     * ,
+
+
+  6.3        Traversing motors
+                                                                                    1 Gear/motor unit
+                                   1                                                2 Brake friction discs
+                                                                                    3 Brake disc
+                                                 2                                  4 Aluminum ring
+                                                      3
+     10                                                                             5 Adjustment nut
+                                                           5                        6 Motor cover
+                                                      4
+              7                                                                     7 Electric box
+                                                               6
+                    8
+                                                                                    8 Frequency converter
+                                                                                    9 Connecting cable
+                                                                                    10 Fixing screws
+                                                                                    3 different inverters drive units are used for the chain
+                                                                                    hoists application as a standard:
+                                                                                    - TMU1 is a gearless drive
+                                                                                    - TMU2 is a geared drive (300W)
+                                                                                    - TMU3 is a geared drive (400W)
+                                                      9                             The control inverter type Dynadrive 007 is mounted on
+                                                                                    the side of the units and is plug connected to the chain
+                                                                                    hoists.
+
+
+
+
+                                                           Standard                                                     Options
+                               TMU 1 (35Hz)              TMU 2 (100Hz)               TMU 3
+          Speed               PV : 4...20 m/min         PV : 2…10 m/min       PV : 1,6…8,3 m/min             PV : 4…16 m/min (5000 kg) TMU2
+                              GV : 20...44 m/min       GV : 10…20 m/min      GV : 8,3…16,7 m/min             GV : 16…32 m/min (5000 kg TMU2
+                                       1 vitesse non disponible / One speed not available
+    Maximum load
+                               0 < X < 1000 kg             0 < X < 5000 kg               Æ 10 000 kg                        -
+           ED%
+                                       40%                           40%                     40%                            -
+          Starts
+                                        240                          240                     240                            -
+          Current
+                              In = 1,1A – Id = 2,3A       In = 1,2A – Id = 4,2A      In = 1,8A – Id = 8,2A                  -
+          Power
+                                       150 W                        300 W                   450 W                           -
+          cos phi
+                                        0,5                          0,57                    0,52                           -
+           rpm
+                                        965                          2855                   2850                            -
+      Frequency
+                                  50…60 HZ                         50…60 Hz               50…60 Hz                         -
+     Power supply                                                                                             208/220/230/525/575/600/690
+                                 380…480 Vac                   380…480 Vac                                    except C01, only 380/480 vac
+    Control voltage
+                                       48Vac                        48Vac                   48Vac                        115 Vac
+  End limit switches                                                                                                       Oui
+                                         -                            -                        -                           Yes
+ Slow down switches                                                                                                yes (Mode MS only)
+                                         -                            -                        -
+  Thermal protection                                                                                                       Yes
+                                         -                            -                        -
+     IP Protection
+                                        55                            55                      55                  Renforcée / reinforced
+    Tropicalization
+                                       95 %                          95 %                   95 %                            -
+     Temperature
+                                 -10°C … 40°C                  -10°C … 40°C             -10°C … 40°C                        -
+          Heaters                                                                                                          Yes
+                                         -                            -                        -
+      Motor class
+                                        H                             H                       H                             -
+Alone (low volt. cubicle)               -                             -                       -                            Yes
+Brake mec. unjamming                                                                                                       No
+                                         -                            -                        -
+
+
+
+
+            +                                +        +  
+                                                                       ! " #$#%"&
+
+                                                                                          $'('& #)
+
+                                                                                                        * -
+
+Note : Inverter must neither be moved nor removed
+
+
+
+
+    +                         +        +  
+                                             ! " #$#%"&
+
+                                                                                                  $'('& #)
+
+                                                                                                                * .
+
+
+
+7     GEARS
+7.1     Hoisting gear
+The hoisting gear of EUROCHAIN VR has two or three helical steps. It is specially developed for hoisting
+appliances.
+It is lifetime lubricated with oil.
+
+
+2 step gears                                                    3 step gears
+
+
+
+
+                                      Main hoisting speed
+                         Hoist type                                Gear Type                 Ratio
+                                        ( 1 fall m/min )
+                                                 8                    2 step                 39,382
+                                                10                    2 step                 31,955
+                           VR2
+                                                16                    2 step                 19,576
+                                                20                    2 step                 16,039
+                                              8-4                     3 step                 49,894
+                                                10                    3 step                 39,852
+                           VR5                  16                    2 step                 25,286
+                                                20                    2step                  20,196
+                                                24                    2 step                 17,024
+                                              8-4                     3 step                 71,777
+                                                10                    3 step                 57,172
+                                                12                    3 step                 48,264
+                           VR10
+                                                16                    2 step                 35,832
+                                                20                    2step                  28,541
+                                                24                    2 step                 23,529
+
+
+
+
+       +                         +        +  
+                                                     ! " #$#%"&
+
+                                                                                               $'('& #)
+
+                                                                                                             * /
+
+
+    8     OVERLOAD DEVICE: SLIPPING CLUTCH
+
+    On EUROCHAIN VR Classic, the overload protection of the unit is ensured thru a direct acting limitor of
+    slipping clutch type. This device is according to EN14492-2 requirements for such units.
+    It is set in such a way that it allows the unit to lift a load corresponding to the dynamic test load (110% of
+    SWL) and prevents the unit from lifting a load of 160% of SWL.
+    The construction is so that the brake holds the load without any interaction with the clutch.
+
+
+
+
+Setting
+screw
+
+
+
+
+                                   Belleville
+                                   washers
+
+                                                                    Clutch discs
+                                                                    with lining
+
+
+
+
+         +                         +        +  
+                                                  ! " #$#%"&
+
+                                                                                           $'('& #)
+
+                                                                                                         * 0
+
+
+9     CHAIN REEVING COMPONENTS
+9.1     Chain drive
+The EUROCHAIN VR units are fitted with a specific chain drive including a additional supporting teeth on the
+sprocket. That tooth improves the support of the chain and therefore reduces the stresses and the wear.
+
+
+
+
+            Intermediate
+            teeth
+
+
+
+
+9.2     Return sprocket
+
+
+
+
+    +                          +        +  
+                                              ! " #$#%"&
+
+                                                                                          $'('& #)
+
+                                                                                                             * 1
+
+
+10 ELECTRICS
+10.1 Cable inputs
+
+
+
+
+10.2 Wiring
+
+                                                                      TMU
+
+                                                                                          Motor +
+                                                                                          bimetal
+                                                                                          switches
+
+                                                                           Motor
+                                                                           board
+
+
+
+
+      Pendant
+
+
+
+
+                                                                                           Brake
+
+
+
+
+                                                 Power
+                                                 board
+                                                                           Limit
+                        Power                                              switches
+                        supply
+
+    +                         +        +  
+                                                  ! " #$#%"&
+
+                                                                                                                            $'('& #)
+
+                                                                                                                                                         * 2
+
+
+11 HOISTING CHAINS
+11.1 Safety factors according to standards
+EN standard
+EN818-7
+
+
+
+11.2 Chains of the Classic range 1
+Dimensions
+                                                       d1                d
+
+
+                                  b2    b1
+                                                                                      LABEL
+
+
+                                                            t                                                          a
+                                                                                    11×t
+
+
+        Chain size                     Unit                       VR2                               VR5                          VR10
+                                                                 4 x 11                            5 x 14                        7 x 20
+                                                                                                       +0.2                           +0.03
+        diameter                   d [mm]                          + 0.2                      5                            7
+                                                       4.0                                             - 0.2                          - 0.03
+                                                                   -0.2
+                                                                   +0.15
+                                                                                                         +0.2 - --                      +0.25
+        Pitch                                          11          -0.05                          14                       20
+                                   t [mm]                                                                -0.1                           - 0.15
+
+                                                                  +0.4                                +0.5                              +0.7
+        Control length           11×t [mm]            121         - 0.2                           154 -0.25                     220     -0.35
+
+
+        Weld seam                 d1 [mm]                       4.3 max.                          5.4 max.                      7.5 max.
+        Internal width                                          4.8 min                             6 min                       8.4 min.
+                                  b1 [mm]
+        External width            b2 [mm]                       13.6 max                          16.8 max                      23.6 max
+        Label spacing                  amin                      0.22 m                             0.3 m                        0.4 m
+        Label mark height              [mm]                       1.5                                  1.8                        2.0
+        Weight                    G[kg/m]                         0.37                                 0.57                       1.10
+
+
+Technical characteristics
+      Chain size                              Unit                            VR2                              VR5                    VR10
+                                                                             4 x 11                           5 x 14                  7 x 20
+      Cross section                      A       [mm2]                       25.12                            39.25                   76.93
+      Max working load                 mSWP          [kg]                     320                              630                    1250
+      Stress at max working
+                                         ı           [MPa]                    125                             157.5                   159.4
+      load
+      Test force                        Fm           [kN]                    12.6                              20                        40
+      Min. breaking force               FB           [kN]                    20.10                             32                     61.6
+      Min. Elongation breaking                        [%]                     10                               10                        10
+      Surface hardness                               [HV]                     400                              400                     400
+      Corrosion protection                                                Zinc-plated                    Zinc-plated              Zinc-plated
+
+
+
+
+        +                                       +        +  
+                                                                                              ! " #$#%"&
+
+                                                                                          $'('& #)
+
+                                                                                                        *     "
+
+
+12 TROLLEY CONSTRUCTIONS
+12.1 Hook suspended hoist
+
+
+
+
+12.2 Eye suspended hoist
+
+
+
+
+    +                         +        +  
+                                             ! " #$#%"&
+
+                                                                                          $'('& #)
+
+                                                                                                        *     
+
+12.3 Push trolley hoist
+
+
+
+
+12.4 Push trolley inside hollow profile
+
+
+
+
+    +                         +        +  
+                                             ! " #$#%"&
+
+                                                                                          $'('& #)
+
+                                                                                                        *
+
+12.5 Normal headroom trolley
+
+
+
+
+12.6 Low headroom trolley
+
+
+
+
+    +                         +        +  
+                                             ! " #$#%"&
+
+                                                                                          $'('& #)
+
+                                                                                                        *     ,
+
+
+13 LIST OF MATERIALS AND COATINGS
+
+        MATERIALS:
+             - Frame: Pressure die casted aluminium alloy
+             - Covers: Pressure die casted aluminium alloy
+             - Profiles: Extruded aluminium alloy
+             - Gears: alloy steel
+             - Chain bucket: Polyethylene
+             - Lubricant: oil type Dexron III
+
+        COATINGS:
+              - Aluminium alloy components: Polyester – epoxy powder painting thickness 70 μm
+              - Steel components: zinc plating
+
+
+
+
+    +                         +        +  
+                                             ! " #$#%"&
+2, Boulevard de l’industrie
+B.P. 20059 - 28509 Vernouillet Cedex
+FRANCE
+Tel. (33) 02 37 38 95 95
+Fax. (33) 02 37 38 95 99
+Internet : www.verlinde.com
+

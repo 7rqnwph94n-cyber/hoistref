@@ -1,0 +1,1007 @@
+                                                                                                   21
+
+
+
+
+EN - Translated Operating Instructions (Also applicable for special versions)
+Electric chain hoist
+CPV(F)
+Columbus McKinnon Industrial Products GmbH
+Yale-Allee 30
+42329 Wuppertal
+Germany
+
+
+
+
+                                             ©
+                                                 2018 Columbus McKinnon Industrial Products GmbH
+                                                                                                                                                                                                       22
+
+
+Table of Contents
+Introduction .......................................................................................................................................................................................... 23
+Permanent Sound Pressure Level ....................................................................................................................................................... 23
+Theoretical service life ......................................................................................................................................................................... 23
+Regulations........................................................................................................................................................................................... 23
+Correct operation ................................................................................................................................................................................. 23
+Incorrect operation ............................................................................................................................................................................... 24
+Assembly .............................................................................................................................................................................................. 26
+Electrical Connection ........................................................................................................................................................................... 28
+Inspection before initial operation ...................................................................................................................................................... 30
+Operation .............................................................................................................................................................................................. 30
+Inspection, Service & Repair ............................................................................................................................................................... 31
+Transport, Storage, Decommissioning and Disposal ........................................................................................................................ 38
+
+
+
+
+                                                                      ©
+                                                                          2018 Columbus McKinnon Industrial Products GmbH
+                                                                                                                                        23
+
+
+INTRODUCTION
+Products of CMCO Industrial Products GmbH have been built in accordance with the state-of-the-art and generally accepted
+engineering standards. Nonetheless, incorrect handling when using the products may cause dangers to life and limb of the user or third
+parties and/or damage to the hoist or other property.
+The operating company is responsible for the proper and professional instruction of the operating personnel. For this purpose, all
+operators must read these operating instructions carefully prior to the initial operation.
+These operating instructions are intended to acquaint the user with the product and enable him to use it to the full extent of its intended
+capabilities. The operating instructions contain important information on how to operate the product in a safe, correct and economic
+way. Acting in accordance with these instructions helps to avoid dangers, reduce repair costs and downtimes and to increase the
+reliability and lifetime of the product. The operating instructions must always be available at the place where the product is operated.
+Apart from the operating instructions and the accident prevention act valid for the respective country and area where the product is
+used, the commonly accepted regulations for safe and professional work must also be adhered to.
+The personnel responsible for operation, maintenance or repair of the product must read, understand and follow these operating
+instructions.
+The indicated protective measures will only provide the necessary safety, if the product is operated correctly and installed and/or
+maintained according to the instructions. The operating company is committed to ensure safe and trouble-free operation of the product.
+
+
+PERMANENT SOUND PRESSURE LEVEL
+The equivalent permanent sound pressure level at the workplace of the operating staff is ≤ 70 dB. It was determined with the use of the
+measurement surface sound pressure level method (distance from lifting device 1 m, 9 measuring points, precision class 2 DIN 45635).
+
+
+THEORETICAL SERVICE LIFE
+The Yale electric chain hoist CPV/F is classified in accordance with FEM 9.511 in the FEM Group 1Am /M4. This theoretically results in
+a service life of 800 operating hours under full load.
+Basic principles for the calculation of the theoretical remaining service life are given in DGUV Vorschrift 54. When the theoretical
+remaining service life has been reached, the hoist should be subjected to a general overhaul.
+
+
+REGULATIONS
+Before the initial start-up, a check must be performed by a competent person as per the mandatory accident prevention rules applicable
+in the user's country, as well as in accordance with the recognised rules for safety and proper working.
+In Germany, these are the accident prevention specifications of the Trade Association DGUV Vorschrift 52, DGUV Vorschrift 54, DGUV
+Regel 100-500 and VDE 0113-32/EN 60204-32:2008.
+
+
+CORRECT OPERATION
+The Yale CPV/F electric chain hoist production series has been designed to lift and lower loads up to the rated capacity. In combination
+with a trolley, the device is also ideal for the horizontal movement of overhead loads.
+Any different or exceeding use is considered incorrect. Columbus McKinnon Industrial Products GmbH will not accept any liability for
+damage resulting from such use. The risk is borne by the user resp. operating company alone.
+The lifting capacity indicated on the hoist/trolley is the maximum safe working load which must not be exceeded.
+
+ATTENTION: The unit may be used only in situations in which the load carrying capacity of the device and/or the supporting
+structure does not change with the load position.
+
+ATTENTION: Note that depending on the type of load, the lifting height may be reduced for models with chain container!
+
+The attachment point and its supporting structure must be designed for the maximum loads to be expected.
+The selection and calculation of the appropriate supporting structure are the responsibility of the operating company.
+The suspension bracket (or the optional trolley) as well as the load hook of the unit must be in a vertical line above the load centre of
+gravity (S) when the load is lifted, so that load sway can be avoided during the lifting process.
+
+
+
+
+                                                                          S
+
+
+
+The following are applicable to devices in a trolley:
+The hoist is suitable for a wide range of beams as well as various profiles (e.g. INP, IPE, IPB, etc.) with a maximum inclination of the
+beam flange not exceeding 14°.
+The runway must only have a deflection of maximum 1/500 of the span even under maximum load.
+The longitudinal gradient of the travel path surface may not exceed 0.3%.
+The air gap between the wheel flange and the beam flange ("dimension A") must be 2.0 mm on either side of the trolley.
+Always transport loads in the horizontal direction slowly, carefully and close to the ground.
+In manual trolleys without a winch drive, the suspended load must be pushed. It cannot be pulled.
+Under no circumstances can a device or unit with an attached load be pulled via control cable!
+If the area in front of the load is not sufficiently visible, the operator must make sure that he is given help.
+
+
+
+
+                                                ©
+                                                    2018 Columbus McKinnon Industrial Products GmbH
+                                                                                                                                        24
+
+Do not allow personnel to pass under a suspended load.
+
+
+
+
+After lifting or tensioning, a load must not be left unattended or remain lifted for a longer period of time.
+The operator may start moving the load only after it has been attached correctly and all persons are clear of the danger zone.
+The operator must ensure that the hoist/trolley is attached in a manner that does not expose himself or other personnel to danger by the
+hoist, trolley, chain(s) or the load.
+The units can be operated in ambient temperatures between -20 °C and +50 °C. Consult the manufacturer in case of extreme working
+conditions.
+
+ATTENTION: Before using the device at ambient temperatures of less than 0°C, make sure that the brake is not frozen by
+lifting and lowering a small load 2-3 times.
+
+Prior to operation of the load lifting attachment in special atmospheres (high humidity, salty, caustic, alkaline) or handling hazardous
+goods (e.g. molten compounds, radioactive materials) consult the manufacturer for advice.
+When the unit is not in use, position the suspension above the normal head height, if possible.
+Only use safety hooks with safety latches.
+If the lifting device is used in a noise-intensive environment, it is recommended that the operator as well as maintenance staff wear ear
+protection.
+In order to ensure correct operation, not only the operating instructions, but also the conditions for inspection and maintenance must be
+complied with.
+If defects are found or abnormal noise is to be heard stop using the hoist/trolley immediately.
+
+ATTENTION: Disconnect the power supply without failure before performing repair and maintenance work, even if the type of
+check rules this out!
+
+Maintenance work and the annual inspection of the units must not be carried out in explosive environments.
+
+
+INCORRECT OPERATION
+(List is not complete)
+Do not exceed the rated load capacity (nominal load) of the trolley (if applicable) as well as the load of the supporting structure.
+The unit must not be used for pulling free fixed loads. It is also prohibited to allow loads to drop when the chain is in a slack condition
+(danger of chain breakage).
+The hoist must not be used for pulling loads at an angle.
+Removing or covering labels (e.g. adhesive stickers), warning information signs or the rating plate is prohibited. Removed or illegible
+labels and instructions must be immediately replaced.
+When transporting loads ensure that the load does not swing or come into contact with other objects.
+
+
+
+
+Excessive inching operation by short and frequent actuation of the control switch should be avoided.
+Do not use the hoist/trolley for the transportation of people
+
+
+
+
+                                                ©
+                                                    2018 Columbus McKinnon Industrial Products GmbH
+                                                                                                                                       25
+
+Welding on optional trolley, hook and load chain is strictly forbidden. The load chain must never be used as a ground connection during
+welding.
+
+
+
+
+Side pull, i. e. side loading of the top hook (or the trolley for models with trolley), the housing or the bottom block is prohibited. The
+optional trolley must be perpendicular to the load at any time.
+
+
+
+
+The load chain must not be used for lashing purposes (sling chain).
+
+
+
+
+Do not knot or shorten the load chain by using bolts, screws,
+screwdrivers or other devices. Load chains that are integral part of the hoist/trolley are not allowed to be repaired.
+
+
+
+
+Do not remove the safety latch from the suspesion hook or load hook.
+
+
+
+
+Do not use the chain end stop as an operational limit device.
+
+                                                 ©
+                                                     2018 Columbus McKinnon Industrial Products GmbH
+                                                                                                                                     26
+
+The load must not be moved into areas which are not visible to the operator. If necessary, he must seek help.
+The following are applicable to devices in a trolley:
+The longitudinal downward slope of the carriageway must not exceed 0,3 %.
+The adjustment of the trolley width must not be extended in order to e. g. obtain a smaller radius curvature.
+Any modification of the lifting device is prohibited. A unit modified without consulting the manufacturer must not be used.
+Never attach the load to the tip of the hook. The load must always be seated in the saddle of the hook. This also applies to the
+suspension hook.
+
+
+
+
+Do not throw the hoist or trolley down. Always place it properly on the ground.
+Never reach into moving parts.
+Only one load lifting attachment may be suspended in the load hook of the hoist.
+The unit must not be operated in potentially explosive atmospheres.
+
+
+ASSEMBLY
+Assembly and maintenance of the device is to be entrusted only to persons who are trained in the field in question and have been
+commissioned by the owner to assemble and service the device.
+These persons must know the common accident prevention rules, e.g. "Winches, lifting and hoisting devices (DGUV Vorschrift 54)",
+"Cranes – power driven winches (EN14492-2)" etc., and must be appropriately trained. They should also be familiar with the operating
+and installation instructions drafted by the manufacturer.
+NOTE: If the unit is operated in the open, it must be appropriately protected against adverse weather conditions (e.g. by roofing).
+
+Inspection Before Assembly
+Check for transport damage
+Check for completeness
+Check that the capacity indication on hoist and bottom block match.
+
+Electric Chain Hoist With Suspension Bracket (Standard version)
+In a single thread operation, the suspension bracket is integrated with the long latch side to the right, and in double-thread operation
+with the long latch side to the left.
+
+
+
+
+                                                                                                     2/1
+                                                         1/1
+
+
+
+ATTENTION: Do not forget the locking washers following installation of the latch.
+
+The supporting structure must be dimensioned in such a way that the total operating forces can be safely absorbed.
+
+Electric Chain Hoist With Trolley
+The devices are delivered as pre-installed and are designed for the beam range A or B specified on the ratings plate. Before installing
+the chain hoist, make sure that the width of the track beam is within the adjustment range of the delivered trolley.
+
+
+
+
+                                               ©
+                                                   2018 Columbus McKinnon Industrial Products GmbH
+                                                                                                                                      27
+
+Assembly Of The Trolley
+1. Unscrew the locking nuts (item 9) and hex nuts (item 2) from the crossbars (item 1) and remove both side plates (item 6) from the
+trolley.
+2. Measure the flange width of the beam (measure b).
+Adjust measure B between the shoulders of the round nuts (item 5)
+on the threaded crossbars (item 1). Ensure that the 4 bores in the round
+nuts face towards the outside. Adjust the measure B to equal measure b
+plus 4 mm. Measure A must be 2 mm on either side and the centre
+traverse (item 4) must be centred between the round nuts.
+4. Replace one side plate (item 6):
+Replace one side plate ensuring that the roll pins (item 8) engage into
+one of the 4 bores in the round nuts (item 5). To achieve this it may be necessary
+to rotate the round nuts slightly.
+5. Replace the washers (item 3) and tighten the hex nuts (item 2). Screw on the locknuts (item 9) finger-tight and tighten a further ¼ to
+½ turn.
+
+Attention: The locknuts must always be fitted.
+
+6. Loosely replace the second side plate (item 6) on the crossbars (item 1). The washers (item 3), hex. nuts (item 2) and locknuts (item
+9) can be fitted loosely.
+7. Raise the complete pre-assembled trolley to the carrying beam.
+
+ATTENTION: Pay attention to the position of the drive (optionally manual or electric)!
+
+8. Engage the second side plate (item 6) ensuring that the roll pins (item 8) engage into one of the bores in the round nuts (item 5). To
+achieve this it may be necessary to rotate the round nuts slightly.
+9. Tighten the hex nuts (item 2) on the second side plate:
+Tighten the locknuts (item 9) finger-tight and then a further ¼ to ½ turn.
+
+Attention: The locknuts must always be fitted.
+
+10. By traversing the trolley check the following:
+• that a clearance of 2 mm is maintained on each side between the trolley wheel flanges and the beam outer edge.
+
+• that the suspension traverse and consequently the unit is centred below the beam.
+• that all 4 locknuts (item 9) are fitted .
+• that the side plates are parallel.
+• that all wheels roll freely and make good contact with the flange of the beam.
+• that there are no obstacles on the driving surface.
+
+
+
+                                                    B
+                                         A          b         A
+
+
+
+                                                                    6
+
+
+                                                                       7
+
+                                                                   8
+                                                                           1
+
+
+
+                              9
+                                     2         4         5         3
+
+
+
+                                                                                                B
+                                                                                                b
+
+                                                                                   A                     A
+                                                                                                                 6
+
+                                                                                                                     7
+                                                                                                                         A   2 mm
+
+                                                                                                                 8
+
+
+
+                                                                                                                 1
+                                                                           9   2            4        5       3
+
+
+
+
+                                               ©
+                                                   2018 Columbus McKinnon Industrial Products GmbH
+                                                                                                                                          28
+
+Assembly Of The Hand Chain (Models with hand chain drive only)
+To fit the hand chain position the slot on the outer edge of the hand chain wheel below the chain guide. Place any one link of the
+endless hand chain vertically into the slot and turn the hand chain wheel until the link has passed the chain guides on both sides.
+
+Attention: Do not twist the hand chain when fitting.
+
+Geared trolleys are moved by pulling the hand chain.
+Shortening or extending the hand chain (Models with hand chain drive only)
+The length of the hand chain should be adjusted so that the distance to the floor is 500 - 1000 mm.
+NOTE: For safety reasons, hand chain links may only be used once.
+• Look for the non-welded link of the hand chain, bend to open and discard it.
+• Shorten or extend the chain to the required length.
+
+ATTENTION: Always remove or add an even number of chain links.
+
+• Use a new link to close the loose chain ends by bending it (for extending the hand chain, two new chain links are required).
+
+ATTENTION: Make sure that the hand chain does not turn during installation.
+
+Installation of the chain stop
+The chain hoist is delivered with a correctly installed chain end stop.
+The chain end stop must be installed on the idle strand of the load chain so that there is at least one full free chain link under it.
+
+Installation of the chain container
+There are three lifting lugs on the housing of the CPV/F electric chain hoist for the optional chain container. Before installation, the load
+hook is to be lowered to the lowest possible position so that the chain end stop triggers the limit switch on the housing. The chain
+container can then be installed. Incorrect installation is ruled out by the 3-point fastening.
+
+ATTENTION: While installing the short screw, please make sure that the screw head is on the side facing the motor!
+
+The holding capacity of the chain container to be installed should never be smaller than the load chain length of the device on
+which it is to be placed. Risk of chain break!
+
+This specification is applicable even if the device is used repeatedly and exclusively to lift loads to lower heights.
+
+NOTE: In multiple strand devices, the load chain length is a multiple of the possible lifting height!
+
+Make sure that the two self-locking nuts are turned on the screws at least so wide that 1½ screw threads project over the nuts.
+After installation, check the chain container for smooth working. To do so, lift the load hook over the entire load chain length so that the
+bottom block triggers the limit switch. During the lifting operation, check the smooth entry of the load chain into the chain container.
+
+
+ELECTRICAL CONNECTION
+ATTENTION: Work at electrical installations may be carried out by el ectrical experts only. The local regulations have to be
+strictly observed, e.g. EN 60204-32 / VDE 0113.
+
+Preparation
+Before beginning work on electrical components the mains current switch must be switched OFF and secured against unintentionally
+being switched back on.
+Before connecting the chain hoist ensure that the electrical data on the nameplate match the local supply specifications.
+
+Control switch connection
+• The length of the pendant control cable is determined by working conditions. Attach the tension relief wire in a manner that the
+pendant control cable hangs load-free. Cable ends have to be provided with end sleeves.
+• The circuit diagram is attached to the device.
+
+Mains connection (3-phase device)
+The mains supply cable must be an insulated cable with 4 flexible leads. The ground (earth) lead must be longer than the live leads. The
+cross section should be at least 1.5 mm² and the cable length should be maximum 50 m. The fuses of the various models can be taken
+from the tables.
+Cable ends have to be provided with wire end sleeves.
+
+The mains supply cable must be connected to the electric chain hoist before it is connected to the mains supply.
+
+• In devices with an electric trolley (CPV/F-VTE/F), the three live phases of the mains supply line are to be connected to the terminal
+strip within the terminal box of the trolley. The ground/earth wire is to be connected to the special ground/ earth connection within the
+terminal box of the chain hoist.
+• In devices without an electric trolley, the mains power supply is connected to the transformer behind the housing lid (Fig. 18, item 3).
+The fork-shaped crimp cable lug of the ground cable is joined with a screw and a fan washer to the transformer plate.
+Check the motor's direction of rotation.
+The wiring diagram included has been drawn for a normal, clockwise rotating installation. Should the user's mains supply not fulfil this
+standard, and if, after activating the circuit breaker or power supply line, a lowering takes place on pressing the ▲-button on the control
+switch, deactivate the unit immediately and interchange two of the three phase connections in the control box.
+
+
+
+
+                                                  ©
+                                                      2018 Columbus McKinnon Industrial Products GmbH
+                                                                                                                                              29
+
+
+Mains connection (1-phase device)
+The mains supply cable must be an insulated cable with 3 flexible leads. The ground (earth) lead must be longer than the live leads. The
+cross section should be at least 1.5 mm² and the cable length should be maximum 50 m. The fuses of the various models can be taken
+from the tables.
+Cable ends have to be provided with wire end sleeves.
+The mains supply cable must be connected to the electric chain hoist before it is connected to the mains supply.
+• In devices with an electric trolley (CPV/F-VTE/F), the N conductor, the phase and the ground wire are connected to the corresponding
+terminal strips in the control box of the trolley.
+• In devices without an electric trolley, the mains power supply is connected to the terminal strip of the hoist control plate.
+
+ATTENTION: The settings of the time relay (ZR) should not be disturbed!
+
+Open the housing only 3 minutes after disconnecting the device from the mains. There is risk of an electric shock from
+undischarged capacitors.
+
+After closing the terminal box cover, connect the other end of the connecting cable to the deactivated circuit breaker or to the mains
+supply line.
+
+Attention: Under no circumstances may the wiring in the pendant control be tampered with.
+
+Adjustment of the gear limit switch (optional)
+If the lifting unit to be installed is equipped with a gear limit switch, the switching points must be adjusted to the use situation without fail
+before the start-up. After adjusting these switching points, the rope winch and the load as well as the operator can be protected against
+damage or serious injuries.
+This setting could not be defined by the manufacturer because of the unforeseeable number of possible use scenarios.
+
+NOTE: Depending on the customer's request, gear limit switches with up to 6 other actuation cams can be delivered. The gear limit
+switch translation is to be selected according to the switching space (distance between the highest and lowest switching point).
+
+
+
+
+FUNCTION CHECK AFTER INSTALLATION
+Prior to operating the hoist, grease the trolley pinions (optional, manual geared and electric trolleys) and lubricate the load chain when it
+is not under load (see page 9).
+Before the hoist is put into regular service, following additional inspections must be made:
+Are all screwed connections on hoist and trolley (optional) tight and are all locking devices in place and secure?
+Are the end stops on the trolley runway in place and secure?
+Is the chain drive correctly reeved?
+Is the chain end stop correctly fitted to the loose end of the load chain?
+All units equipped with two or more chain strands should be inspected before initial operation for twisted or kinked chains. The chains of
+2-strand hoists may be twisted if the bottom block is rolled over.
+Perform an operation cycle without load. The chain should move in a steady, smooth way.
+Check the limit switch by moving the bottom block and the chain stop against the housing. The lifting or lowering movement must be
+stopped right away.
+Check the sliding clutch with a test weight (min. 125% of the rated capacity, max. 5 s).
+Check the brake function when lifting and lowering.
+Traverse the trolley (if available) the complete length of the trolley runway ensuring that the 2 - 4 mm lateral clearance between the
+trolley wheel flange and the beam outer edge is maintained at all times. Check that beam end stops are positioned correctly and secure.
+
+
+
+
+                                                  ©
+                                                      2018 Columbus McKinnon Industrial Products GmbH
+                                                                                                                                         30
+
+
+INSPECTION BEFORE INITIAL OPERATION
+According to the existing national/international accident prevention or safety specifications, lifting units must be checked
+• At least once per year by a competent person
+• According to the risk assessment of the operating company,
+• Before the initial start-up,
+• Before restart following a shutdown
+• After basic alterations.
+Actual operating conditions (e.g. operation in galvanizing facilities) can dictate shorter inspection intervals.
+The checks are essentially visual and functional, which should guarantee that the unit is in a safe condition and if necessary, faults and
+damages caused by e.g. improper transport or storage, can be identified and remedied.
+The condition of components with regard to damage, wear, corrosion or other changes must be assessed, and the completeness and
+effectiveness of the safety devices must be determined.
+Competent persons may be, for example, the maintenance engineers of the manufacturer or the supplier. However, the company may
+also entrust the inspection to its own appropriately trained specialist personnel. The inspections have to be initiated by the operating
+company.
+Initial operation and recurring inspections must be documented (e.g. in the CMCO works certificate of compliance).
+Paint damage should be touched up in order to avoid corrosion. All joints and sliding surfaces should be slightly lubricated. In case of
+heavy contamination, the unit must be cleaned.
+If the hoist is used as a crane, it has to be inspected and approved by a crane expert before initial operation. This inspection has to be
+registered in the crane inspection book. The inspection by the crane expert has to be instigated by the operating company.
+
+
+OPERATION
+Installation, service, operation
+Operators delegated to install, service or independently operate the hoist must have had suitable training and be competent. Operators
+are to be specifically nominated by the company and must be familiar with all relevant safety regulations of the country of use.
+
+Inspection before starting work
+Before starting work inspect the hoist/trolley, chains and all load bearing components every time for visual defects. Furthermore test the
+brake and make sure that the load and hoist/trolley are correctly attached by carrying out a short work cycle of lifting and lowering resp.
+travelling in both directions. Selection and calculation of the proper suspension point and beam construction are the responsibility of the
+operating company.
+
+Inspection of load chain
+Inspect the chain for sufficient lubrication and visually check for external defects, deformations, superficial cracks, wear or signs of
+corrosion.
+
+Inspection of chain end stop
+The chain end stop must be connected to the free (idle) chain strand.
+
+Inspection of chain reeving
+All units with two or more chain strands should be inspected prior to initial operation for twisted or kinked chains. The chains of 2-strand
+hoists may be twisted if the bottom block was rolled over.
+
+
+
+
+Inspecting the hooks
+Check the load hook and the suspension hook for deformations, cracks, damages, abrasion and signs of corrosion.
+
+Checking the limit switch
+If the load hook is moved against the hoist, the limit switch must stop the lifting operation immediately and shut down the motor. The
+load hook can only be lowered then.
+The lowering movement must also be automatically stopped exactly the same way as soon as the load hook reaches the lowest
+possible position allowed by the load hook length. The load hook can then be raised.
+
+Inspect the traverse (for trolleys)
+Inspect the traverse for correct assembly and visually check for external defects, deformations, superficial cracks, wear or signs of
+corrosion.
+ Especially make sure that the roll pins are properly fitted to the centre traverse.
+
+Check adjustment of trolley width
+On hoists with trolley check that the clearance between the trolley wheel flange and the beam outer edge is equal on both sides and
+within the tolerances given (see page XX, Fig. XX).
+Enlarging the clearances, e. g. to enable the trolley to negotiate tighter curves, is forbidden.
+
+
+
+
+                                                ©
+                                                    2018 Columbus McKinnon Industrial Products GmbH
+                                                                                                                                         31
+
+
+Traversing the hoist
+Plain trolley:
+Push the hoist or attached load.
+
+Reel trolley:
+Geared trolley:
+By operating the trolley hand chain.
+
+Electric trolley:
+By operating the ► resp. ◄ button.
+For trolleys with two speeds: The first stage of button depression activates the slow speed., further depression activates the fast speed.
+Use the slow speed for short periods only.
+
+
+
+Attention: Never pull on the pendant control cable. Suspended loads may only be pushed.
+
+Operation of the locking device (optional for models with an integrated manual trolley)
+The locking device is used for easily locking the unloaded trolley (parking position in the shipping sector, for example). The brake shoe
+is pressed against the beam flange by pulling on the appropriate hand chain fall so that the chain wheel turns clockwise. Only tighten
+the chain by hand for this process. The locking device is released again by pulling on the other chain fall.
+
+Attaching the load
+Attach the load to the hoist using only approved and certified slings or lashing devices. Never use the load chain as sling chain. The
+load must always be seated in the saddle of the hook. Never attach the load to the tip of the hook. Do not remove the safety latch from
+the load hook.
+
+Lifting/lowering the load
+The load is lifted by depressing the ▲-button, it is lowered by depressing the ▼-button. For hoists with two speeds: The first stage of
+button depression activates the slow speed, further depression activates the faster speed. The slow speed may only be used for short
+distances.
+In order to raise the load, always use the lowest available lifting speed. The chain must be loaded at this speed and may not lie slack on
+the floor.
+The chain end stop may not be used as operational limit switch.
+
+Limit Switches
+The unit has two limit switches for the lowest and highest load hook positions. The limit switches provide safety and should not be
+reached operationally.
+
+Emergency stop
+All movement can be immediately halted by depressing the red, mushroom shaped button on the pendant control.
+
+ATTENTION: The device is not free of tension!
+
+To release the unit, turn the buttons in the clockwise direction.
+
+
+INSPECTION, SERVICE & REPAIR
+Service and inspections may only be carried out by a competent person.
+The inspection must determine that all safety devices are present and fully operational and covers the condition of the hoist, lifting gear,
+accessories and supporting constructions.
+The service intervals and inspections noted are for normal working conditions. Adverse working conditions, e. g. heat or chemical
+environments, can dictate shorter periods.
+The Yale electric chain hoist CPV/F conform to FEM group 1Am/M4 in accordance with FEM 9.511. This results in a theoretical service
+lifetime of 800 operating hours under full load.
+This is equivalent to 10 years under normal operating conditions. After this period the hoist requires a general overhaul. Further
+information is contained in BGV D6 resp. FEM 9.755.
+
+Attention: Maintenance work requires subsequent function testing with nominal load.
+
+Daily Checks
+• Visually check the pendant control switch and all cable for damage.
+• Function check of the brakes (incl. triggering the EMERGENCY STOP button)
+• Function check of the limit switches
+• Function check of the overload circuit breaker
+• Electric chain hoists with trolley:
+• Check that the trolley runway is free from obstructions
+• Check that the end stops on the trolley runway are fitted and secure.
+
+Regular Inspections, Service And Testing
+According to the existing national/international accident prevention or safety specifications, lifting units must be checked
+• At least once per year by a competent person
+• According to the risk assessment of the operating company,
+• Before the initial start-up,
+• Before restart following a shutdown
+• After basic alterations. The concerned use conditions (e.g. operation in galvanizing facilities) can dictate shorter inspection intervals.
+Repair work may only be carried out by a specialist workshop that uses original Yale spare parts. The inspection (mainly consisting of a
+visual inspection and a function check) must determine that all safety devices are complete and fully operational and cover the condition
+of the unit, suspension, equipment and supporting structure with regard to damage, wear, corrosion or any other alterations.
+Initial operation and recurring inspections must be documented (e.g. in the CMCO works certificate of compliance).
+
+                                                 ©
+                                                     2018 Columbus McKinnon Industrial Products GmbH
+                                                                                                                                                 32
+
+If required by the trade association, the results of inspections and appropriate repairs must be verified.
+If the hoist (from 1 t lifting weight) is fitted on or in a trolley, or if the hoist is used to move a lifted load in one or several directions, the
+installation is considered to be a crane and the further inspections must be carried out, in accordance with DGUV Vorschrift 52 Cranes.
+Paint damage should be touched up in order to avoid corrosion. All joints and sliding surfaces should be slightly lubricated. In case of
+heavy contamination, the unit must be cleaned.
+
+ATTENTION! Power supply must be disconnected while inspecting the device, unless the type of the examination excludes
+this!
+
+Maintanance of the load chain
+The load chains are case hardened chains having the dimensions 4 x 12.2 DAT, 5 x 15.1 DAT, 7.1 x 20.5 DAT and 11,3 x 31 DAT.
+The CPV/F electric chain hoist is specially designed for type of chain. For this reason only chains that have been approved by the
+manufacturer may be used in these hoists.
+Non-compliance with this specification will render the legal warranty or guarantee void of CMCO Industrial Products GmbH with
+immediate effect.
+
+Lubricating the load chain
+The load chain must be lubricated before the first start-up and every month, however after 50 hours of operation at the latest. Under
+some extreme conditions such as an increased dust effect or a particularly heavy-duty use, the intervals are to be shortened
+appropriately.
+The service life of the load chain can be increased through careful lubrication to 20-30 times compared with a chain that is not serviced.
+• The chain must be cleaned before lubrication. Burning off is not permissible. Cleaning methods that do not deteriorate the chain
+material are to be used (e.g. vapour degreasing, alkaline dip degreasing).
+Cleaning methods that can cause hydrogen embrittlement, e.g. pickling or dipping in acid solutions, as well as surface treatments, which
+can hide cracks or damages, are to be avoided.
+• The chain must be lubricated in a tension-free condition so that a lubrication film can be formed at joints. This can happen e.g. through
+dipping in oil.
+
+Checking for wear
+Load chains must be inspected for mechanical damage once every three months and after 200 operating hours at the latest. Particular
+operating conditions may also dictate shorter inspection intervals.
+Visual check: There should be no cracks, deformities, bends, etc. along the entire length of the chain.
+Round-section steel chains must be replaced when the original nominal thickness "d" on the chain link with the worst wear has been
+reduced by more than 10% or if the chain has elongated over one pitch "pn" by 5% or over 11 pitches (11 x pn) by 2%. Nominal values
+and wear limits are shown in the following tables.
+The load chain must be replaced if one of the limit values is exceeded.
+
+
+
+
+                                                                                                                d
+                                          pn
+                                                                          11 x pn
+
+                                       d = Nenndicke der Kette / Nominal thickness of chain
+                                            Epaisseur nominale de la chaîne                                d2
+                                       d1, d2 = Istwert / Actual value / Valeur réelle
+                                               d1 + d2                                                d1
+                                       dmin. =            ≤ 0,9 d
+                                                  2
+
+
+
+
+Replacing the load chain
+To replace a load chain, it must be suspended and connected to a power source.
+A load chain to be discarded must only be replaced by an authorized specialist workshop.
+NOTE: Replacement of a load chain must be documented!
+
+
+
+
+                                                    ©
+                                                        2018 Columbus McKinnon Industrial Products GmbH
+                                                                                                                                           33
+
+1-strand design
+1. Dismantling of bottom blocks
+Loosen both cylinder screws and separate the two coupling halves.
+2. Dismantling the chain end stop
+Loosen both screws on the chain end stop. The chain end is now free. Pull out the buffer.
+3. Pulling the new chain in
+Disconnect the second last one link on the idle strand of the old chain in C shape. The length of the cut section must at least correspond
+to the thickness of the link. Then, remove the last link and suspend the new chain in the C-shaped chain link. The welded seams of the
+new load chain must align with those of the load chain to be replaced! The chain can finally be moved in at the lowest possible speed by
+pressing the ▼-button.
+
+ATTENTION: The C-shaped chain link should not differ from a closed link in outer shape and dimensions. Otherwise, it cannot
+pass through the hoist during the final entry of the chain. Risk of damage to hoist! Risk of chain break!
+
+4. Installing the chain end stop and bottom block
+As soon as the C-shaped chain link passes through the hoist, the old load chain can be hung out and discarded along with the C-
+shaped auxiliary link. Move the buffer to the ends of the new load chain before installing the chain end stop or the bottom block. The
+hook head must be re-lubricated while assembling the bottom block.
+
+ATTENTION: The chain end stop must be positioned in such a way that after the installation at least 1 chain link remains.
+Always use SK nuts with a clamping section.
+
+5. Before initial operation lubricate the unloaded chain and test all hoist functions under no-load condition.
+
+2-strand design
+Before starting work, please make sure that the bottom block is fully tension-free.
+1. Dismantling the chain bolt
+In two-strand models, the chain anchor bolt is placed on the underside of the hoist body. The four cylinder screws (3) of the chain
+anchor (1) must be detached first. The chain bolt (2) must then be tapped out with a drift.
+
+ATTENTION: Do not damage the bolt or the seat.
+
+2. Dismantle the chain end stop
+Remove the two screws. The chain is now free.
+3. Pulling the new chain in
+Disconnect the second last one link on the idle strand of the old chain in C shape. The length of the cut section must at least correspond
+to the thickness of the link. Then, remove the last link and suspend the new chain in the C-shaped chain link. The welded seams of the
+new load chain must align with those of the load chain to be replaced! The chain can finally be moved in at the lowest possible speed by
+pressing the ▼-button. The load strand end of the old load chain must be kept somewhat stretched continuously to ensure a smooth
+and upright reeving in the hoist and the bottom block.
+
+ATTENTION: The C-shaped chain link should not differ from a closed link in outer shape and dimensions. Otherwise, it cannot
+pass through the hoist during the final entry of the chain. Risk of damage to hoist! Risk of chain break!
+
+4. Installing the chain end stop
+As soon as the C-shaped chain link passes through the hoist and the bottom block, the old load chain can be hung out and discarded
+along with the C-shaped auxiliary link. Finally, push the buffer to the idle strand end of the chain and install the chain end stop. After
+installing the chain end stop, at least 1 chain link must remain.
+5. Fitting the chain anchor bolt
+Inspect the chain anchor bolt for flaws, cracks or burrs. Enter the last link of the other load chain end into the slot in theunderside of the
+hoist body.
+Attention: The chain must not be twisted.
+Now enter the chain anchor bolt through the side bore. Move the last link back and forth while entering the chain anchor bolt to ensure
+that it is not trapped and damaged by the anchor bolt. Secure the anchor bolt with the grub screw.
+
+
+
+
+                                             1
+
+
+
+
+                                            2
+
+
+
+                                                 3
+
+
+
+
+                                                     ©
+                                                         2018 Columbus McKinnon Industrial Products GmbH
+                                                                                                                                      34
+
+The chain anchor is then joined to the hoist body. New pre-coated safety screws intended for one-time use only must be used here.
+
+Torques for the fastening screws:
+M5 = 8Nm / M6 = 10Nm / M8 = 25Nm / M10 = 48Nm
+Hardened for working after approx. 60 minutes
+Hardening time at ambient temperature approx. 24 hours.
+
+6. Functional test
+All units with two or more chain strands must be inspected before every operation for twisted or kinked chains. Chains on 2-strand units
+may become twisted if the bottom block is rolled over. If a strand is twisted disconnect it from the hoist and re-thread it correctly. In
+some cases it may be necessary to remove the last link.
+7. Before initial operation lubricate the unloaded chain and test all hoist functions under a no-load condition.
+
+Maintenance Load Hook
+Check the load hook for deformation, damage, surface cracks, wear and signs of corrosion as required, but at least once a year. Actual
+operating conditions may also dictate shorter inspection intervals. Hooks that are rejected during the check must be immediately
+replaced with new ones. Welding on hooks, e.g. to compensate for wear is forbidden.
+Hooks must be replaced when the mouth of the hook has opened more than 10% or when the nominal dimensions are reduced by 5%
+as a result of wear. Nominal dimensions and wear limits are shown in the following table. If the limit values are exceeded, immediately
+replace the components.
+
+
+
+
+Maintenance Trolleys
+In particular check following parts:
+• Side plate: For cracks or deformation in particular around the areas of screwed connections.
+• Trolley wheels: Visually check for cracks and wear on trolley wheel flanges. Grease the transmission.
+• Crossbars: In particular around threaded areas for cracks.
+• Fasteners: Check nuts, screws and locking devices for tightness.
+
+Force-limit factor Of Overload Protection Device
+The force-limit factor according EN 14492-2:2006 amounts φDAL=1,55. The maximum force occuring when the rated capacity limiter
+operates will be calculated as:
+FLIM = (φDAL x mRC + mH - mRC) x g
+φDAL = 1,55
+mRC = Rated capacity of the hoist [kg]
+mH = Hoist load [kg]
+Hoist load mH: Load which includes all the masses of a load equal to the rated capacity of the hoist, the hoist medium and the fixed load
+lifting attachments, e. g. hooks, grabs, magnets, lifting beams, vacuum lifters.
+g = Acceleration due to gravity (9,81) [m/s2]
+
+                                               ©
+                                                   2018 Columbus McKinnon Industrial Products GmbH
+                                                                                                                                         35
+
+Testing and Adjustment of overload device
+
+ATTENTION: The settings of the overload circuit-breaker should be defined only by a competent person.
+
+ATTENTION: The unit is ready for operation during this activity and there is a risk of physical injury caused by rotating parts.
+
+ATTENTION: The result of the check and adjustment of the overload circuit-breaker must be recorded in the test log of the
+device.
+
+The unit is equipped with an overload protection device as standard. This device is factory set to 145% ±10 % of the rated capacity and
+prevents reliably overloading of the hoist during lifting of loads. Adjustment and testing of the overload device may only be carried out by
+authorized competent persons.
+• Loosen the four cylinder screws (item 1) of the fan guard (item 2).
+• Remove the fan guard (Pos. 2)
+• Disassemble fan (Pos. 4) accordingly the different design (clipped, screwed or with lock ring).
+• Loosen the threaded pin of the adjusting nut
+• Loosen the adjusting nut by turning it in the anti-clockwise direction up to the stop with a two-hole nut turner in accordance with DIN
+3116 (item 6).
+
+ATTENTION: After resetting the adjusting nut, the threaded pin has to be tightened again to secure the setting!
+
+• For a suspended test load, the adjusting nut is to be turned in the clockwise direction until the test load is lifted.
+
+ATTENTION: The max. operating time of the overload circuit-breaker is 60 seconds. Then, the unit has to cool down to a room
+temperature (min. 20 minutes).
+
+• Assembly takes place in the reverse sequence.
+
+
+
+
+                                                                  4
+
+                                                              3
+                                                       2
+
+                                           1
+
+
+
+
+                                                                                   6       5
+
+
+
+
+                                                   ©
+                                                       2018 Columbus McKinnon Industrial Products GmbH
+                                                                                                                                    36
+
+Maintenance Of Gearbox
+The gearbox is maintenance-free.
+
+Motor
+The motor is maintenance-free under normal conditions, and it does not require any special inspection. Under more difficult conditions,
+make sure that sufficient volume of air is provided to the motor at all times. For this, the unit must be regularly cleaned.
+
+Electromagnetic brake
+Maintenance of the disc brake is limited to checking the nominal air way (disk brake air gap).
+The disc brake air gap should be between 0,15 and 0,30 mm. This guarantees short response times and low noise emission. The brake
+must be replaced if the wear of the brake lining has aggravated to such an extent that the max. permissible air gap of the brake is
+reached:
+
+The following dimensions must be observed for the air passage:
+• Measure the SLü air passage between anchor disk and magnet section with a feeler gauge.
+• Compare the measured air passage with the maximum permissible air passage (for max. SLü, see Tab. 5).
+• If necessary, replace the brake.
+
+ATTENTION: Do not allow the brake friction pads to come in contact with lubricants, etc.
+
+ATTENTION: While checking the air passage, the motor should be switched off and the unit should be without load.
+
+
+
+
+                                               ©
+                                                   2018 Columbus McKinnon Industrial Products GmbH
+                                                                                                                                       37
+
+Dismantling the electromagnetic brake
+
+ATTENTION: The unit must be tension-free!
+
+• Dismantle the hood (control) (item 2). To do this, loosen the four cylinder bolts (item 1).
+• Dismantle the transformer or contactor control plate (item 3) (only for CPV/F 2-20 til CPV/F 20-4). For this, loosen the three screws.
+• Detach the Allen screws (item 4) of the brake and pull the brake (item 5) out (detach the control wire from the circuit board resp. from
+the connector).
+• After replacing the spring action brake, check the nominal load.
+
+
+
+
+                                                                 5   4
+                                                                             3
+
+
+                                                                                                2     1
+
+
+
+
+                                           CPV/F 1Ph
+
+
+
+
+                                                                         5   4
+                                                                                 3
+                                                                                                2     1
+
+
+
+
+                                          CPV/F 3Ph
+
+
+
+
+                                                ©
+                                                    2018 Columbus McKinnon Industrial Products GmbH
+                                                                                                                                         38
+
+Electric Chain Hoist In General
+In particular check following parts:
+• Threaded connections in general
+Check all nuts, screws and locking devices for tightness.
+• Chain container (optional)
+Ensure the chain container is securely fastened. Check for cracks or wear.
+• Suspension bolt (Connection between hoist and suspension bracket resp. trolley)
+Check for cracks or wear. Ensure all safety devices are in place and secure.
+
+Repairs may only be carried out by authorized specialist workshops that use original Yale spare parts.
+CMCO Industrial Products does not accept liability for damages resulting from the use of non-original parts or alterations and
+modifications made to the devices delivered by CMCO Industrial Products.
+
+What is more, CMCO Industrial Products GmbH does not accept any liability and warranty for damages and operational faults
+that occur due to the non-observance of this operating instructions manual.
+
+
+TRANSPORT, STORAGE, DECOMMISSIONING AND DISPOSAL
+Observe the following for transporting the unit:
+• Do not drop or throw the unit, always deposit it carefully.
+• Load and hand chains (only for models with reel trolley) must be transported in such a way that knotting and formation of loops are
+avoided.
+• Do not bend control switch cables and power supply cables.
+• Use suitable transport means. These depend on the local conditions.
+
+Observe the following for storing or temporarily taking the unit out of service:
+• Store the unit at a clean and dry place where there is no frost.
+• Protect the unit (including all attached parts) against contamination, humidity and damage by means of a suitable cover.
+• Protect hooks against corrosion.
+• A light lubricant film should be applied to the chain(s).
+• Do not bend control switch cables and power supply cables.
+• In the case of models with an integral trolley, grease the load bar as well as both threaded rods to protect them against corrosion.
+If the unit is to be used again after it has been taken out of service, it must first be inspected again by a competent person.
+
+
+DISPOSAL:
+After taking the unit out of service, recycle or dispose of the parts of the unit in accordance with the legal regulations.
+
+Further information and operating instructions for download can be found at www.cmco.eu!
+
+
+
+
+                                                  ©
+                                                      2018 Columbus McKinnon Industrial Products GmbH
+

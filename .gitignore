@@ -1,0 +1,35 @@
+# OS
+.DS_Store
+
+# Node
+node_modules/
+*.log
+
+# Build output
+dist/
+dist-ssr/
+
+# Editor / tooling
+.vscode/
+.idea/
+
+# Local env
+.env
+.env.local
+*.local
+
+# Archives at repo root (source dirs are kept; zip duplicates are not)
+/*.zip
+
+# Personal handoff notes — contains user profile / context, not for public repo.
+# If you want this in the repo, delete this line.
+handofffiles/
+# OEM PDFs — large binaries, kept locally only. Text extracts (.txt) ARE tracked.
+oem-pdfs/*.pdf
+
+# Manual harvester — generated at repo root, not committed.
+manuals_inbox/
+manuals_rejected/
+manual_index.json
+manual_index.csv
+__pycache__/

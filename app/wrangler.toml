@@ -1,0 +1,16 @@
+# Cloudflare Pages config for HoistRef
+# Used by `wrangler pages deploy` (manual upload) and the GitHub Action workflow.
+# Cloudflare Pages auto-deploy from GitHub does NOT require wrangler.toml — it
+# uses the dashboard "Build & Deploy" settings instead. Keep this file for the
+# wrangler CLI path.
+
+name = "hoistref"
+compatibility_date = "2025-04-26"
+pages_build_output_dir = "dist"
+
+# Environment-specific overrides
+[env.production]
+name = "hoistref"
+
+[env.preview]
+name = "hoistref-preview"
